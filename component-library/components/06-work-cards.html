@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Work Cards — Component Library</title>
+<link rel="stylesheet" href="../tokens.css">
+<style>
+.work-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:1000px}
+.work-card{
+  border-radius:var(--r-lg);overflow:hidden;background:var(--white);
+  cursor:pointer;box-shadow:var(--shadow-md);
+  transition:transform .35s,box-shadow .35s;position:relative;
+}
+.work-card:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(107,189,232,.3)}
+.work-card:hover .work-ov{background:linear-gradient(to top,rgba(20,14,10,.82) 0%,rgba(20,14,10,.05) 65%)}
+.work-photo{aspect-ratio:3/4;overflow:hidden;position:relative;background:var(--cream-200)}
+.work-photo img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .6s ease}
+.work-card:hover .work-photo img{transform:scale(1.07)}
+.work-ov{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(20,14,10,.7) 0%,transparent 55%);
+  transition:background .35s;
+}
+.work-info{position:absolute;bottom:0;left:0;right:0;padding:18px 16px;display:flex;align-items:center;justify-content:space-between}
+.work-name{font-family:var(--font-jp);font-size:15px;font-weight:700;color:white;letter-spacing:.05em;line-height:1.4}
+.work-sub{font-size:14px;color:rgba(255,255,255,.7);margin-top:3px}
+.work-arr{
+  width:30px;height:30px;border-radius:50%;border:1.5px solid rgba(255,255,255,.5);
+  display:flex;align-items:center;justify-content:center;
+  color:white;font-size:14px;line-height:1;flex-shrink:0;transition:var(--trans);
+}
+.work-card:hover .work-arr{background:white;color:var(--sky-400);border-color:white}
+
+.demo-section{padding:40px 48px;border-bottom:1px solid var(--cream-200)}
+.demo-section h3{font-family:var(--font-en);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--sky-400);margin-bottom:20px}
+@media(max-width:768px){.work-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<h2 style="padding:20px 48px 10px;font-family:var(--font-en);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--sky-400)">06 — Work Cards</h2>
+<p style="padding:0 48px 20px;font-size:13px;color:var(--ink-3)">職種紹介カード。写真の上にグラデーションオーバーレイ＋テキスト。ホバーで拡大＆リフトアップ。</p>
+
+<div class="demo-section">
+  <div class="work-grid">
+    <div class="work-card">
+      <div class="work-photo">
+        <div style="width:100%;height:100%;background:linear-gradient(135deg,var(--sky-200),var(--sky-400))"></div>
+        <div class="work-ov"></div>
+        <div class="work-info">
+          <div><div class="work-name">施工管理</div><div class="work-sub">Construction Management</div></div>
+          <div class="work-arr">→</div>
+        </div>
+      </div>
+    </div>
+    <div class="work-card">
+      <div class="work-photo">
+        <div style="width:100%;height:100%;background:linear-gradient(135deg,var(--mint),#5aab8f)"></div>
+        <div class="work-ov"></div>
+        <div class="work-info">
+          <div><div class="work-name">設計</div><div class="work-sub">Architecture Design</div></div>
+          <div class="work-arr">→</div>
+        </div>
+      </div>
+    </div>
+    <div class="work-card">
+      <div class="work-photo">
+        <div style="width:100%;height:100%;background:linear-gradient(135deg,var(--coral),#e07a5e)"></div>
+        <div class="work-ov"></div>
+        <div class="work-info">
+          <div><div class="work-name">営業</div><div class="work-sub">Sales</div></div>
+          <div class="work-arr">→</div>
+        </div>
+      </div>
+    </div>
+    <div class="work-card">
+      <div class="work-photo">
+        <div style="width:100%;height:100%;background:linear-gradient(135deg,#F7C96A,#e0a83a)"></div>
+        <div class="work-ov"></div>
+        <div class="work-info">
+          <div><div class="work-name">インテリア</div><div class="work-sub">Interior Coordinator</div></div>
+          <div class="work-arr">→</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

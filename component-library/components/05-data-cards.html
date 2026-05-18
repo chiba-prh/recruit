@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Cards — Component Library</title>
+<link rel="stylesheet" href="../tokens.css">
+<style>
+.data-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1000px}
+.data-card{
+  background:var(--white);border-radius:var(--r-lg);padding:28px 20px 24px;
+  text-align:center;box-shadow:var(--shadow-sm);
+  border:1.5px solid var(--cream-200);transition:var(--trans);
+  position:relative;overflow:hidden;
+  display:flex;flex-direction:column;align-items:center;gap:12px;
+}
+.data-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--sky-300),var(--sky-200));
+}
+.data-card:hover{transform:translateY(-5px);box-shadow:0 14px 40px rgba(107,189,232,.2)}
+.data-num{font-family:var(--font-en);font-size:40px;font-weight:700;color:var(--sky-400);line-height:1}
+.data-num span{font-size:20px}
+.data-label{font-size:14px;color:var(--ink-3);letter-spacing:.04em;line-height:1.6}
+.data-sub{font-size:14px;color:var(--ink-4);font-family:var(--font-en);letter-spacing:.06em}
+
+/* Donut Chart */
+.donut-wrap{position:relative;width:100px;height:100px;flex-shrink:0}
+.donut-wrap svg{transform:rotate(-90deg)}
+.donut-bg{fill:none;stroke:var(--sky-50);stroke-width:8}
+.donut-ring{fill:none;stroke:var(--sky-300);stroke-width:8;stroke-linecap:round;stroke-dasharray:0 283;transition:stroke-dasharray 1.4s cubic-bezier(.4,0,.2,1)}
+.donut-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.donut-val{font-family:var(--font-en);font-size:22px;font-weight:700;color:var(--sky-400);line-height:1}
+.donut-unit{font-family:var(--font-en);font-size:14px;color:var(--sky-400);line-height:1}
+
+/* Icon Wrap */
+.data-card-icon{
+  width:36px;height:36px;border-radius:50%;
+  background:linear-gradient(135deg,var(--sky-50),var(--sky-100));
+  border:1.5px solid var(--sky-100);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-bottom:4px;
+}
+.data-card-icon svg{fill:var(--sky-400);width:18px;height:18px}
+.data-card-icon.mint{background:linear-gradient(135deg,var(--mint-pale),#c5ede3);border-color:#a8ddd0}
+.data-card-icon.mint svg{fill:var(--mint)}
+
+.data-icon-wrap{
+  width:64px;height:64px;border-radius:50%;
+  background:linear-gradient(135deg,var(--sky-50),var(--sky-100));
+  border:2px solid var(--sky-100);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.data-icon-wrap svg{fill:var(--sky-400);width:30px;height:30px}
+
+/* Bar Chart */
+.bar-chart{width:100%;display:flex;flex-direction:column;gap:8px}
+.bar-item{display:flex;flex-direction:column;gap:4px}
+.bar-label-row{display:flex;justify-content:space-between;align-items:center}
+.bar-label{font-size:14px;color:var(--ink-3);font-weight:500}
+.bar-val{font-family:var(--font-en);font-size:14px;font-weight:700;color:var(--sky-400)}
+.bar-track{height:6px;border-radius:3px;background:var(--sky-50);overflow:hidden}
+.bar-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--sky-300),var(--sky-200));transition:width 1.4s cubic-bezier(.4,0,.2,1)}
+
+.demo-section{padding:40px 48px;border-bottom:1px solid var(--cream-200)}
+.demo-section h3{font-family:var(--font-en);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--sky-400);margin-bottom:20px}
+
+@media(max-width:768px){.data-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.data-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<h2 style="padding:20px 48px 10px;font-family:var(--font-en);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--sky-400)">05 — Data Cards</h2>
+<p style="padding:0 48px 20px;font-size:13px;color:var(--ink-3)">数字セクション用のカード群。ドーナツチャート・カウント・バーチャートの3タイプ。</p>
+
+<div class="demo-section" style="background:var(--cream-100)">
+  <h3>Donut Chart Card</h3>
+  <div class="data-grid">
+    <div class="data-card">
+      <div class="data-card-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+      </div>
+      <div class="donut-wrap">
+        <svg viewBox="0 0 100 100" width="100" height="100">
+          <circle class="donut-bg" cx="50" cy="50" r="44"/>
+          <circle class="donut-ring" cx="50" cy="50" r="44" style="stroke-dasharray:260 283"/>
+        </svg>
+        <div class="donut-center">
+          <span class="donut-val">94</span>
+          <span class="donut-unit">%</span>
+        </div>
+      </div>
+      <div class="data-label">顧客満足度</div>
+      <div class="data-sub">Customer Satisfaction</div>
+    </div>
+
+    <div class="data-card">
+      <div class="data-card-icon mint">
+        <svg viewBox="0 0 24 24"><path d="M13.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM9.8 8.9L7 23h2.1l1.8-8 2.1 2v6h2v-7.5l-2.1-2 .6-3C14.8 12 16.8 13 19 13v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1L6 8.3V13h2V9.6l1.8-.7z"/></svg>
+      </div>
+      <div class="donut-wrap">
+        <svg viewBox="0 0 100 100" width="100" height="100">
+          <circle class="donut-bg" cx="50" cy="50" r="44"/>
+          <circle class="donut-ring" cx="50" cy="50" r="44" style="stroke:var(--mint);stroke-dasharray:119 283"/>
+        </svg>
+        <div class="donut-center">
+          <span class="donut-val" style="color:var(--mint)">42</span>
+          <span class="donut-unit" style="color:var(--mint)">%</span>
+        </div>
+      </div>
+      <div class="data-label">男性育休取得率</div>
+      <div class="data-sub">Paternity Leave</div>
+    </div>
+
+    <div class="data-card">
+      <div class="data-icon-wrap">
+        <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+      </div>
+      <div>
+        <div class="data-num">1,200<span>棟</span></div>
+        <div class="data-label">累計施工棟数</div>
+        <div class="data-sub">Cumulative Buildings</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="demo-section" style="background:var(--cream-100)">
+  <h3>Bar Chart Card</h3>
+  <div style="max-width:340px">
+    <div class="data-card" style="align-items:flex-start;text-align:left">
+      <div class="data-num" style="font-size:32px">125<span style="font-size:16px">日</span></div>
+      <div class="data-label" style="margin-bottom:8px">年間休日数</div>
+      <div class="bar-chart" style="width:100%">
+        <div class="bar-item">
+          <div class="bar-label-row"><span class="bar-label">年間休日</span><span class="bar-val">125日</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:83%"></div></div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-label-row"><span class="bar-label">有給取得</span><span class="bar-val">94%</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:94%;background:linear-gradient(90deg,var(--mint),#a8ddd0)"></div></div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-label-row"><span class="bar-label">平均残業</span><span class="bar-val">18h/月</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:22%;background:linear-gradient(90deg,var(--coral),#f7b99e)"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

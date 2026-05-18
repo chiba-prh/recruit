@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tags & Badges — Component Library</title>
+<link rel="stylesheet" href="../tokens.css">
+<style>
+/* ── Section Eyebrow ── */
+/* (already in tokens.css) */
+
+/* ── Tag Status ── */
+.tag-status{
+  display:inline-flex;align-items:center;gap:6px;line-height:1;
+  font-size:14px;font-weight:700;color:#1a7a5e;
+  background:#f2fbf7;border:1.5px solid #c8ead8;
+  padding:7px 14px 3px;border-radius:var(--r-pill);letter-spacing:.04em;
+}
+.tag-status .dot-live{
+  width:7px;height:7px;border-radius:50%;background:#1a7a5e;
+  animation:pulseDot 1.2s ease-in-out infinite;
+}
+
+/* ── Tag New ── */
+.tag-new{
+  display:inline-flex;align-items:center;justify-content:center;line-height:1;
+  font-family:var(--font-en);font-size:14px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  background:linear-gradient(270deg,#e8401a,#f5692a,#c0281a,#e8401a);
+  background-size:300% 300%;animation:newGradient 3s ease infinite;
+  color:white;padding:7px 14px 3px;border-radius:var(--r-pill);
+  text-shadow:0 1px 2px rgba(0,0,0,.18);
+}
+
+/* ── Hero Tag ── */
+.hero-tag{
+  display:inline-flex;align-items:center;gap:8px;line-height:1;
+  font-family:var(--font-en);font-size:14px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+  color:white;background:rgba(107,189,232,.4);
+  border:1px solid rgba(107,189,232,.6);
+  padding:7px 16px;border-radius:var(--r-pill);width:fit-content;
+}
+.hero-tag-dot{width:7px;height:7px;border-radius:50%;background:var(--sky-300);animation:pulseDot 1.4s ease-in-out infinite}
+
+/* ── Slide Tag ── */
+.slide-tag{
+  display:inline-flex;align-items:center;justify-content:center;line-height:1;
+  font-family:var(--font-en);font-size:14px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  background:rgba(255,255,255,.18);backdrop-filter:blur(6px);
+  border:1px solid rgba(255,255,255,.3);color:white;
+  padding:4px 10px;border-radius:var(--r-pill);
+}
+
+/* ── News Category ── */
+.news-cat{
+  display:inline-flex;align-items:center;justify-content:center;line-height:1;
+  font-family:var(--font-en);font-size:14px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  background:var(--sky-50);color:var(--sky-400);border:1px solid var(--sky-100);
+  padding:3px 10px;border-radius:var(--r-pill);
+}
+
+/* ── Career Year Badge ── */
+.cs-year-badge{
+  display:inline-flex;align-items:center;justify-content:center;line-height:1;
+  font-family:var(--font-en);font-size:14px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  background:var(--sky-300);color:white;
+  padding:5px 14px 3px;border-radius:var(--r-pill);
+}
+
+/* ── CS Tag (Skills) ── */
+.cs-tag{
+  display:inline-flex;align-items:center;line-height:1;
+  font-size:14px;font-weight:500;color:var(--sky-400);
+  background:var(--sky-50);border:1px solid var(--sky-100);
+  padding:4px 10px 2px;border-radius:var(--r-pill);
+}
+
+/* ── Voice Photo Tag ── */
+.voice-photo-tag{
+  display:inline-flex;align-items:center;justify-content:center;line-height:1;
+  background:rgba(255,255,255,.92);backdrop-filter:blur(6px);
+  font-size:14px;font-weight:500;color:var(--sky-400);
+  padding:4px 12px;border-radius:var(--r-pill);border:1px solid var(--sky-100);
+}
+
+/* ── Env Val ── */
+.env-val{
+  display:inline-flex;align-items:center;justify-content:center;line-height:1;
+  font-family:var(--font-en);font-size:14px;font-weight:600;color:var(--sky-400);
+  background:var(--sky-50);padding:5px 14px 3px;border-radius:var(--r-pill);
+  border:1px solid var(--sky-100);
+}
+
+/* ── WM Skill ── */
+.wm-skill{
+  display:inline-flex;align-items:center;justify-content:center;line-height:1;
+  background:var(--sky-50);border:1.5px solid var(--sky-100);color:var(--sky-400);
+  font-size:14px;font-weight:500;padding:7px 14px 5px;border-radius:var(--r-pill);
+}
+
+.demo-section{padding:40px 48px;border-bottom:1px solid var(--cream-200)}
+.demo-section h3{font-family:var(--font-en);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--sky-400);margin-bottom:20px}
+.demo-dark{background:var(--ink);padding:40px 48px;border-bottom:1px solid rgba(255,255,255,.1)}
+.demo-dark h3{font-family:var(--font-en);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--sky-200);margin-bottom:20px}
+</style>
+</head>
+<body>
+
+<h2 style="padding:20px 48px 10px;font-family:var(--font-en);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--sky-400)">03 — Tags & Badges</h2>
+<p style="padding:0 48px 20px;font-size:13px;color:var(--ink-3)">ラベル・バッジ・タグ系コンポーネント一覧。</p>
+
+<div class="demo-section">
+  <h3>Section Eyebrow</h3>
+  <span class="sec-en">About Us</span>
+  <span class="sec-eyebrow"><span class="dot"></span>私たちについて</span>
+</div>
+
+<div class="demo-section">
+  <h3>Status Tags</h3>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+    <span class="tag-status"><span class="dot-live"></span>募集中</span>
+    <span class="tag-new">NEW</span>
+  </div>
+</div>
+
+<div class="demo-dark">
+  <h3>On-Image Tags</h3>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+    <span class="hero-tag"><span class="hero-tag-dot"></span>New Graduate Recruitment 2027</span>
+    <span class="slide-tag">Construction</span>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h3>Category / Year / Skill Tags</h3>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+    <span class="news-cat">説明会</span>
+    <span class="news-cat">インターン</span>
+    <span class="cs-year-badge">Year 1</span>
+    <span class="cs-year-badge">Year 2–3</span>
+    <span class="cs-tag">ビジネスマナー</span>
+    <span class="cs-tag">業界知識研修</span>
+    <span class="cs-tag">現場見学</span>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h3>Value / Skill Pill</h3>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+    <span class="env-val">最大3万円/月</span>
+    <span class="env-val">125日</span>
+    <span class="env-val">全額補助</span>
+    <span class="voice-photo-tag">施工管理</span>
+    <span class="wm-skill">コミュニケーション力</span>
+    <span class="wm-skill">建築への興味</span>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>賃貸管理K.K — プリンシパルホーム 先輩社員の声</title>
+<link rel="stylesheet" href="../component-library/tokens.css">
+<style>
+/* ── Site Nav ── */
+.site-nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  height:68px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 48px;
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(16px);
+  box-shadow:0 2px 20px rgba(45,36,32,.06);
+  border-bottom:1.5px solid var(--cream-200,#EFE9E0);
+}
+.nav-logo{display:flex;align-items:center;flex-shrink:0;text-decoration:none}
+.nav-logo img{height:20px;width:auto;display:block}
+.nav-logo-recruit{
+  font-family:'Josefin Sans',sans-serif;font-size:15px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;line-height:1;display:inline-block;
+  color:var(--sky-400,#4EA8D8);margin-left:15px;padding-top:10px;
+}
+.nav-links-sub{display:flex;gap:24px;list-style:none;margin:0;padding:0}
+.nav-links-sub a{
+  font-size:14px;font-weight:500;color:var(--ink-3,#64748b);letter-spacing:.04em;transition:color .2s;text-decoration:none;
+}
+.nav-links-sub a:hover{color:var(--sky-400,#4EA8D8)}
+.nav-actions{display:flex;gap:10px;align-items:center}
+.nav-btn-jobs{
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:500;color:var(--sky-400,#4EA8D8);
+  padding:8px 20px;border-radius:100px;
+  border:1.5px solid var(--sky-100,#D4ECFA);background:var(--sky-50,#EAF5FC);
+  transition:all .15s ease;cursor:pointer;line-height:1;white-space:nowrap;text-decoration:none;
+}
+.nav-btn-jobs:hover{background:var(--sky-100,#D4ECFA);border-color:var(--sky-300,#6BBDE8)}
+.nav-btn-entry{
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:700;color:white;
+  padding:9px 22px;border-radius:100px;
+  background:var(--sky-300,#6BBDE8);box-shadow:0 4px 18px rgba(107,189,232,.3);
+  transition:background .2s,transform .2s;cursor:pointer;line-height:1;white-space:nowrap;text-decoration:none;
+}
+.nav-btn-entry:hover{background:var(--sky-500,#2B8EC2)}
+.nav-btn-top{
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:500;color:var(--ink-3,#64748b);
+  padding:8px 20px;border-radius:100px;
+  border:1.5px solid var(--cream-200,#EFE9E0);background:transparent;
+  transition:all .15s ease;line-height:1;white-space:nowrap;text-decoration:none;
+}
+.nav-btn-top:hover{background:var(--cream-100,#F7F3ED);border-color:var(--ink-5,#D1D5DB)}
+
+/* ── Breadcrumb ── */
+.breadcrumb{
+  padding:0;background:var(--sky-50);margin-top:68px;
+}
+.breadcrumb-inner{max-width:1160px;margin:0 auto;padding:16px 48px;display:flex;align-items:center;gap:8px}
+.breadcrumb a{font-size:13px;color:var(--ink-4);transition:color .2s}
+.breadcrumb a:hover{color:var(--sky-500)}
+.breadcrumb span{font-size:13px;color:var(--ink-4)}
+.breadcrumb .current{color:var(--ink-3);font-weight:500}
+
+/* ── Hero ── */
+.hero-people{background:var(--ink);position:relative}
+.hero-mv-wrap{position:relative;width:100%;aspect-ratio:1065/480;overflow:hidden}
+.hero-mv-img{width:100%;height:100%;object-fit:cover;object-position:center 10%;display:block}
+.hero-mv-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,14,10,.45) 0%,rgba(20,14,10,.08) 60%,transparent 100%)}
+.hero-ttl-box{
+  position:absolute;bottom:0;left:48px;
+  background:white;box-shadow:0 -2px 0 0 var(--sky-400);
+  padding:36px 48px 32px;max-width:740px;
+  transform:translateY(56px);
+}
+.hero-catch{
+  font-family:var(--font-jp);font-size:clamp(18px,2.2vw,26px);font-weight:700;
+  color:var(--ink);line-height:1.75;letter-spacing:.05em;margin-bottom:22px;
+}
+.hero-meta-row{
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  padding-top:18px;border-top:1px solid var(--cream-200);
+}
+.hero-eyebrow-sm{
+  display:inline-flex;align-items:center;gap:6px;line-height:1;
+  font-family:var(--font-en);font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--sky-400);
+}
+.hero-eyebrow-sm .dot{width:5px;height:5px;border-radius:50%;background:var(--sky-300)}
+.hero-sep-line{width:1px;height:16px;background:var(--cream-300);flex-shrink:0}
+.hero-name-ja{font-family:var(--font-jp);font-size:18px;font-weight:500;color:var(--ink);letter-spacing:.1em}
+.hero-dept-label{font-size:14px;color:var(--sky-500);font-weight:500;letter-spacing:.04em}
+.hero-year-label{
+  display:inline-flex;align-items:center;line-height:1;
+  font-family:var(--font-en);font-size:13px;font-weight:600;
+  color:var(--ink-4);background:var(--cream-100);
+  border:1px solid var(--cream-200);padding:6px 14px 4px;border-radius:var(--r-pill);
+}
+
+/* ── Sections ── */
+.pp-sec{padding:80px 0}
+.pp-sec-alt{background:var(--sky-50)}
+.pp-inner{max-width:1160px;margin:0 auto;padding:0 48px}
+.pp-sec-label{
+  display:block;font-family:var(--font-en);font-size:13px;font-weight:700;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--sky-400);margin-bottom:10px;
+}
+.pp-sec-title{font-family:var(--font-jp);font-size:clamp(20px,2vw,28px);font-weight:700;color:var(--ink);line-height:1.5;letter-spacing:.06em;margin-bottom:40px}
+
+/* ── My Job ── */
+.job-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.job-body p{font-size:16px;color:var(--ink-2);line-height:2.1;letter-spacing:.04em;margin-bottom:20px}
+.job-photo{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-md)}
+.job-photo img{width:100%;display:block}
+.job-photo-cap{font-size:13px;color:var(--ink-4);margin-top:10px;letter-spacing:.04em}
+
+/* ── Q&A New ── */
+.qa-list{display:flex;flex-direction:column;gap:72px}
+
+.qa-bubble{
+  position:relative;
+  background:white;
+  border:2px solid var(--sky-200);
+  border-radius:var(--r-xl);
+  padding:22px 28px;
+  display:flex;align-items:center;justify-content:center;gap:16px;
+  margin-bottom:4px;
+}
+.qa-bubble-tail-l{margin-left:28px}
+.qa-bubble-tail-l::before{
+  content:'';position:absolute;
+  top:50%;transform:translateY(-50%);
+  left:-24px;
+  border-style:solid;border-width:16px 24px 16px 0;
+  border-color:transparent var(--sky-200) transparent transparent;
+}
+.qa-bubble-tail-l::after{
+  content:'';position:absolute;
+  top:50%;transform:translateY(-50%);
+  left:-19px;
+  border-style:solid;border-width:13px 19px 13px 0;
+  border-color:transparent white transparent transparent;
+}
+.qa-bubble-tail-r{margin-right:28px}
+.qa-bubble-tail-r::before{
+  content:'';position:absolute;
+  top:50%;transform:translateY(-50%);
+  right:-24px;
+  border-style:solid;border-width:16px 0 16px 24px;
+  border-color:transparent transparent transparent var(--sky-200);
+}
+.qa-bubble-tail-r::after{
+  content:'';position:absolute;
+  top:50%;transform:translateY(-50%);
+  right:-19px;
+  border-style:solid;border-width:13px 0 13px 19px;
+  border-color:transparent transparent transparent white;
+}
+.qa-q-mark{
+  flex-shrink:0;width:36px;height:36px;border-radius:50%;
+  background:var(--sky-500);display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-en);font-size:16px;font-weight:700;color:white;line-height:1;
+  margin-top:2px;
+}
+.qa-q-text{font-family:var(--font-jp);font-size:18px;font-weight:700;color:var(--sky-500);line-height:1.6;letter-spacing:.04em}
+
+.qa-answer{display:grid;grid-template-columns:1fr 368px;gap:32px;align-items:start;margin-top:28px}
+.qa-answer.photo-l{grid-template-columns:368px 1fr}
+.qa-ans-photo{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-md)}
+.qa-ans-photo img{width:100%;display:block;aspect-ratio:4/3;object-fit:cover;object-position:top center}
+.qa-a-content{display:flex;align-items:flex-start;gap:16px}
+.qa-a-mark{
+  flex-shrink:0;width:36px;height:36px;border-radius:50%;
+  background:white;border:1.5px solid var(--sky-300);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-en);font-size:16px;font-weight:700;color:var(--sky-500);line-height:1;
+  margin-top:2px;
+}
+.qa-a-body p{font-size:16px;color:var(--ink-2);line-height:2.1;letter-spacing:.04em;margin-bottom:16px}
+.qa-a-body p:last-child{margin-bottom:0}
+
+@media(max-width:900px){
+  .qa-answer,.qa-answer.photo-l{grid-template-columns:1fr}
+  .qa-answer.photo-l .qa-ans-photo{order:-1}
+}
+
+/* ── Schedule ── */
+.schedule-list{display:flex;flex-direction:column}
+.schedule-item{display:grid;grid-template-columns:1fr 1fr;min-height:300px;overflow:hidden}
+.sch-photo-col{overflow:hidden;position:relative}
+.sch-photo-col img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+.sch-content-col{background:var(--white);padding:48px 56px;display:flex;flex-direction:column;justify-content:center}
+.schedule-item:nth-child(even) .sch-photo-col{order:2}
+.schedule-item:nth-child(even) .sch-content-col{order:1;background:var(--sky-50)}
+.sch-time-num{font-family:var(--font-en);font-size:56px;font-weight:700;color:var(--sky-400);line-height:1;letter-spacing:.04em;margin-bottom:8px}
+.sch-title{font-family:var(--font-jp);font-size:18px;font-weight:700;color:var(--ink);letter-spacing:.04em;margin-bottom:12px;padding-bottom:14px;border-bottom:2px solid var(--sky-100)}
+.sch-desc{font-size:15px;color:var(--ink-3);line-height:2;letter-spacing:.03em}
+
+/* ── Message Typewriter ── */
+@keyframes msgCursorBlink{0%,100%{opacity:1}50%{opacity:0}}
+.msg-title-cursor{
+  display:inline-block;width:2px;height:.85em;
+  background:rgba(255,255,255,.8);vertical-align:middle;
+  margin-left:2px;
+  animation:msgCursorBlink .7s step-end infinite;
+}
+
+/* ── Message ── */
+.msg-grid{
+  display:grid;grid-template-columns:1.1fr 1fr;
+  min-height:580px;overflow:hidden;
+}
+.msg-left{
+  background:var(--sky-500);
+  padding:72px 64px;
+  display:flex;flex-direction:column;justify-content:center;
+}
+.msg-left .pp-sec-label{color:rgba(255,255,255,.7);margin-bottom:12px}
+.msg-left .pp-sec-title{color:white;margin-bottom:32px}
+.msg-body p{font-size:15px;color:rgba(255,255,255,.88);line-height:2.1;letter-spacing:.04em;margin-bottom:18px}
+.msg-body p:last-child{margin-bottom:0}
+.msg-profile{margin-top:40px;padding-top:28px;border-top:1px solid rgba(255,255,255,.25)}
+.msg-profile-name{font-family:var(--font-jp);font-size:16px;font-weight:500;color:white;letter-spacing:.08em;margin-bottom:4px}
+.msg-profile-sub{font-size:13px;color:rgba(255,255,255,.65);letter-spacing:.04em}
+.msg-photo{overflow:hidden}
+.msg-photo img{width:100%;height:100%;object-fit:cover;object-position:75% center;display:block}
+@media(max-width:900px){
+  .msg-grid{grid-template-columns:1fr}
+  .msg-photo{min-height:360px}
+  .msg-photo img{object-position:75% center}
+  .msg-left{padding:48px 24px}
+}
+
+/* ── Related ── */
+.related-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+.related-arrows{display:flex;gap:8px}
+.rel-arrow-btn{
+  width:44px;height:44px;border-radius:50%;border:1.5px solid var(--sky-200);
+  background:white;display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:var(--trans);color:var(--sky-500);font-size:18px;
+  user-select:none;
+}
+.rel-arrow-btn:hover{background:var(--sky-500);color:white;border-color:var(--sky-500)}
+.rel-arrow-btn.disabled{opacity:.35;pointer-events:none}
+.related-track-wrap{overflow:hidden;cursor:grab;user-select:none}
+.related-track-wrap.grabbing{cursor:grabbing}
+.related-grid{
+  display:flex;gap:20px;
+  transition:transform .35s cubic-bezier(.4,0,.2,1);
+  will-change:transform;
+}
+.rel-card{
+  border-radius:var(--r-lg);overflow:hidden;background:white;
+  box-shadow:var(--shadow-sm);transition:box-shadow .3s;
+  text-decoration:none;color:inherit;display:block;
+  flex:0 0 260px;
+}
+.rel-card:hover{box-shadow:var(--shadow-sky)}
+.rel-card-photo{aspect-ratio:3/4;overflow:hidden;position:relative}
+.rel-card-photo img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.rel-card-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,14,10,.65) 0%,transparent 55%)}
+.rel-card-body{padding:16px}
+.rel-card-dept{font-size:12px;color:var(--sky-500);font-weight:500;letter-spacing:.04em;margin-bottom:4px}
+.rel-card-name{font-family:var(--font-jp);font-size:15px;font-weight:500;color:var(--ink);letter-spacing:.06em;margin-bottom:6px}
+.rel-card-quote{font-size:13px;color:var(--ink-3);line-height:1.7;letter-spacing:.03em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+/* ── Footer ── */
+.site-footer{background:#1f2937;padding:40px 0 28px}
+.footer-in{max-width:1160px;margin:0 auto;padding:0 48px}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-copy{font-family:'Josefin Sans',sans-serif;font-size:14px;color:rgba(255,255,255,.3);letter-spacing:.08em}
+/* ── Back to Top ── */
+#backToTop{
+  position:fixed;bottom:32px;right:32px;z-index:100;
+  width:48px;height:48px;border-radius:50%;
+  background:var(--sky-300,#6BBDE8);color:white;
+  display:flex;align-items:center;justify-content:center;line-height:1;
+  box-shadow:0 0 0 3px white,0 4px 18px rgba(107,189,232,.3);cursor:pointer;outline:none;border:none;
+  opacity:0;transform:translateY(16px);
+  transition:opacity .3s,transform .3s,background .2s;
+  pointer-events:none;
+}
+#backToTop.show{opacity:1;transform:none;pointer-events:auto}
+#backToTop:hover{background:var(--sky-400,#4EA8D8);transform:translateY(-2px)}
+
+/* ── Nav Arrows ── */
+.pp-nav-arrows{display:flex;justify-content:center;gap:16px;margin-top:48px}
+.pp-nav-arrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:14px;font-weight:500;color:var(--sky-500);
+  border:1.5px solid var(--sky-200);border-radius:var(--r-pill);
+  padding:10px 24px 8px;transition:var(--trans);text-decoration:none;background:white;
+}
+.pp-nav-arrow:hover{background:var(--sky-500);color:white;border-color:var(--sky-500)}
+.pp-nav-arrow.disabled{opacity:.35;pointer-events:none}
+.pp-list-back{font-size:14px;font-weight:500;color:var(--ink-4);text-decoration:none;transition:color .2s;letter-spacing:.04em}
+.pp-list-back:hover{color:var(--sky-500)}
+
+/* ── Responsive ── */
+@media(max-width:900px){
+  .site-nav{padding:0 24px}
+  .nav-links-sub{display:none}
+  .breadcrumb-inner{padding:16px 24px}
+  .pp-inner{padding:0 24px}
+  .hero-ttl-box{left:24px;right:24px;padding:24px 24px 20px;transform:translateY(44px)}
+  .job-grid{grid-template-columns:1fr;gap:32px}
+  .message-box{padding:32px 24px}
+  .schedule-item{grid-template-columns:1fr}
+  .schedule-item .sch-photo-col{order:1!important;min-height:220px}
+  .schedule-item .sch-content-col{order:2!important;padding:28px 24px}
+  .sch-time-num{font-size:40px}
+}
+@media(max-width:600px){
+  .pp-sec{padding:56px 0}
+  .related-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<nav class="site-nav">
+  <a href="../recruit_2.html" class="nav-logo">
+    <img src="../parts/logo.svg" alt="PRINCIPAL HOME">
+    <span class="nav-logo-recruit">RECRUIT</span>
+  </a>
+  <div class="nav-actions">
+    <a href="../recruit_2.html#requirement" class="nav-btn-jobs">募集要項</a>
+    <a href="../recruit_2.html#entry" class="nav-btn-entry">エントリー</a>
+    <a href="../recruit_2.html" class="nav-btn-top">採用TOPに戻る</a>
+  </div>
+</nav>
+
+<!-- Breadcrumb -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="../recruit_2.html">採用トップ</a>
+    <span>›</span>
+    <a href="../recruit_2.html#people">先輩社員の声</a>
+    <span>›</span>
+    <span class="current">賃貸管理K.K</span>
+  </div>
+</div>
+
+<!-- Hero -->
+<section class="hero-people">
+  <div class="hero-mv-wrap">
+    <img src="KK-13.jpg" alt="賃貸管理K.K" class="hero-mv-img">
+    <div class="hero-mv-overlay"></div>
+    <div class="hero-ttl-box rv">
+      <p class="hero-catch">電話が鳴らない日が、最高の成果。<br>市場を取り入れた「仕組みづくり」が<br>私たちの仕事です。</p>
+      <div class="hero-meta-row">
+        <span class="hero-dept-label" style="font-size:18px;">賃貸管理部</span>
+        <span class="hero-sep-line"></span>
+        <span class="hero-name-ja">K.Kさん</span>
+        <span class="hero-year-label">2023年入社</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- My Job -->
+<section class="pp-sec" style="padding-top:136px">
+  <div class="pp-inner">
+    <span class="pp-sec-label">My Job</span>
+    <h2 class="pp-sec-title">これが私の仕事です</h2>
+    <div class="job-grid rv">
+      <div class="job-body">
+        <p>アパート、マンション、ビル、店舗などの賃貸管理をメインに行っています。現在、当社では70棟ほどの物件を自社で一括管理しているのが大きな特徴です。</p>
+        <p>具体的な業務としては、入居者様の募集から、日々の問い合わせ対応、退去後の原状回復工事や業者さんの調整など、ご入居者様の生活に関わるすべてをカバーしています。</p>
+        <p>さらに、収益物件の仕入れや売却、賃料の妥当性を図るための市場調査、金融機関向けの事業計画の作成など、まるで総合不動産業のように幅広い業務に携わっています。</p>
+      </div>
+      <div>
+        <div class="job-photo">
+          <img src="KK-13.jpg" alt="賃貸管理K.K 業務中">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Q&A -->
+<section class="pp-sec pp-sec-alt">
+  <div class="pp-inner">
+    <span class="pp-sec-label">Interview</span>
+    <h2 class="pp-sec-title">プリンシパルホームで働くということ</h2>
+    <div class="qa-list">
+
+      <!-- Q1: 写真右 → 尾は左 -->
+      <div class="qa-item-new">
+        <div class="qa-bubble qa-bubble-tail-l rv">
+          <p class="qa-q-text">賃貸管理部の仕事の特徴を教えてください。</p>
+        </div>
+        <div class="qa-answer rv">
+          <div class="qa-a-content">
+            <div class="qa-a-body">
+              <p>私たちの部署は、直接お客様をご案内するというよりは、市場のニーズを探りながら適正な賃料を設定するなど「仕組みづくり」を行うことが中心です。賃貸管理は電話が鳴らない、つまりトラブルがない状態を維持することが価値となる役割を担っています。</p>
+              <p>自社で新築物件の開発や売買も行うため、不動産のさまざまな側面を知り、経験値を高められるのも大きな魅力です。部署が一丸となって、目標に向かって進めていく働き方が、この部署の大きな特徴だと思っています。</p>
+            </div>
+          </div>
+          <div class="qa-ans-photo">
+            <img src="KK-1.jpg" alt="賃貸管理K.K">
+          </div>
+        </div>
+      </div>
+
+      <!-- Q2: 写真左 → 尾は右 -->
+      <div class="qa-item-new">
+        <div class="qa-bubble qa-bubble-tail-r rv">
+          <p class="qa-q-text">仕事のやりがいや、達成感を感じる瞬間は？</p>
+        </div>
+        <div class="qa-answer photo-l rv">
+          <div class="qa-ans-photo">
+            <img src="KK-2.jpg" alt="賃貸管理K.K">
+          </div>
+          <div class="qa-a-content">
+            <div class="qa-a-body">
+              <p>自分の読みがピタリと当たり、スムーズに入居が促進されたときには大きな達成感を得られます。市場を分析して設定した賃料や施策が結果として現れた瞬間は、この仕事をしていて本当によかったと思える瞬間です。</p>
+              <p>日々の業務の中で、設定した目標に向かって着実に進捗を生み出し、チーム全体がスムーズに機能しているのを感じられることにも、大きなやりがいを感じています。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q3: 写真右 → 尾は左 -->
+      <div class="qa-item-new">
+        <div class="qa-bubble qa-bubble-tail-l rv">
+          <p class="qa-q-text">入社前と後で、変わったことと変わらないことを教えてください。</p>
+        </div>
+        <div class="qa-answer rv">
+          <div class="qa-a-content">
+            <div class="qa-a-body">
+              <p>最も大きく変わったのは、仕事の進め方が個人主体からチーム主体になったことです。前職である営業職のような個人で完結するスタイルとは異なり、部署全体のチームで目標に向かって進めていく働き方に変わりました。</p>
+              <p>一方で変わらないのは、不動産に関する幅広い専門知識が常に求められる点です。賃貸特有の知識だけでなく、建物の修繕や建築に関する知識など、不動産のプロとして学び続け、専門性を深めていく姿勢はずっと変わりません。</p>
+            </div>
+          </div>
+          <div class="qa-ans-photo">
+            <img src="KK-4.jpg" alt="賃貸管理K.K">
+          </div>
+        </div>
+      </div>
+
+      <!-- Q4: 写真左 → 尾は右 -->
+      <div class="qa-item-new">
+        <div class="qa-bubble qa-bubble-tail-r rv">
+          <p class="qa-q-text">これからの目標・キャリアビジョンを教えてください。</p>
+        </div>
+        <div class="qa-answer photo-l rv">
+          <div class="qa-ans-photo">
+            <img src="KK-3.jpg" alt="賃貸管理K.K">
+          </div>
+          <div class="qa-a-content">
+            <div class="qa-a-body">
+              <p>年々管理する物件数が増加しているため、事業拡大を支えるとともに、収益を安定化させるための施策や、よりスムーズに業務が回る仕組みづくりを進めていきたいです。自社物件の開発や収益性の見直しを行いながら、チーム全体が効率よく稼働できる体制を構築するのが目標です。</p>
+              <p>私自身も、これまで培ってきた経験を活かしつつ、常に新しい知識を貪欲に吸収し、さらなるスキルアップを目指していきたいと考えています。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q5: 写真右 → 尾は左 -->
+      <div class="qa-item-new">
+        <div class="qa-bubble qa-bubble-tail-l rv">
+          <p class="qa-q-text">プリンシパルホームとは、どのような会社ですか？</p>
+        </div>
+        <div class="qa-answer rv">
+          <div class="qa-a-content">
+            <div class="qa-a-body">
+              <p>工事部や設計部、仕入れから販売、そして私たちのような管理部まで揃っており、不動産に関するあらゆる事業を網羅している会社です。国内だけでなく海外の収益物件も扱っており、非常に多岐にわたる事業を展開しています。</p>
+              <p>また、社長との距離も近く、とても風通しが良いのも特徴です。個人の適性や目標に合わせて、チャレンジしたいことを幅広く任せてもらえる環境が整っています。</p>
+            </div>
+          </div>
+          <div class="qa-ans-photo">
+            <img src="KK-6.jpg" alt="賃貸管理K.K">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Daily Schedule -->
+<section class="pp-sec">
+  <div class="pp-inner">
+    <span class="pp-sec-label">Daily Schedule</span>
+    <h2 class="pp-sec-title">賃貸管理K.Kの1日</h2>
+    <div class="schedule-list">
+      <div class="schedule-item rv">
+        <div class="sch-photo-col"><img src="KK-5.jpg" alt="賃貸管理K.K"></div>
+        <div class="sch-content-col">
+          <p class="sch-time-num">10:00<span style="font-size:0.5em;vertical-align:middle;position:relative;top:-1px;margin:0 12px;">▶︎</span>11:00</p>
+          <p class="sch-title">社内ミーティング</p>
+          <p class="sch-desc">1日の行動予定・昨日からの作業内容確認・お客様対応の確認・問題提起。チーム全体の状況を把握し、優先事項を整理する。</p>
+        </div>
+      </div>
+      <div class="schedule-item rv">
+        <div class="sch-photo-col"><img src="KK-8.jpg" alt="賃貸管理K.K"></div>
+        <div class="sch-content-col">
+          <p class="sch-time-num">11:00<span style="font-size:0.5em;vertical-align:middle;position:relative;top:-1px;margin:0 12px;">▶︎</span>12:00</p>
+          <p class="sch-title">メールチェック・返信対応</p>
+          <p class="sch-desc">仲介業者・リフォーム業者・アフター顧客からのメールに返信。問い合わせ内容を確認し、必要に応じて各担当者へ連携する。</p>
+        </div>
+      </div>
+      <div class="schedule-item rv">
+        <div class="sch-photo-col"><img src="KK-9.jpg" alt="賃貸管理K.K"></div>
+        <div class="sch-content-col">
+          <p class="sch-time-num">13:00<span style="font-size:0.5em;vertical-align:middle;position:relative;top:-1px;margin:0 12px;">▶︎</span>14:00</p>
+          <p class="sch-title">契約書類作成</p>
+          <p class="sch-desc">新規・更新契約書の作成。内容を正確に確認しながら仕上げる、集中が求められる業務のひとつ。</p>
+        </div>
+      </div>
+      <div class="schedule-item rv">
+        <div class="sch-photo-col"><img src="KK-12.jpg" alt="賃貸管理K.K"></div>
+        <div class="sch-content-col">
+          <p class="sch-time-num">14:00<span style="font-size:0.5em;vertical-align:middle;position:relative;top:-1px;margin:0 12px;">▶︎</span>15:00</p>
+          <p class="sch-title">発送物手配</p>
+          <p class="sch-desc">契約書・請求書・鍵等の発送準備。各送付先の情報を確認し、漏れがないよう丁寧にチェックする。</p>
+        </div>
+      </div>
+      <div class="schedule-item rv">
+        <div class="sch-photo-col"><img src="KK-11.jpg" alt="賃貸管理K.K"></div>
+        <div class="sch-content-col">
+          <p class="sch-time-num">15:00<span style="font-size:0.5em;vertical-align:middle;position:relative;top:-1px;margin:0 12px;">▶︎</span>18:00</p>
+          <p class="sch-title">現場へ</p>
+          <p class="sch-desc">引渡前物件のリフォーム確認・不具合・清掃チェック・退去のお立合い。直接現場へと向かい、丁寧に物件を確認する。</p>
+        </div>
+      </div>
+      <div class="schedule-item rv">
+        <div class="sch-photo-col"><img src="KK-14.jpg" alt="賃貸管理K.K"></div>
+        <div class="sch-content-col">
+          <p class="sch-time-num">18:00<span style="font-size:0.5em;vertical-align:middle;position:relative;top:-1px;margin:0 12px;">▶︎</span>19:00</p>
+          <p class="sch-title">書類精査・翌日準備・退社</p>
+          <p class="sch-desc">チェックリスト・写真等のファイリング、明日の行動予定の確認と支度を行い退社。業務をきっちり締めくくることが翌日のスムーズな動きにつながる。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Message -->
+<section class="pp-sec" style="padding:0">
+  <div class="msg-grid rv">
+    <div class="msg-left">
+      <span class="pp-sec-label">Message</span>
+      <h2 class="pp-sec-title" id="msg-title"></h2>
+      <div class="msg-body">
+        <p>不動産や建築に興味があり、幅広く学びながらキャリアを積みたい方に最適な環境です。ノルマに囚われることなく、不動産の仕事を少しずつ確実に学んでいくことができます。社内には売買や建築のプロフェッショナルが揃っているので、不動産全般に興味がある方にはこれ以上ない環境だと思います。</p>
+        <p>チームの目標に向かって協力して仕事を進めていくため、不動産業界が初めての方でも心配いりません。私たちがしっかりとサポートしますので、思い切って挑戦してきてください。皆さんと一緒に働ける日を楽しみにしています。</p>
+      </div>
+      <div class="msg-profile">
+        <p class="msg-profile-name">K.Kさん</p>
+        <p class="msg-profile-sub">賃貸管理部 / 2023年入社</p>
+      </div>
+    </div>
+    <div class="msg-photo">
+      <img src="KK-7.jpg" alt="賃貸管理K.K">
+    </div>
+  </div>
+</section>
+
+<!-- Related -->
+<section class="pp-sec">
+  <div class="pp-inner">
+    <div class="related-header">
+      <div>
+        <span class="pp-sec-label">Other Members</span>
+        <h2 class="pp-sec-title" style="margin-bottom:0">他の先輩社員を見る</h2>
+      </div>
+      <div class="related-arrows">
+        <button class="rel-arrow-btn" id="rel-prev" aria-label="前へ">&#8592;</button>
+        <button class="rel-arrow-btn" id="rel-next" aria-label="次へ">&#8594;</button>
+      </div>
+    </div>
+    <div class="related-track-wrap" id="rel-track-wrap">
+      <div class="related-grid" id="related-grid">
+        <a href="01.html" class="rel-card rv d1">
+          <div class="rel-card-photo">
+            <img src="photo_01.jpg" alt="田中 翔太">
+            <div class="rel-card-ov"></div>
+          </div>
+          <div class="rel-card-body">
+            <p class="rel-card-dept">施工管理部</p>
+            <p class="rel-card-name">田中 翔太</p>
+            <p class="rel-card-quote">完成した家を前にして、この仕事を選んで正解だったと心から実感できます。</p>
+          </div>
+        </a>
+        <a href="02.html" class="rel-card rv d2">
+          <div class="rel-card-photo">
+            <img src="photo_02.jpg" alt="中村 優">
+            <div class="rel-card-ov"></div>
+          </div>
+          <div class="rel-card-body">
+            <p class="rel-card-dept">設計部</p>
+            <p class="rel-card-name">中村 優</p>
+            <p class="rel-card-quote">図面が実際の住まいになる瞬間が、設計の仕事をする上での最大の喜びです。</p>
+          </div>
+        </a>
+        <a href="04.html" class="rel-card rv d3">
+          <div class="rel-card-photo">
+            <img src="photo_04.jpg" alt="森田 莉子">
+            <div class="rel-card-ov"></div>
+          </div>
+          <div class="rel-card-body">
+            <p class="rel-card-dept">住宅設計部</p>
+            <p class="rel-card-name">森田 莉子</p>
+            <p class="rel-card-quote">細部へのこだわりが積み重なって、お客様の夢の住まいを実現できるのです。</p>
+          </div>
+        </a>
+        <a href="05.html" class="rel-card rv d4">
+          <div class="rel-card-photo">
+            <img src="photo_05.jpg" alt="高橋 健太">
+            <div class="rel-card-ov"></div>
+          </div>
+          <div class="rel-card-body">
+            <p class="rel-card-dept">賃貸管理部</p>
+            <p class="rel-card-name">高橋 健太</p>
+            <p class="rel-card-quote">双方から「ありがとう」をいただける。それがこの仕事を続ける理由です。</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="pp-nav-arrows">
+      <a href="02.html" class="pp-nav-arrow">← 前の先輩社員の声</a>
+      <a href="04.html" class="pp-nav-arrow">次の先輩社員の声 →</a>
+    </div>
+    <div style="text-align:center;margin-top:20px">
+      <a href="../people_list.html" class="pp-list-back">← 先輩社員一覧へ戻る</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-in">
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2027 Principal Home. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to Top -->
+<button id="backToTop" aria-label="トップへ戻る">
+  <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:white"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+</button>
+
+<script>
+// ── Message タイプライター ──
+(function(){
+  const target = document.getElementById('msg-title');
+  const segments = [
+    {text:'就活中の', em:false},
+    {text:'みなさんへ', em:false}
+  ];
+  const chars = [];
+  segments.forEach(seg=>{
+    if(seg.text==='\n'){chars.push({char:'br',em:false})}
+    else{[...seg.text].forEach(c=>chars.push({char:c,em:seg.em}))}
+  });
+  let i=0;
+  const cursor=document.createElement('span');
+  cursor.className='msg-title-cursor';
+  target.appendChild(cursor);
+
+  const obs=new IntersectionObserver((entries)=>{
+    if(entries[0].isIntersecting){
+      obs.unobserve(target);
+      setTimeout(function type(){
+        if(i>=chars.length){
+          setTimeout(()=>{cursor.style.display='none'},1200);
+          return;
+        }
+        const {char,em}=chars[i++];
+        if(char==='br'){target.insertBefore(document.createElement('br'),cursor)}
+        else{const span=document.createElement(em?'em':'span');span.textContent=char;target.insertBefore(span,cursor)}
+        setTimeout(type,90);
+      },400);
+    }
+  },{threshold:0.5});
+  obs.observe(target);
+})();
+
+// ── Related スライダー ──
+(function(){
+  const wrap = document.getElementById('rel-track-wrap');
+  const grid = document.getElementById('related-grid');
+  const prevBtn = document.getElementById('rel-prev');
+  const nextBtn = document.getElementById('rel-next');
+  const STEP = 280;
+  let offset = 0;
+
+  function maxOffset(){
+    return grid.scrollWidth - wrap.offsetWidth;
+  }
+  function clamp(v){ return Math.max(0, Math.min(v, maxOffset())); }
+  function apply(){
+    grid.style.transform = `translateX(${-offset}px)`;
+    prevBtn.classList.toggle('disabled', offset <= 0);
+    nextBtn.classList.toggle('disabled', offset >= maxOffset());
+  }
+
+  prevBtn.addEventListener('click', ()=>{ offset = clamp(offset - STEP); apply(); });
+  nextBtn.addEventListener('click', ()=>{ offset = clamp(offset + STEP); apply(); });
+
+  let startX = 0, startOffset = 0, dragging = false, moved = false;
+  wrap.addEventListener('mousedown', e=>{
+    dragging = true; moved = false;
+    startX = e.clientX; startOffset = offset;
+    wrap.classList.add('grabbing');
+    grid.style.transition = 'none';
+  });
+  window.addEventListener('mousemove', e=>{
+    if(!dragging) return;
+    const dx = e.clientX - startX;
+    if(Math.abs(dx) > 4) moved = true;
+    offset = clamp(startOffset - dx);
+    grid.style.transform = `translateX(${-offset}px)`;
+    prevBtn.classList.toggle('disabled', offset <= 0);
+    nextBtn.classList.toggle('disabled', offset >= maxOffset());
+  });
+  window.addEventListener('mouseup', ()=>{
+    if(!dragging) return;
+    dragging = false;
+    wrap.classList.remove('grabbing');
+    grid.style.transition = '';
+    apply();
+  });
+  wrap.querySelectorAll('a').forEach(a=>{
+    a.addEventListener('click', e=>{ if(moved){ e.preventDefault(); moved=false; }});
+  });
+
+  wrap.addEventListener('touchstart', e=>{ startX = e.touches[0].clientX; startOffset = offset; grid.style.transition='none'; },{passive:true});
+  wrap.addEventListener('touchmove', e=>{
+    const dx = e.touches[0].clientX - startX;
+    offset = clamp(startOffset - dx);
+    grid.style.transform = `translateX(${-offset}px)`;
+  },{passive:true});
+  wrap.addEventListener('touchend', ()=>{ grid.style.transition=''; apply(); });
+
+  apply();
+})();
+
+// Reveal animation
+const revealObs = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');revealObs.unobserve(e.target)}})
+},{threshold:0.12});
+document.querySelectorAll('.rv').forEach(el=>revealObs.observe(el));
+// ── Back to top ──
+(function(){
+  const btn=document.getElementById('backToTop');
+  if(!btn) return;
+  window.addEventListener('scroll',()=>btn.classList.toggle('show',window.scrollY>400),{passive:true});
+  btn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+})();
+</script>
+</body>
+</html>

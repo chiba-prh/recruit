@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buttons — Component Library</title>
+<link rel="stylesheet" href="../tokens.css">
+<style>
+/* ── Hero Buttons ── */
+.btn-hero-main{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;line-height:1;
+  background:var(--sky-300);color:white;
+  font-size:14px;font-weight:700;letter-spacing:.07em;
+  padding:14px 28px;border-radius:var(--r-pill);
+  box-shadow:var(--shadow-sky);transition:var(--trans);
+  position:relative;overflow:hidden;
+}
+.btn-hero-main::before{
+  content:'';position:absolute;inset:0;
+  background:var(--sky-400);transform:scaleX(0);transform-origin:left;transition:transform .3s;
+}
+.btn-hero-main:hover::before{transform:scaleX(1)}
+.btn-hero-main:hover{box-shadow:var(--shadow-sky-lg);transform:translateY(-1px)}
+.btn-hero-main span{position:relative;z-index:1}
+
+.btn-hero-ghost{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;line-height:1;
+  background:rgba(255,255,255,.15);color:white;
+  font-size:14px;font-weight:500;letter-spacing:.06em;
+  padding:13px 24px;border-radius:var(--r-pill);
+  border:1.5px solid rgba(255,255,255,.45);
+  backdrop-filter:blur(6px);transition:var(--trans);
+}
+.btn-hero-ghost:hover{background:rgba(255,255,255,.25);border-color:rgba(255,255,255,.7)}
+
+/* ── More Button ── */
+.btn-more{
+  display:inline-flex;align-items:center;gap:10px;line-height:1;
+  font-family:var(--font-jp);font-size:14px;font-weight:500;color:var(--sky-400);
+  letter-spacing:.06em;transition:gap .22s;margin-top:28px;
+}
+.btn-more .arr{
+  width:28px;height:28px;border-radius:50%;
+  border:1.5px solid var(--sky-100);background:var(--sky-50);
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;line-height:1;color:var(--sky-400);transition:var(--trans);
+}
+.btn-more:hover{gap:14px}
+.btn-more:hover .arr{background:var(--sky-300);border-color:var(--sky-300);color:white}
+
+/* ── Nav Buttons ── */
+.nav-btn-jobs{
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:500;color:var(--sky-400);
+  padding:8px 20px;border-radius:var(--r-pill);
+  border:1.5px solid var(--sky-100);background:var(--sky-50);
+  transition:var(--trans);cursor:pointer;line-height:1;white-space:nowrap;
+}
+.nav-btn-jobs:hover{background:var(--sky-100);border-color:var(--sky-300)}
+
+.nav-btn-entry{
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:700;color:white;
+  padding:9px 22px;border-radius:var(--r-pill);
+  background:var(--sky-300);box-shadow:var(--shadow-sky);
+  transition:var(--trans);cursor:pointer;line-height:1;
+  position:relative;overflow:hidden;white-space:nowrap;
+}
+.nav-btn-entry::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.25) 50%,transparent 70%);
+  transform:translateX(-100%);transition:transform .45s;
+}
+.nav-btn-entry:hover::before{transform:translateX(100%)}
+.nav-btn-entry:hover{background:var(--sky-400)}
+
+/* ── Entry CTA Buttons ── */
+.btn-entry{
+  display:flex;align-items:center;justify-content:space-between;line-height:1;
+  background:white;color:var(--sky-400);
+  font-family:var(--font-jp);font-size:14px;font-weight:700;letter-spacing:.07em;
+  padding:17px 26px;border-radius:var(--r-lg);
+  box-shadow:0 4px 20px rgba(0,0,0,.12);transition:var(--trans);
+  position:relative;overflow:hidden;margin-bottom:12px;max-width:360px;
+}
+.btn-entry::before{content:'';position:absolute;inset:0;background:var(--sky-50);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.btn-entry:hover::before{transform:scaleX(1)}
+.btn-entry:hover{box-shadow:0 8px 28px rgba(0,0,0,.18)}
+.btn-entry span,.btn-entry .arr{position:relative;z-index:1;line-height:1}
+
+.btn-entry-outline{
+  display:flex;align-items:center;justify-content:space-between;line-height:1;
+  background:transparent;color:rgba(255,255,255,.9);
+  font-family:var(--font-jp);font-size:14px;font-weight:500;
+  padding:15px 24px;border-radius:var(--r-lg);border:1.5px solid rgba(255,255,255,.4);
+  transition:var(--trans);max-width:360px;
+}
+.btn-entry-outline:hover{border-color:white;background:rgba(255,255,255,.1);color:white}
+
+.demo-section{padding:40px 48px;border-bottom:1px solid var(--cream-200)}
+.demo-section h3{font-family:var(--font-en);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--sky-400);margin-bottom:20px}
+.demo-dark{background:var(--ink);padding:40px 48px;border-bottom:1px solid rgba(255,255,255,.1)}
+.demo-dark h3{font-family:var(--font-en);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--sky-200);margin-bottom:20px}
+.demo-sky{background:var(--sky-300);padding:40px 48px;border-bottom:1px solid rgba(255,255,255,.2)}
+.demo-sky h3{font-family:var(--font-en);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.8);margin-bottom:20px}
+</style>
+</head>
+<body>
+
+<h2 style="padding:20px 48px 10px;font-family:var(--font-en);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--sky-400)">02 — Buttons</h2>
+<p style="padding:0 48px 20px;font-size:13px;color:var(--ink-3)">サイト全体で使用されるボタンバリエーション。</p>
+
+<div class="demo-section">
+  <h3>Navigation Buttons</h3>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+    <a href="#" class="nav-btn-jobs">募集要項</a>
+    <a href="#" class="nav-btn-entry">エントリー</a>
+  </div>
+</div>
+
+<div class="demo-dark">
+  <h3>Hero Buttons (on dark background)</h3>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+    <a href="#" class="btn-hero-main"><span>エントリーはこちら</span><span>→</span></a>
+    <a href="#" class="btn-hero-ghost">仕事を知る</a>
+  </div>
+</div>
+
+<div class="demo-section">
+  <h3>More / Arrow Button</h3>
+  <a href="#" class="btn-more" style="margin-top:0">詳しく見る <span class="arr">→</span></a>
+</div>
+
+<div class="demo-sky">
+  <h3>Entry CTA Buttons (on sky background)</h3>
+  <a href="#" class="btn-entry"><span>マイナビでエントリーする</span><span class="arr">→</span></a>
+  <a href="#" class="btn-entry-outline"><span>会社説明会に申し込む</span><span class="arr">→</span></a>
+</div>
+
+</body>
+</html>

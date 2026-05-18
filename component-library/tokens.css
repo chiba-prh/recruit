@@ -1,0 +1,123 @@
+/* ═══════════════════════════════════════════════════════════
+   DESIGN TOKENS — Principal Home Recruit 2027
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Fonts ── */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700&family=Noto+Sans+JP:wght@100;300;400;500;700&display=swap');
+
+@font-face{font-family:'Josefin Sans';src:local('Josefin Sans');ascent-override:80%;descent-override:20%;line-gap-override:0%}
+
+/* ── Reset ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  /* Color — Sky */
+  --white:#FFFFFF;
+  --off-white:#F8FBFD;
+  --sky-50:#EAF5FC;
+  --sky-100:#D4ECFA;
+  --sky-200:#AADAF4;
+  --sky-300:#6BBDE8;
+  --sky-400:#4EA8D8;
+  --sky-500:#2B8EC2;
+  --sky-600:#1A6E9C;
+
+  /* Color — Cream */
+  --cream-50:#FDFAF6;
+  --cream-100:#F7F3ED;
+  --cream-200:#EFE9E0;
+  --cream-300:#E0D8CE;
+
+  /* Color — Accent */
+  --coral:#F5A58C;
+  --coral-pale:#FEF0EB;
+  --mint:#8ECDB8;
+  --mint-pale:#EAF6F2;
+
+  /* Color — Ink（目に優しいニュートラルグレー系） */
+  --ink:#333333;
+  --ink-2:#4A4A4A;
+  --ink-3:#6B7280;
+  --ink-4:#9CA3AF;
+  --ink-5:#D1D5DB;
+
+  /* Typography */
+  --font-jp:'Noto Sans JP','Hiragino Kaku Gothic ProN',Meiryo,sans-serif;
+  --font-en:'Josefin Sans',sans-serif;
+
+  /* Radius */
+  --r-sm:8px;
+  --r-md:16px;
+  --r-lg:24px;
+  --r-xl:32px;
+  --r-pill:100px;
+
+  /* Shadows */
+  --shadow-sm:0 2px 8px rgba(45,36,32,.06);
+  --shadow-md:0 4px 20px rgba(45,36,32,.09);
+  --shadow-lg:0 12px 40px rgba(45,36,32,.12);
+  --shadow-sky:0 4px 18px rgba(107,189,232,.3);
+  --shadow-sky-lg:0 8px 32px rgba(107,189,232,.4);
+
+  /* Transition */
+  --trans:all .25s ease;
+}
+
+html{scroll-behavior:smooth}
+body{font-family:var(--font-jp);background:var(--white);color:var(--ink);line-height:1.85;font-size:16px;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+
+/* ═══════════════════════════════════════════════════════════
+   ANIMATIONS
+   ═══════════════════════════════════════════════════════════ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+@keyframes pulseDot{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.5);opacity:.7}}
+@keyframes newGradient{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes marqueeScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes scrollDot{0%{bottom:72px;opacity:0}20%{opacity:1}80%{opacity:.9}100%{bottom:0;opacity:0}}
+@keyframes kbZoom{from{transform:scale(1)}to{transform:scale(1.08)}}
+@keyframes kbPan{from{transform:scale(1.06) translateX(-2%)}to{transform:scale(1.06) translateX(2%)}}
+@keyframes lineGrow{from{width:0}to{width:100%}}
+@keyframes bounceIn{0%{transform:scale(0)}60%{transform:scale(1.1)}100%{transform:scale(1)}}
+
+/* ═══════════════════════════════════════════════════════════
+   REVEAL ANIMATIONS
+   ═══════════════════════════════════════════════════════════ */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+.rv.on{opacity:1;transform:none}
+.rv-l{opacity:0;transform:translateX(-24px);transition:opacity .8s ease,transform .8s ease}
+.rv-l.on{opacity:1;transform:none}
+.rv-r{opacity:0;transform:translateX(24px);transition:opacity .8s ease,transform .8s ease}
+.rv-r.on{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.22s}.d3{transition-delay:.36s}.d4{transition-delay:.5s}
+
+/* ═══════════════════════════════════════════════════════════
+   SECTION BASE
+   ═══════════════════════════════════════════════════════════ */
+.sec{position:relative;overflow:hidden}
+.sec-in{max-width:1160px;margin:0 auto;padding:96px 64px;position:relative;z-index:1}
+.sec-eyebrow{
+  display:inline-flex;align-items:center;gap:7px;line-height:1;
+  font-family:var(--font-en);font-size:14px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--sky-400);background:var(--sky-50);padding:7px 16px 3px;border-radius:var(--r-pill);
+  margin-bottom:16px;
+}
+.sec-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--sky-300)}
+.sec-h2{
+  font-family:var(--font-jp);font-size:clamp(22px,2.8vw,34px);
+  font-weight:700;color:var(--ink);line-height:1.6;letter-spacing:.05em;margin-bottom:14px;
+}
+.sec-desc{font-size:16px;color:var(--ink-3);line-height:2.1;font-weight:300;max-width:520px}
+.sec-en{
+  font-family:var(--font-en);font-size:14px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--sky-400);margin-bottom:8px;display:block;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   WAVE DIVIDER
+   ═══════════════════════════════════════════════════════════ */
+.wave-div{width:100%;overflow:hidden;line-height:0;display:block}
+.wave-div svg{display:block;width:100%}

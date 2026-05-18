@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Requirement Table — Component Library</title>
+<link rel="stylesheet" href="../tokens.css">
+<style>
+.req-table{width:100%;border-collapse:collapse;max-width:900px}
+.req-table tr{border-bottom:1px dashed var(--cream-200);transition:background .18s}
+.req-table tr:first-child{border-top:1px dashed var(--cream-200)}
+.req-table tr:hover{background:var(--sky-50)}
+.req-table th{width:160px;padding:18px 16px;text-align:left;font-size:14px;font-weight:700;color:var(--sky-400);letter-spacing:.05em;vertical-align:top;white-space:nowrap}
+.req-table td{padding:18px 16px;font-size:14px;color:var(--ink-2);line-height:1.8}
+.req-sub{font-size:14px;color:var(--ink-4);display:block;margin-top:3px}
+
+.demo-section{padding:40px 48px;border-bottom:1px solid var(--cream-200)}
+.demo-section h3{font-family:var(--font-en);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--sky-400);margin-bottom:20px}
+</style>
+</head>
+<body>
+
+<h2 style="padding:20px 48px 10px;font-family:var(--font-en);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--sky-400)">12 — Requirement Table</h2>
+
+<div class="demo-section">
+  <table class="req-table">
+    <tr><th>職種</th><td>施工管理職 / 設計職 / 営業職 / インテリアコーディネーター職</td></tr>
+    <tr><th>給与</th><td>月給 230,000円〜（大卒）／ 210,000円〜（短大・専門卒）<span class="req-sub">※ 別途各種手当・賞与（年2回）あり</span></td></tr>
+    <tr><th>勤務地</th><td>町田本社 / 横浜支社 / 相模原営業所<span class="req-sub">※ 希望考慮のうえ配属決定。原則転勤なし。</span></td></tr>
+    <tr><th>休日・休暇</th><td>年間休日125日（土日祝）、年次有給休暇、育児・介護休暇、特別休暇</td></tr>
+  </table>
+</div>
+
+</body>
+</html>

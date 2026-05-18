@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Navigation — Component Library</title>
+<link rel="stylesheet" href="../tokens.css">
+<style>
+/* ── Navigation ── */
+.site-nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  height:68px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 48px;
+  background:rgba(255,255,255,.0);
+  backdrop-filter:blur(0px);
+  transition:background .4s,backdrop-filter .4s,box-shadow .4s,border-color .4s;
+  border-bottom:1.5px solid transparent;
+}
+.site-nav.scrolled{
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(16px);
+  box-shadow:0 2px 20px rgba(45,36,32,.06);
+  border-color:var(--cream-200);
+}
+.nav-logo{display:flex;align-items:center;flex-shrink:0;cursor:pointer}
+.nav-logo img{height:28px;width:auto;display:block;transition:opacity .22s}
+.nav-logo:hover img{opacity:.75}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{
+  font-size:14px;font-weight:500;color:var(--ink-3);letter-spacing:.04em;
+  position:relative;padding-bottom:3px;transition:color .2s;
+}
+.site-nav:not(.scrolled) .nav-links a{color:rgba(255,255,255,.85)}
+.nav-links a::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;
+  height:2px;border-radius:2px;background:var(--sky-300);
+  transform:scaleX(0);transform-origin:left;transition:transform .28s;
+}
+.nav-links a:hover{color:var(--sky-300)}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav-actions{display:flex;gap:10px;align-items:center}
+.nav-btn-jobs{
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:500;color:var(--sky-400);
+  padding:8px 20px;border-radius:var(--r-pill);
+  border:1.5px solid var(--sky-100);background:var(--sky-50);
+  transition:var(--trans);cursor:pointer;line-height:1;white-space:nowrap;
+}
+.nav-btn-jobs:hover{background:var(--sky-100);border-color:var(--sky-300)}
+.nav-btn-entry{
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:700;color:white;
+  padding:9px 22px;border-radius:var(--r-pill);
+  background:var(--sky-300);box-shadow:var(--shadow-sky);
+  transition:var(--trans);cursor:pointer;line-height:1;
+  position:relative;overflow:hidden;white-space:nowrap;
+}
+.nav-btn-entry::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.25) 50%,transparent 70%);
+  transform:translateX(-100%);transition:transform .45s;
+}
+.nav-btn-entry:hover::before{transform:translateX(100%)}
+.nav-btn-entry:hover{background:var(--sky-400)}
+
+/* SP Burger */
+.nav-burger{
+  display:none;
+  width:40px;height:40px;
+  background:var(--sky-50);border:1.5px solid var(--sky-100);border-radius:10px;
+  align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;
+}
+
+/* SP Drawer */
+.nav-drawer{
+  position:fixed;top:0;left:0;right:0;bottom:0;z-index:190;
+  background:var(--white);
+  transform:translateX(100%);
+  transition:transform .35s ease;
+  overflow-y:auto;
+}
+.nav-drawer.open{transform:translateX(0)}
+.nav-drawer-header{
+  height:64px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 20px;border-bottom:1.5px solid var(--cream-200);
+}
+.nav-drawer-links{list-style:none}
+.nav-drawer-links li a{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 20px;font-size:14px;font-weight:500;color:var(--ink-2);
+  border-bottom:1px solid var(--cream-200);
+}
+.nav-drawer-links li a:active{background:var(--sky-50)}
+.nav-drawer-cta{padding:20px 16px 32px;background:var(--sky-50);border-top:1px solid var(--sky-100)}
+.nav-drawer-cta a{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  background:var(--sky-300);color:white;font-size:14px;font-weight:700;
+  padding:16px;border-radius:var(--r-lg);line-height:1;
+  box-shadow:var(--shadow-sky);
+}
+
+@media(max-width:1170px){
+  .site-nav{padding:0 24px}
+  .nav-links,.nav-btn-jobs{display:none}
+  .nav-burger{display:flex}
+}
+@media(max-width:640px){
+  .site-nav{height:56px;padding:0 16px}
+  .nav-logo img{height:20px}
+  .nav-actions{gap:8px}
+}
+
+.demo-bg{background:var(--ink);min-height:200px;padding-top:100px;text-align:center;color:rgba(255,255,255,.3);font-family:var(--font-en);font-size:12px;letter-spacing:.2em}
+</style>
+</head>
+<body>
+
+<h2 style="padding:20px 48px 10px;font-family:var(--font-en);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--sky-400)">01 — Navigation</h2>
+<p style="padding:0 48px 20px;font-size:13px;color:var(--ink-3)">固定ヘッダーナビ。スクロール時に背景が白くブラー表示に変化。SP時はハンバーガーメニュー＋ドロワーに切り替わる。</p>
+
+<!-- Scrolled State -->
+<nav class="site-nav scrolled" style="position:relative">
+  <a href="#" class="nav-logo">
+    <span style="font-family:var(--font-en);font-weight:700;font-size:16px;color:var(--ink)">PRINCIPAL HOME</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#">会社を知る</a></li>
+    <li><a href="#">仕事を知る</a></li>
+    <li><a href="#">人を知る</a></li>
+    <li><a href="#">環境・制度</a></li>
+    <li><a href="#">選考フロー</a></li>
+    <li><a href="#">お知らせ</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="#" class="nav-btn-jobs">募集要項</a>
+    <a href="#" class="nav-btn-entry">エントリー</a>
+    <button class="nav-burger" aria-label="メニュー">
+      <svg viewBox="0 0 20 14" style="width:20px;height:14px;display:block">
+        <rect x="0" y="0" width="20" height="2" rx="1" fill="#2B8EC2"/>
+        <rect x="0" y="6" width="20" height="2" rx="1" fill="#2B8EC2"/>
+        <rect x="0" y="12" width="20" height="2" rx="1" fill="#2B8EC2"/>
+      </svg>
+    </button>
+  </div>
+</nav>
+
+<div style="height:40px"></div>
+
+<!-- Transparent State (on dark bg) -->
+<div class="demo-bg">
+  <nav class="site-nav" style="position:relative">
+    <a href="#" class="nav-logo">
+      <span style="font-family:var(--font-en);font-weight:700;font-size:16px;color:white">PRINCIPAL HOME</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#">会社を知る</a></li>
+      <li><a href="#">仕事を知る</a></li>
+      <li><a href="#">人を知る</a></li>
+      <li><a href="#">環境・制度</a></li>
+      <li><a href="#">選考フロー</a></li>
+      <li><a href="#">お知らせ</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="#" class="nav-btn-jobs" style="color:white;background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.4)">募集要項</a>
+      <a href="#" class="nav-btn-entry">エントリー</a>
+    </div>
+  </nav>
+  <p style="padding-top:30px">Transparent state — on hero image</p>
+</div>
+
+</body>
+</html>

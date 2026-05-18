@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Section Header — Component Library</title>
+<link rel="stylesheet" href="../tokens.css">
+<style>
+.demo-section{padding:40px 48px;border-bottom:1px solid var(--cream-200)}
+.demo-section h3{font-family:var(--font-en);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--sky-400);margin-bottom:20px}
+.tag-status{display:inline-flex;align-items:center;gap:6px;line-height:1;font-size:14px;font-weight:700;color:#1a7a5e;background:#f2fbf7;border:1.5px solid #c8ead8;padding:7px 14px 3px;border-radius:var(--r-pill);letter-spacing:.04em}
+.tag-status .dot-live{width:7px;height:7px;border-radius:50%;background:#1a7a5e;animation:pulseDot 1.2s ease-in-out infinite}
+.btn-more{display:inline-flex;align-items:center;gap:10px;line-height:1;font-family:var(--font-jp);font-size:14px;font-weight:500;color:var(--sky-400);letter-spacing:.06em;transition:gap .22s;margin-top:28px}
+.btn-more .arr{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--sky-100);background:var(--sky-50);display:flex;align-items:center;justify-content:center;font-size:14px;line-height:1;color:var(--sky-400);transition:var(--trans)}
+.btn-more:hover{gap:14px}
+.btn-more:hover .arr{background:var(--sky-300);border-color:var(--sky-300);color:white}
+</style>
+</head>
+<body>
+
+<h2 style="padding:20px 48px 10px;font-family:var(--font-en);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--sky-400)">04 — Section Headers</h2>
+<p style="padding:0 48px 20px;font-size:13px;color:var(--ink-3)">各セクション冒頭のヘッダーパターン。左寄せ・中央寄せ・右にボタン付きの3バリエーション。</p>
+
+<!-- Pattern A: Left-aligned -->
+<div class="demo-section">
+  <h3>Pattern A — Left Aligned</h3>
+  <div>
+    <span class="sec-en">About Us</span>
+    <span class="sec-eyebrow"><span class="dot"></span>私たちについて</span>
+    <h2 class="sec-h2" style="margin-top:16px">家を建てることは、<br>夢を建てること。</h2>
+    <p class="sec-desc">プリンシパルホームは、お客様一人ひとりの「こんな家に住みたい」という想いを丁寧に紡ぎ出し、世界にひとつだけの住まいを創り上げてきました。</p>
+    <a href="#" class="btn-more">詳しく見る <span class="arr">→</span></a>
+  </div>
+</div>
+
+<!-- Pattern B: Center-aligned -->
+<div class="demo-section">
+  <h3>Pattern B — Center Aligned</h3>
+  <div style="text-align:center">
+    <span class="sec-en">Numbers</span>
+    <span class="sec-eyebrow"><span class="dot"></span>数字で見るプリンシパルホーム</span>
+    <h2 class="sec-h2" style="margin-top:16px">実績と数字が語る、<br>プリンシパルホームの強み</h2>
+    <p class="sec-desc" style="margin:0 auto">充実した研修制度と段階的なキャリアパスで、<br>未経験からでもプロフェッショナルへ成長できます。</p>
+  </div>
+</div>
+
+<!-- Pattern C: With side action -->
+<div class="demo-section">
+  <h3>Pattern C — With Side Action / Status</h3>
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px">
+    <div>
+      <span class="sec-en">Requirement</span>
+      <span class="sec-eyebrow"><span class="dot"></span>募集要項</span>
+      <h2 class="sec-h2" style="margin-top:16px;margin-bottom:0">2027年卒 募集要項</h2>
+    </div>
+    <span class="tag-status"><span class="dot-live"></span>募集中</span>
+  </div>
+</div>
+
+<div class="demo-section">
+  <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px">
+    <div>
+      <span class="sec-en">News</span>
+      <span class="sec-eyebrow"><span class="dot"></span>お知らせ</span>
+      <h2 class="sec-h2" style="margin-top:16px;margin-bottom:0">最新情報・イベント</h2>
+    </div>
+    <a href="#" class="btn-more" style="margin-top:0">すべて見る <span class="arr">→</span></a>
+  </div>
+</div>
+
+</body>
+</html>

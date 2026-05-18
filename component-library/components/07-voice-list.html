@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voice List — Component Library</title>
+<link rel="stylesheet" href="../tokens.css">
+<style>
+.voice-list{display:flex;flex-direction:column;max-width:1000px}
+.voice-item{
+  display:flex;flex-direction:row;align-items:flex-start;gap:0;
+  border-top:1.5px solid var(--sky-100);overflow:hidden;
+  background:transparent;transition:background .25s;cursor:pointer;
+}
+.voice-item:last-child{border-bottom:1.5px solid var(--sky-100)}
+.voice-item:hover{background:rgba(255,255,255,.7)}
+.voice-photo{width:220px;flex-shrink:0;overflow:hidden;min-height:200px;position:relative;background:var(--cream-200)}
+.voice-photo img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .55s}
+.voice-item:hover .voice-photo img{transform:scale(1.05)}
+.voice-photo-tag{
+  position:absolute;top:12px;left:12px;
+  display:inline-flex;align-items:center;justify-content:center;line-height:1;
+  background:rgba(255,255,255,.92);backdrop-filter:blur(6px);
+  font-size:14px;font-weight:500;color:var(--sky-400);
+  padding:4px 12px;border-radius:var(--r-pill);border:1px solid var(--sky-100);
+}
+.voice-body{flex:1;padding:28px 32px;display:flex;flex-direction:column;justify-content:center}
+.voice-name-row{display:flex;align-items:baseline;gap:10px;margin-bottom:4px}
+.voice-initial{font-family:var(--font-en);font-size:17px;font-weight:600;color:var(--ink);letter-spacing:.06em}
+.voice-name-ja{font-family:var(--font-jp);font-size:14px;font-weight:500;color:var(--ink-2)}
+.voice-meta{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.voice-dept{font-size:14px;color:var(--sky-400);font-weight:500;letter-spacing:.04em}
+.voice-year{
+  display:inline-flex;align-items:center;justify-content:center;line-height:1;
+  font-family:var(--font-en);font-size:14px;font-weight:600;letter-spacing:.1em;
+  color:var(--ink-4);background:var(--cream-100);
+  padding:4px 10px;border-radius:var(--r-pill);border:1px solid var(--cream-200);
+}
+.voice-quote{
+  font-family:var(--font-jp);font-size:14px;color:var(--ink-2);
+  line-height:1.95;letter-spacing:.03em;
+  position:relative;padding-left:14px;
+}
+.voice-quote::before{content:'';position:absolute;left:0;top:4px;bottom:4px;width:3px;border-radius:2px;background:var(--sky-200)}
+.voice-arr{
+  width:56px;flex-shrink:0;display:flex;align-items:center;justify-content:center;
+  border-left:1.5px solid var(--sky-100);color:var(--sky-400);font-size:16px;line-height:1;
+  transition:background .25s,color .25s;
+}
+.voice-item:hover .voice-arr{background:var(--sky-300);color:white}
+
+@media(max-width:640px){
+  .voice-item{flex-direction:column}
+  .voice-photo{width:100%;min-height:220px}
+  .voice-body{padding:20px}
+  .voice-arr{width:100%;height:44px;border-left:none;border-top:1.5px solid var(--sky-100)}
+}
+
+.demo-section{padding:40px 48px;border-bottom:1px solid var(--cream-200)}
+.demo-section h3{font-family:var(--font-en);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--sky-400);margin-bottom:20px}
+</style>
+</head>
+<body>
+
+<h2 style="padding:20px 48px 10px;font-family:var(--font-en);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--sky-400)">07 — Voice List</h2>
+<p style="padding:0 48px 20px;font-size:13px;color:var(--ink-3)">先輩社員の声リスト。写真＋メタ情報＋引用テキストの横並びレイアウト。SP時は縦積み。</p>
+
+<div class="demo-section" style="background:var(--sky-50)">
+  <div class="voice-list">
+    <div class="voice-item">
+      <div class="voice-photo">
+        <div style="width:100%;height:200px;background:linear-gradient(135deg,var(--sky-200),var(--sky-400))"></div>
+        <span class="voice-photo-tag">施工管理</span>
+      </div>
+      <div class="voice-body">
+        <div class="voice-name-row"><span class="voice-initial">T.S</span><span class="voice-name-ja">田中 翔太</span></div>
+        <div class="voice-meta"><span class="voice-dept">施工管理部</span><span class="voice-year">2020年入社</span></div>
+        <p class="voice-quote">現場でお客様の「ありがとう」をいただく瞬間が、この仕事を続ける一番の原動力です。大変なこともありますが、完成した家を見たときの達成感は何にも代えがたいものがあります。</p>
+      </div>
+      <div class="voice-arr">→</div>
+    </div>
+    <div class="voice-item">
+      <div class="voice-photo">
+        <div style="width:100%;height:200px;background:linear-gradient(135deg,var(--coral),#e07a5e)"></div>
+        <span class="voice-photo-tag">営業</span>
+      </div>
+      <div class="voice-body">
+        <div class="voice-name-row"><span class="voice-initial">M.K</span><span class="voice-name-ja">松本 花</span></div>
+        <div class="voice-meta"><span class="voice-dept">営業部</span><span class="voice-year">2021年入社</span></div>
+        <p class="voice-quote">夢のマイホームを実現するお手伝いができる仕事に、日々やりがいを感じています。お客様の「思っていた通り！」という笑顔を見るために頑張れます。</p>
+      </div>
+      <div class="voice-arr">→</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

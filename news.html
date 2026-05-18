@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>お知らせ一覧 — PR-H Recruit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sky-50:#EAF5FC; --sky-100:#D4ECFA; --sky-200:#AADAF4;
+  --sky-300:#6BBDE8; --sky-400:#4EA8D8; --sky-500:#2B8EC2;
+  --cream-50:#FDFAF6; --cream-100:#F7F3ED; --cream-200:#EFE9E0; --cream-300:#E0D8CE;
+  --white:#FFFFFF;
+  --ink:#1e293b; --ink-2:#334155; --ink-3:#64748b; --ink-4:#94a3b8; --ink-5:#cbd5e1;
+  --font-jp:'Noto Sans JP','Hiragino Kaku Gothic ProN',Meiryo,sans-serif;
+  --font-en:'Josefin Sans',sans-serif;
+  --r-pill:999px; --r-lg:16px;
+  --shadow-sm:0 1px 4px rgba(0,0,0,.06);
+  --shadow-md:0 4px 16px rgba(0,0,0,.10);
+  --trans:all .22s ease;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-jp);background:var(--white);color:var(--ink);line-height:2;font-size:16px}
+a{text-decoration:none;color:inherit}
+
+/* ── Site Nav (updated) ── */
+.page-header{
+  background:rgba(255,255,255,.96);border-bottom:1px solid var(--cream-200,#EFE9E0);
+  padding:0 48px;height:68px;position:sticky;top:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  backdrop-filter:blur(16px);
+  box-shadow:0 2px 20px rgba(45,36,32,.06);
+}
+.page-header-in{display:contents}
+.header-logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
+.header-logo img{height:20px;width:auto;display:block}
+.header-logo-sub{font-family:var(--font-en,sans-serif);font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--sky-400,#4EA8D8)}
+.nav-links-sub{display:flex;gap:24px;list-style:none;margin:0;padding:0}
+.nav-links-sub a{font-size:14px;font-weight:500;color:var(--ink-3,#64748b);letter-spacing:.04em;transition:color .2s;text-decoration:none}
+.nav-links-sub a:hover{color:var(--sky-400,#4EA8D8)}
+.nav-actions{display:flex;gap:10px;align-items:center}
+.nav-btn-jobs{display:inline-flex;align-items:center;justify-content:center;font-size:14px;font-weight:500;color:var(--sky-400,#4EA8D8);padding:8px 20px;border-radius:100px;border:1.5px solid var(--sky-100,#D4ECFA);background:var(--sky-50,#EAF5FC);transition:all .15s ease;line-height:1;white-space:nowrap;text-decoration:none}
+.nav-btn-jobs:hover{background:var(--sky-100,#D4ECFA);border-color:var(--sky-300,#6BBDE8)}
+.nav-btn-top{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:500;color:var(--ink-3,#64748b);padding:8px 20px;border-radius:100px;border:1.5px solid var(--cream-200,#EFE9E0);background:transparent;transition:all .15s ease;line-height:1;white-space:nowrap;text-decoration:none}
+.nav-btn-top:hover{background:var(--sky-50,#EAF5FC);border-color:var(--sky-200,#AADAF4);color:var(--sky-500,#2B8EC2)}
+.nav-btn-top svg{width:14px;height:14px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:768px){
+  .page-header{padding:0 20px}
+  .nav-links-sub{display:none}
+}
+/* ── Site Footer ── */
+.site-footer{background:#1f2937;padding:48px 0 32px;margin-top:80px}
+.footer-in{max-width:1160px;margin:0 auto;padding:0 48px}
+.footer-logo{height:18px;width:auto;display:block;filter:brightness(0) invert(1);opacity:.55;margin-bottom:12px}
+.footer-desc{font-size:13px;color:rgba(255,255,255,.3);line-height:2;margin-bottom:28px}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:20px;border-top:1px solid rgba(255,255,255,.08)}
+.footer-copy{font-size:12px;color:rgba(255,255,255,.25);letter-spacing:.04em}
+.footer-sub{display:flex;gap:16px}
+.footer-sub a{font-size:12px;color:rgba(255,255,255,.28);transition:color .2s;text-decoration:none}
+.footer-sub a:hover{color:rgba(255,255,255,.7)}
+@media(max-width:768px){.footer-in{padding:0 20px}}
+/* ── Back to Top ── */
+#backToTop{
+  position:fixed;bottom:32px;right:32px;z-index:100;
+  width:48px;height:48px;border-radius:50%;
+  background:var(--sky-300,#6BBDE8);color:white;border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 0 3px white,0 4px 18px rgba(107,189,232,.3);
+  opacity:0;transform:translateY(16px);
+  transition:opacity .3s,transform .3s,background .2s;pointer-events:none;outline:none;
+}
+#backToTop.show{opacity:1;transform:none;pointer-events:auto}
+#backToTop:hover{background:var(--sky-400,#4EA8D8);transform:translateY(-2px)}
+
+/* ── Page Hero ── */
+.page-hero{
+  background:linear-gradient(135deg, var(--sky-50) 0%, var(--white) 60%);
+  padding:64px 0 48px;border-bottom:1px solid var(--sky-100);
+}
+.page-hero-in{max-width:1160px;margin:0 auto;padding:0 24px}
+.page-hero-en{
+  font-family:var(--font-en);font-size:11px;font-weight:700;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--sky-400);display:block;margin-bottom:10px;
+}
+.page-hero h1{font-size:clamp(24px,3vw,36px);font-weight:800;color:var(--ink);letter-spacing:.04em}
+.page-hero-desc{font-size:14px;color:var(--ink-3);margin-top:10px;line-height:1.8}
+
+/* ── Main ── */
+.page-main{max-width:1160px;margin:0 auto;padding:56px 24px 80px}
+
+/* ── News Tabs ── */
+.nt-input{display:none}
+.nt-tabs{
+  display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px;
+  border-bottom:2px solid var(--cream-200);padding-bottom:0;
+}
+.nt-label{
+  display:block;padding:10px 20px 12px;cursor:pointer;
+  font-size:14px;font-weight:700;color:var(--ink-3);
+  border-bottom:2px solid transparent;margin-bottom:-2px;
+  transition:color .2s,border-color .2s;
+  font-family:var(--font-jp);letter-spacing:.04em;
+}
+.nt-label:hover{color:var(--sky-400)}
+#nt-all:checked   ~ .nt-tabs .nt-label[for="nt-all"],
+#nt-exp:checked   ~ .nt-tabs .nt-label[for="nt-exp"],
+#nt-int:checked   ~ .nt-tabs .nt-label[for="nt-int"],
+#nt-info:checked  ~ .nt-tabs .nt-label[for="nt-info"]{
+  color:var(--sky-400);border-bottom-color:var(--sky-400);
+}
+
+.nt-panel{display:none}
+#nt-all:checked  ~ .nt-panel[data-tab="all"],
+#nt-exp:checked  ~ .nt-panel[data-tab="exp"],
+#nt-int:checked  ~ .nt-panel[data-tab="int"],
+#nt-info:checked ~ .nt-panel[data-tab="info"]{display:block}
+
+/* ── News List ── */
+.news-list{display:flex;flex-direction:column;gap:12px}
+.nl-card{
+  display:flex;align-items:flex-start;gap:20px;padding:20px 24px;
+  background:var(--white);border:1.5px solid var(--cream-200);
+  border-radius:var(--r-lg);box-shadow:var(--shadow-sm);
+  cursor:pointer;transition:var(--trans);
+}
+.nl-card:hover{background:var(--sky-50);border-color:var(--sky-200);box-shadow:var(--shadow-md)}
+.nl-date{
+  font-family:var(--font-en);font-size:14px;color:var(--ink-4);
+  letter-spacing:.08em;flex-shrink:0;padding-top:2px;min-width:90px;
+}
+.nl-cat{
+  display:inline-flex;align-items:center;justify-content:center;line-height:1;
+  font-family:var(--font-jp);font-size:12px;font-weight:700;letter-spacing:.04em;
+  background:var(--sky-50);color:var(--sky-400);border:1px solid var(--sky-100);
+  padding:8px 12px 4px;border-radius:var(--r-pill);margin-bottom:6px;
+}
+.nl-content{flex:1}
+.nl-title{font-size:15px;font-weight:500;color:var(--ink);line-height:1.8}
+.nl-arr{color:var(--sky-300);font-size:14px;flex-shrink:0;padding-top:4px;transition:transform .2s}
+.nl-card:hover .nl-arr{transform:translateX(4px)}
+.tag-new{
+  display:inline-flex;align-items:center;justify-content:center;line-height:1;
+  font-family:var(--font-en);font-size:11px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;
+  background:linear-gradient(270deg,#e8401a,#f5692a,#c0281a,#e8401a);
+  background-size:300% 300%;animation:newGradient 3s ease infinite;
+  color:white;padding:3px 8px 2px;border-radius:var(--r-pill);
+  margin-bottom:6px;
+}
+@keyframes newGradient{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+
+.nl-empty{
+  padding:48px 24px;text-align:center;color:var(--ink-4);
+  font-size:14px;border:1.5px dashed var(--cream-300);border-radius:var(--r-lg);
+}
+
+/* ── Back CTA ── */
+.back-cta{
+  margin-top:48px;text-align:center;
+}
+.back-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--sky-400);color:white;
+  font-size:14px;font-weight:700;letter-spacing:.06em;
+  padding:14px 32px 12px;border-radius:var(--r-pill);
+  transition:background .2s;
+}
+.back-btn:hover{background:var(--sky-500)}
+
+@media(max-width:600px){
+  .nl-card{flex-wrap:wrap;gap:8px}
+  .nl-date{min-width:auto}
+  .nt-label{padding:8px 12px 10px;font-size:14px}
+}
+</style>
+</head>
+<body>
+
+<!-- ── Header ── -->
+<header class="page-header">
+  <a href="recruit_2.html" class="header-logo">
+    <img src="parts/logo.svg" alt="PRINCIPAL HOME">
+    <span class="header-logo-sub">Recruit</span>
+  </a>
+  <ul class="nav-links-sub">
+    <li><a href="recruit_2.html#about">会社を知る</a></li>
+    <li><a href="recruit_2.html#dayflow">仕事を知る</a></li>
+    <li><a href="recruit_2.html#people">人を知る</a></li>
+    <li><a href="recruit_2.html#benefits">環境・制度</a></li>
+    <li><a href="recruit_2.html#news">お知らせ</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="recruit_2.html#requirement" class="nav-btn-jobs">募集要項</a>
+    <a href="recruit_2.html" class="nav-btn-top">
+      <svg viewBox="0 0 16 16"><polyline points="10 3 6 8 10 13"/></svg>
+      TOPに戻る
+    </a>
+  </div>
+</header>
+
+<!-- ── Page Hero ── -->
+<div class="page-hero">
+  <div class="page-hero-in">
+    <span class="page-hero-en">News</span>
+    <h1>お知らせ一覧</h1>
+    <p class="page-hero-desc">最新情報・説明会・インターンシップのお知らせをご確認ください。</p>
+  </div>
+</div>
+
+<!-- ── Main ── -->
+<main class="page-main">
+
+  <!-- Tab radios -->
+  <input class="nt-input" type="radio" name="ntab" id="nt-all"  checked>
+  <input class="nt-input" type="radio" name="ntab" id="nt-exp">
+  <input class="nt-input" type="radio" name="ntab" id="nt-int">
+  <input class="nt-input" type="radio" name="ntab" id="nt-info">
+
+  <!-- Tab labels -->
+  <div class="nt-tabs">
+    <label class="nt-label" for="nt-all">すべて</label>
+    <label class="nt-label" for="nt-exp">説明会</label>
+    <label class="nt-label" for="nt-int">インターン</label>
+    <label class="nt-label" for="nt-info">採用情報</label>
+  </div>
+
+  <!-- すべて -->
+  <div class="nt-panel" data-tab="all">
+    <div class="news-list">
+      <a href="news/01.html" class="nl-card">
+        <div class="nl-date">2026.03.15</div>
+        <div class="nl-content">
+          <div class="nl-cat">説明会</div>
+          <div class="nl-title">【27卒】会社説明会3月・4月開催日程決定のお知らせ</div>
+        </div>
+        <div class="nl-arr">→</div>
+      </a>
+      <a href="news/02.html" class="nl-card">
+        <div class="nl-date">2026.03.01</div>
+        <div class="nl-content">
+          <div class="nl-cat">説明会</div>
+          <div class="nl-title">【27卒】オンライン会社説明会（3月）参加者募集のお知らせ</div>
+        </div>
+        <div class="nl-arr">→</div>
+      </a>
+      <a href="news/03.html" class="nl-card">
+        <div class="nl-date">2026.02.28</div>
+        <div class="nl-content">
+          <div class="nl-cat">インターン</div>
+          <div class="nl-title">1DAYインターンシップ春開催のお知らせ</div>
+        </div>
+        <div class="nl-arr">→</div>
+      </a>
+      <a href="news/04.html" class="nl-card">
+        <div class="nl-date">2026.02.15</div>
+        <div class="nl-content">
+          <div class="nl-cat">インターン</div>
+          <div class="nl-title">【27卒】3DAYSインターンシップ（施工管理体験コース）開催のお知らせ</div>
+        </div>
+        <div class="nl-arr">→</div>
+      </a>
+      <a href="news/05.html" class="nl-card">
+        <div class="nl-date">2026.02.10</div>
+        <div class="nl-content">
+          <div class="nl-cat">採用情報</div>
+          <div class="nl-title">2027年卒 採用活動開始のお知らせ</div>
+        </div>
+        <div class="nl-arr">→</div>
+      </a>
+      <a href="news/06.html" class="nl-card">
+        <div class="nl-date">2026.01.20</div>
+        <div class="nl-content">
+          <span class="tag-new">NEW</span>
+          <div class="nl-title">男性育休取得率42%を達成しました</div>
+        </div>
+        <div class="nl-arr">→</div>
+      </a>
+      <a href="news/07.html" class="nl-card">
+        <div class="nl-date">2026.01.10</div>
+        <div class="nl-content">
+          <div class="nl-cat">採用情報</div>
+          <div class="nl-title">2027年卒 採用スケジュール・エントリー受付開始のご案内</div>
+        </div>
+        <div class="nl-arr">→</div>
+      </a>
+      <a href="news/08.html" class="nl-card">
+        <div class="nl-date">2025.12.20</div>
+        <div class="nl-content">
+          <div class="nl-cat">説明会</div>
+          <div class="nl-title">【27卒】冬季合同企業説明会への参加のお知らせ</div>
+        </div>
+        <div class="nl-arr">→</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- 説明会 -->
+  <div class="nt-panel" data-tab="exp">
+    <div class="news-list">
+      <a href="news/01.html" class="nl-card">
+        <div class="nl-date">2026.03.15</div>
+        <div class="nl-content">
+          <div class="nl-cat">説明会</div>
+          <div class="nl-title">【27卒】会社説明会3月・4月開催日程決定のお知らせ</div>
+        </div>
+        <div class="nl-arr">→</div>
+      </a>
+      <a href="news/02.html" class="nl-card">
+        <div class="nl-date">2026.03.01</div>
+        <div class="nl-content">
+          <div class="nl-cat">説明会</div>
+          <div class="nl-title">【27卒】オンライン会社説明会（3月）参加者募集のお知らせ</div>
+        </div>
+        <div class="nl-arr">→</div>
+      </a>
+      <a href="news/08.html" class="nl-card">
+        <div class="nl-date">2025.12.20</div>
+        <div class="nl-content">
+          <div class="nl-cat">説明会</div>
+          <div class="nl-title">【27卒】冬季合同企業説明会への参加のお知らせ</div>
+        </div>
+        <div class="nl-arr">→</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- インターン -->
+  <div class="nt-panel" data-tab="int">
+    <div class="news-list">
+      <a href="news/03.html" class="nl-card">
+        <div class="nl-date">2026.02.28</div>
+        <div class="nl-content">
+          <div class="nl-cat">インターン</div>
+          <div class="nl-title">1DAYインターンシップ春開催のお知らせ</div>
+        </div>
+        <div class="nl-arr">→</div>
+      </a>
+      <a href="news/04.html" class="nl-card">
+        <div class="nl-date">2026.02.15</div>
+        <div class="nl-content">
+          <div class="nl-cat">インターン</div>
+          <div class="nl-title">【27卒】3DAYSインターンシップ（施工管理体験コース）開催のお知らせ</div>
+        </div>
+        <div class="nl-arr">→</div>
+      </a>
+    </div>
+  </div>
+
+  <!-- 採用情報 -->
+  <div class="nt-panel" data-tab="info">
+    <div class="news-list">
+      <a href="news/05.html" class="nl-card">
+        <div class="nl-date">2026.02.10</div>
+        <div class="nl-content">
+          <div class="nl-cat">採用情報</div>
+          <div class="nl-title">2027年卒 採用活動開始のお知らせ</div>
+        </div>
+        <div class="nl-arr">→</div>
+      </a>
+      <a href="news/06.html" class="nl-card">
+        <div class="nl-date">2026.01.20</div>
+        <div class="nl-content">
+          <span class="tag-new">NEW</span>
+          <div class="nl-title">男性育休取得率42%を達成しました</div>
+        </div>
+        <div class="nl-arr">→</div>
+      </a>
+      <a href="news/07.html" class="nl-card">
+        <div class="nl-date">2026.01.10</div>
+        <div class="nl-content">
+          <div class="nl-cat">採用情報</div>
+          <div class="nl-title">2027年卒 採用スケジュール・エントリー受付開始のご案内</div>
+        </div>
+        <div class="nl-arr">→</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="back-cta">
+    <a href="recruit_2.html#news" class="back-btn">← 採用サイトに戻る</a>
+  </div>
+
+</main>
+
+</body>
+</html>

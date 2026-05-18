@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Component Library — Principal Home Recruit 2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700&family=Noto+Sans+JP:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════════
+   TOKENS
+   ═══════════════════════════════════════════════════════════ */
+@font-face{font-family:'Josefin Sans';src:local('Josefin Sans');ascent-override:80%;descent-override:20%;line-gap-override:0%}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --white:#FFFFFF;--off-white:#F8FBFD;
+  --sky-50:#EAF5FC;--sky-100:#D4ECFA;--sky-200:#AADAF4;
+  --sky-300:#6BBDE8;--sky-400:#4EA8D8;--sky-500:#2B8EC2;--sky-600:#1A6E9C;
+  --cream-50:#FDFAF6;--cream-100:#F7F3ED;--cream-200:#EFE9E0;--cream-300:#E0D8CE;
+  --coral:#F5A58C;--coral-pale:#FEF0EB;
+  --mint:#8ECDB8;--mint-pale:#EAF6F2;
+  --ink:#333333;--ink-2:#4A4A4A;--ink-3:#6B7280;--ink-4:#9CA3AF;--ink-5:#D1D5DB;
+  --font-jp:'Noto Sans JP','Hiragino Kaku Gothic ProN',Meiryo,sans-serif;
+  --font-en:'Josefin Sans',sans-serif;
+  --r-sm:8px;--r-md:16px;--r-lg:24px;--r-xl:32px;--r-pill:100px;
+  --shadow-sm:0 2px 8px rgba(45,36,32,.06);
+  --shadow-md:0 4px 20px rgba(45,36,32,.09);
+  --shadow-lg:0 12px 40px rgba(45,36,32,.12);
+  --shadow-sky:0 4px 18px rgba(107,189,232,.3);
+  --shadow-sky-lg:0 8px 32px rgba(107,189,232,.4);
+  --trans:all .2s ease;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-jp);background:var(--off-white);color:var(--ink);line-height:2;font-size:16px;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes pulseDot{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.5);opacity:.7}}
+@keyframes newGradient{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes marqueeScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ═══════════════════════════════════════════════════════════
+   LIBRARY LAYOUT
+   ═══════════════════════════════════════════════════════════ */
+.lib-sidebar{
+  position:fixed;top:0;left:0;bottom:0;width:260px;
+  background:var(--white);border-right:1.5px solid var(--cream-200);
+  overflow-y:auto;z-index:100;padding:28px 0;
+}
+.lib-sidebar-logo{
+  font-family:var(--font-en);font-size:11px;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--sky-400);
+  padding:0 24px;margin-bottom:4px;
+}
+.lib-sidebar-sub{
+  font-size:11px;color:var(--ink-4);padding:0 24px;margin-bottom:28px;
+}
+.lib-nav{list-style:none}
+.lib-nav a{
+  display:flex;align-items:center;gap:10px;
+  padding:10px 24px;font-size:12.5px;font-weight:500;color:var(--ink-3);
+  border-left:3px solid transparent;transition:all .2s;
+}
+.lib-nav a:hover{color:var(--sky-400);background:var(--sky-50);border-color:var(--sky-200)}
+.lib-nav a .num{
+  font-family:var(--font-en);font-size:10px;font-weight:700;
+  color:var(--ink-5);letter-spacing:.08em;width:20px;flex-shrink:0;
+}
+.lib-main{margin-left:260px}
+
+.comp-section{
+  border-bottom:2px solid var(--cream-200);
+  scroll-margin-top:0;
+}
+.comp-header{
+  padding:48px 48px 24px;
+  background:var(--white);border-bottom:1px solid var(--cream-200);
+  position:sticky;top:0;z-index:10;
+}
+.comp-num{
+  font-family:var(--font-en);font-size:10px;font-weight:700;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--sky-400);
+  margin-bottom:6px;
+}
+.comp-title{
+  font-family:var(--font-jp);font-size:20px;font-weight:700;
+  color:var(--ink);letter-spacing:.04em;margin-bottom:6px;
+}
+.comp-desc{font-size:16px;color:var(--ink-3);font-weight:300;line-height:1.8}
+.comp-body{padding:40px 48px}
+.comp-body-dark{padding:40px 48px;background:var(--ink)}
+.comp-body-sky{padding:40px 48px;background:var(--sky-300)}
+.comp-body-cream{padding:40px 48px;background:var(--cream-100)}
+.comp-body-sky50{padding:40px 48px;background:var(--sky-50)}
+
+.comp-sub{
+  font-family:var(--font-en);font-size:10px;font-weight:600;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--sky-400);
+  margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--cream-200);
+}
+.comp-sub-dark{
+  font-family:var(--font-en);font-size:10px;font-weight:600;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--sky-200);
+  margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,.1);
+}
+.comp-sub-sky{
+  font-family:var(--font-en);font-size:10px;font-weight:600;
+  letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.7);
+  margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,.2);
+}
+
+.spacer{height:24px}
+
+/* ═══════════════════════════════════════════════════════════
+   COMPONENT STYLES (from original)
+   ═══════════════════════════════════════════════════════════ */
+
+/* -- Tokens Preview -- */
+.token-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px}
+.token-swatch{border-radius:var(--r-md);overflow:hidden;border:1.5px solid var(--cream-200)}
+.token-swatch-color{height:56px}
+.token-swatch-info{padding:8px 10px;font-size:10px;color:var(--ink-3);background:white}
+.token-swatch-info strong{display:block;font-size:11px;color:var(--ink);font-weight:600;margin-bottom:2px}
+
+/* -- Section Base -- */
+.sec-eyebrow{display:inline-flex;align-items:center;gap:7px;line-height:1;font-family:var(--font-en);font-size:14px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--sky-400);background:var(--sky-50);padding:7px 16px 3px;border-radius:var(--r-pill);margin-bottom:16px}
+.sec-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--sky-300)}
+.sec-h2{font-family:var(--font-jp);font-size:clamp(22px,2.8vw,34px);font-weight:700;color:var(--ink);line-height:1.6;letter-spacing:.05em;margin-bottom:14px}
+.sec-desc{font-size:16px;color:var(--ink-3);line-height:2;font-weight:300;max-width:520px}
+.sec-en{font-family:var(--font-en);font-size:14px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--sky-400);margin-bottom:8px;display:block}
+
+/* -- Buttons -- */
+.btn-hero-main{display:inline-flex;align-items:center;justify-content:center;gap:10px;line-height:1;background:var(--sky-300);color:white;font-size:16px;font-weight:700;letter-spacing:.07em;padding:14px 28px;border-radius:var(--r-pill);box-shadow:var(--shadow-sky);transition:background .2s,box-shadow .2s}
+.btn-hero-main:hover{background:var(--sky-500);box-shadow:var(--shadow-sky-lg)}
+.btn-hero-ghost{display:inline-flex;align-items:center;justify-content:center;gap:10px;line-height:1;background:rgba(255,255,255,.15);color:white;font-size:16px;font-weight:500;letter-spacing:.06em;padding:13px 24px;border-radius:var(--r-pill);border:1.5px solid rgba(255,255,255,.45);backdrop-filter:blur(6px);transition:var(--trans)}
+.btn-hero-ghost:hover{background:rgba(255,255,255,.25);border-color:rgba(255,255,255,.7)}
+.btn-more{display:inline-flex;align-items:center;gap:10px;line-height:1;font-family:var(--font-jp);font-size:16px;font-weight:500;color:var(--sky-400);letter-spacing:.06em;transition:gap .22s}
+.btn-more .arr{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--sky-100);background:var(--sky-50);display:flex;align-items:center;justify-content:center;font-size:12px;line-height:1;color:var(--sky-400);transition:var(--trans)}
+.btn-more:hover{gap:14px}
+.btn-more:hover .arr{background:var(--sky-300);border-color:var(--sky-300);color:white}
+.nav-btn-jobs{display:inline-flex;align-items:center;justify-content:center;font-size:14px;font-weight:500;color:var(--sky-400);padding:8px 20px;border-radius:var(--r-pill);border:1.5px solid var(--sky-100);background:var(--sky-50);transition:var(--trans);cursor:pointer;line-height:1;white-space:nowrap}
+.nav-btn-jobs:hover{background:var(--sky-100);border-color:var(--sky-300)}
+.nav-btn-entry{display:inline-flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:white;padding:9px 22px;border-radius:var(--r-pill);background:var(--sky-300);box-shadow:var(--shadow-sky);transition:background .2s;cursor:pointer;line-height:1;white-space:nowrap}
+.nav-btn-entry:hover{background:var(--sky-500)}
+.btn-entry{display:flex;align-items:center;justify-content:space-between;line-height:1;background:white;color:var(--sky-400);font-family:var(--font-jp);font-size:16px;font-weight:700;letter-spacing:.07em;padding:17px 26px;border-radius:var(--r-lg);box-shadow:var(--shadow-md);transition:background .2s,box-shadow .2s;margin-bottom:12px;max-width:360px}
+.btn-entry:hover{background:var(--sky-50);box-shadow:var(--shadow-lg)}
+.btn-entry-outline{display:flex;align-items:center;justify-content:space-between;line-height:1;background:transparent;color:rgba(255,255,255,.9);font-family:var(--font-jp);font-size:16px;font-weight:500;padding:15px 24px;border-radius:var(--r-lg);border:1.5px solid rgba(255,255,255,.4);transition:var(--trans);max-width:360px}
+.btn-entry-outline:hover{border-color:white;background:rgba(255,255,255,.1);color:white}
+
+/* -- Tags & Badges -- */
+.tag-status{display:inline-flex;align-items:center;gap:6px;line-height:1;font-size:14px;font-weight:700;color:#1a7a5e;background:#f2fbf7;border:1.5px solid #c8ead8;padding:7px 14px 3px;border-radius:var(--r-pill);letter-spacing:.04em}
+.tag-status .dot-live{width:7px;height:7px;border-radius:50%;background:#1a7a5e;animation:pulseDot 1.2s ease-in-out infinite}
+.tag-new{display:inline-flex;align-items:center;justify-content:center;line-height:1;font-family:var(--font-en);font-size:14px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:linear-gradient(270deg,#e8401a,#f5692a,#c0281a,#e8401a);background-size:300% 300%;animation:newGradient 3s ease infinite;color:white;padding:7px 14px 3px;border-radius:var(--r-pill);text-shadow:0 1px 2px rgba(0,0,0,.18)}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;line-height:1;font-family:var(--font-en);font-size:14px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:white;background:rgba(107,189,232,.4);border:1px solid rgba(107,189,232,.6);padding:7px 16px;border-radius:var(--r-pill);width:fit-content}
+.hero-tag-dot{width:7px;height:7px;border-radius:50%;background:var(--sky-300);animation:pulseDot 1.4s ease-in-out infinite}
+.news-cat{display:inline-flex;align-items:center;justify-content:center;line-height:1;font-family:var(--font-en);font-size:14px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;background:var(--sky-50);color:var(--sky-400);border:1px solid var(--sky-100);padding:3px 10px;border-radius:var(--r-pill)}
+.cs-year-badge{display:inline-flex;align-items:center;justify-content:center;line-height:1;font-family:var(--font-en);font-size:14px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;background:var(--sky-300);color:white;padding:5px 14px 3px;border-radius:var(--r-pill)}
+.cs-tag{display:inline-flex;align-items:center;line-height:1;font-size:14px;font-weight:500;color:var(--sky-400);background:var(--sky-50);border:1px solid var(--sky-100);padding:4px 10px 2px;border-radius:var(--r-pill)}
+.env-val{display:inline-flex;align-items:center;justify-content:center;line-height:1;font-family:var(--font-en);font-size:14px;font-weight:600;color:var(--sky-400);background:var(--sky-50);padding:5px 14px 3px;border-radius:var(--r-pill);border:1px solid var(--sky-100)}
+.wm-skill{display:inline-flex;align-items:center;justify-content:center;line-height:1;background:var(--sky-50);border:1.5px solid var(--sky-100);color:var(--sky-400);font-size:14px;font-weight:500;padding:7px 14px 5px;border-radius:var(--r-pill)}
+.voice-photo-tag-demo{display:inline-flex;align-items:center;justify-content:center;line-height:1;background:rgba(255,255,255,.92);backdrop-filter:blur(6px);font-size:14px;font-weight:500;color:var(--sky-400);padding:4px 12px;border-radius:var(--r-pill);border:1px solid var(--sky-100)}
+
+/* -- Navigation (demo) -- */
+.site-nav-demo{position:relative;height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;background:rgba(255,255,255,.96);backdrop-filter:blur(16px);box-shadow:0 2px 20px rgba(45,36,32,.06);border-bottom:1.5px solid var(--cream-200)}
+.nav-logo-text{font-family:var(--font-en);font-weight:700;font-size:16px;color:var(--ink)}
+.nav-links-demo{display:flex;gap:28px;list-style:none}
+.nav-links-demo a{font-size:14px;font-weight:500;color:var(--ink-3);letter-spacing:.04em;position:relative;padding-bottom:3px;transition:color .2s}
+.nav-links-demo a::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;border-radius:2px;background:var(--sky-300);transform:scaleX(0);transform-origin:left;transition:transform .28s}
+.nav-links-demo a:hover{color:var(--sky-300)}
+.nav-links-demo a:hover::after{transform:scaleX(1)}
+
+/* -- Data Cards -- */
+.data-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.data-card{background:var(--white);border-radius:var(--r-lg);padding:28px 20px 24px;text-align:center;box-shadow:var(--shadow-sm);border:1.5px solid var(--cream-200);transition:var(--trans);position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;gap:12px}
+.data-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--sky-300)}
+.data-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.data-num{font-family:var(--font-en);font-size:40px;font-weight:700;color:var(--sky-400);line-height:1}
+.data-num span{font-size:20px}
+.data-label{font-size:14px;color:var(--ink-3);letter-spacing:.04em;line-height:1.6}
+.data-sub{font-size:14px;color:var(--ink-4);font-family:var(--font-en);letter-spacing:.06em}
+.donut-wrap{position:relative;width:100px;height:100px;flex-shrink:0}
+.donut-wrap svg{transform:rotate(-90deg)}
+.donut-bg{fill:none;stroke:var(--sky-50);stroke-width:8}
+.donut-ring{fill:none;stroke:var(--sky-300);stroke-width:8;stroke-linecap:round}
+.donut-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.donut-val{font-family:var(--font-en);font-size:22px;font-weight:700;color:var(--sky-400);line-height:1}
+.donut-unit{font-family:var(--font-en);font-size:14px;color:var(--sky-400);line-height:1}
+.data-card-icon{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--sky-50),var(--sky-100));border:1.5px solid var(--sky-100);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-bottom:4px}
+.data-card-icon svg{fill:var(--sky-400);width:18px;height:18px}
+.data-card-icon.mint{background:linear-gradient(135deg,var(--mint-pale),#c5ede3);border-color:#a8ddd0}
+.data-card-icon.mint svg{fill:var(--mint)}
+.data-icon-wrap{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--sky-50),var(--sky-100));border:2px solid var(--sky-100);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.data-icon-wrap svg{fill:var(--sky-400);width:30px;height:30px}
+.bar-chart{width:100%;display:flex;flex-direction:column;gap:8px}
+.bar-item{display:flex;flex-direction:column;gap:4px}
+.bar-label-row{display:flex;justify-content:space-between;align-items:center}
+.bar-label{font-size:14px;color:var(--ink-3);font-weight:500}
+.bar-val{font-family:var(--font-en);font-size:14px;font-weight:700;color:var(--sky-400)}
+.bar-track{height:6px;border-radius:3px;background:var(--sky-50);overflow:hidden}
+.bar-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--sky-300),var(--sky-200))}
+
+/* -- Work Cards -- */
+.work-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.work-card{border-radius:var(--r-lg);overflow:hidden;background:var(--white);cursor:pointer;box-shadow:var(--shadow-md);transition:transform .35s,box-shadow .35s;position:relative}
+.work-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+.work-photo{aspect-ratio:3/4;overflow:hidden;position:relative;background:var(--cream-200)}
+.work-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,14,10,.7) 0%,transparent 55%);transition:background .35s}
+.work-card:hover .work-ov{background:linear-gradient(to top,rgba(20,14,10,.75) 0%,transparent 55%)}
+.work-info{position:absolute;bottom:0;left:0;right:0;padding:18px 16px;display:flex;align-items:center;justify-content:space-between}
+.work-name{font-family:var(--font-jp);font-size:16px;font-weight:700;color:white;letter-spacing:.05em;line-height:1.4}
+.work-sub{font-size:14px;color:rgba(255,255,255,.7);margin-top:3px}
+.work-arr{width:30px;height:30px;border-radius:50%;border:1.5px solid rgba(255,255,255,.5);display:flex;align-items:center;justify-content:center;color:white;font-size:12px;line-height:1;flex-shrink:0;transition:var(--trans)}
+.work-card:hover .work-arr{background:white;color:var(--sky-400);border-color:white}
+
+/* -- Voice List -- */
+.voice-list{display:flex;flex-direction:column}
+.voice-item{display:flex;flex-direction:row;align-items:flex-start;gap:0;border-top:1.5px solid var(--sky-100);overflow:hidden;background:transparent;transition:background .25s;cursor:pointer}
+.voice-item:last-child{border-bottom:1.5px solid var(--sky-100)}
+.voice-item:hover{background:rgba(255,255,255,.7)}
+.voice-photo{width:220px;flex-shrink:0;overflow:hidden;min-height:200px;position:relative;background:var(--cream-200)}
+.voice-body{flex:1;padding:28px 32px;display:flex;flex-direction:column;justify-content:center}
+.voice-name-row{display:flex;align-items:baseline;gap:10px;margin-bottom:4px}
+.voice-initial{font-family:var(--font-en);font-size:17px;font-weight:600;color:var(--ink);letter-spacing:.06em}
+.voice-name-ja{font-family:var(--font-jp);font-size:16px;font-weight:500;color:var(--ink-2)}
+.voice-meta{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.voice-dept{font-size:14px;color:var(--sky-400);font-weight:500;letter-spacing:.04em}
+.voice-year{display:inline-flex;align-items:center;justify-content:center;line-height:1;font-family:var(--font-en);font-size:14px;font-weight:600;letter-spacing:.1em;color:var(--ink-4);background:var(--cream-100);padding:4px 10px;border-radius:var(--r-pill);border:1px solid var(--cream-200)}
+.voice-quote{font-family:var(--font-jp);font-size:16px;color:var(--ink-2);line-height:2;letter-spacing:.03em;position:relative;padding-left:24px}
+.voice-quote::before{content:'\201C';position:absolute;left:0;top:-4px;font-family:var(--font-en);font-size:32px;font-weight:700;color:var(--sky-200);line-height:1}
+.voice-arr{width:56px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border-left:1.5px solid var(--sky-100);color:var(--sky-400);font-size:16px;line-height:1;transition:background .25s,color .25s}
+.voice-item:hover .voice-arr{background:var(--sky-300);color:white}
+
+/* -- Timeline -- */
+.timeline{position:relative;padding-left:0;max-width:480px}
+.timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:2px;background:var(--sky-200);border-radius:2px}
+.timeline-item{display:flex;flex-direction:row;align-items:flex-start;gap:16px;margin-bottom:32px}
+.timeline-item:last-child{margin-bottom:0}
+.timeline-dot{flex-shrink:0;position:relative;z-index:1;width:18px;height:18px;border-radius:50%;background:var(--sky-300);border:3px solid var(--white);box-shadow:0 0 0 2px var(--sky-200);margin-top:2px}
+.timeline-content{flex:1;display:flex;flex-direction:column}
+.timeline-step{font-family:var(--font-en);font-size:14px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--sky-400);margin-bottom:4px;line-height:1.4}
+.timeline-title{font-size:16px;font-weight:700;color:var(--ink);margin-bottom:5px}
+.timeline-desc{font-size:16px;color:var(--ink-3);line-height:2;font-weight:300}
+
+/* -- FAQ -- */
+.faq-wrap{max-width:720px}
+.faq-item{border-bottom:1px solid var(--cream-200)}
+.faq-item:first-child{border-top:1px solid var(--cream-200)}
+.faq-q{display:flex;align-items:center;gap:14px;padding:20px 4px;cursor:pointer;font-size:16px;font-weight:500;color:var(--ink);letter-spacing:.03em;transition:color .2s;user-select:none}
+.faq-q:hover{color:var(--sky-400)}
+.faq-mark{width:28px;height:28px;border-radius:50%;flex-shrink:0;background:var(--sky-300);color:white;display:flex;align-items:center;justify-content:center;line-height:1;font-family:var(--font-en);font-size:14px;font-weight:700}
+.faq-a{padding:0 4px 20px 42px;font-size:16px;color:var(--ink-3);line-height:2;font-weight:300;display:none}
+.faq-item.open .faq-a{display:block}
+.faq-chevron{margin-left:auto;color:var(--sky-400);font-size:16px;transition:transform .25s;line-height:1;flex-shrink:0}
+.faq-item.open .faq-chevron{transform:rotate(180deg)}
+
+/* -- News Cards -- */
+.news-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.news-card{display:flex;gap:16px;align-items:flex-start;padding:20px;background:var(--white);border-radius:var(--r-lg);border:1.5px solid var(--cream-200);box-shadow:var(--shadow-sm);transition:var(--trans);cursor:pointer}
+.news-card:hover{border-color:var(--sky-200);box-shadow:var(--shadow-md);transform:translateY(-1px)}
+.news-date{font-family:var(--font-en);font-size:14px;color:var(--ink-4);letter-spacing:.08em;flex-shrink:0;padding-top:3px}
+.news-content{flex:1}
+.news-title{font-size:16px;font-weight:500;color:var(--ink);line-height:2}
+.news-arr{display:flex;align-items:center;justify-content:center;line-height:1;color:var(--sky-300);font-size:14px;flex-shrink:0;padding-top:4px;transition:transform .2s}
+.news-card:hover .news-arr{transform:translateX(4px)}
+
+/* -- Benefits List -- */
+.env-list{display:flex;flex-direction:column;max-width:480px}
+.env-item{display:flex;align-items:center;gap:16px;padding:16px 0;border-bottom:1px dashed var(--cream-200);transition:background .2s;cursor:pointer}
+.env-item:first-child{border-top:1px dashed var(--cream-200)}
+.env-item:hover{background:var(--sky-50)}
+.env-icon{width:40px;height:40px;border-radius:12px;flex-shrink:0;display:flex;align-items:center;justify-content:center;line-height:1;font-size:18px;background:var(--sky-50);border:1px solid var(--sky-100);transition:var(--trans)}
+.env-icon svg{width:20px;height:20px;fill:var(--sky-400);transition:fill .25s}
+.env-item:hover .env-icon{background:var(--sky-300)}
+.env-item:hover .env-icon svg{fill:white}
+.env-name{font-size:16px;font-weight:500;color:var(--ink);flex:1}
+.env-item:hover .env-val{background:var(--sky-300);color:white;border-color:var(--sky-300)}
+
+/* -- Requirement Table -- */
+.req-table{width:100%;border-collapse:collapse}
+.req-table tr{border-bottom:1px dashed var(--cream-200);transition:background .18s}
+.req-table tr:first-child{border-top:1px dashed var(--cream-200)}
+.req-table tr:hover{background:var(--sky-50)}
+.req-table th{width:160px;padding:18px 16px;text-align:left;font-size:14px;font-weight:700;color:var(--sky-400);letter-spacing:.05em;vertical-align:top;white-space:nowrap}
+.req-table td{padding:18px 16px;font-size:16px;color:var(--ink-2);line-height:2}
+.req-sub{font-size:14px;color:var(--ink-4);display:block;margin-top:3px}
+
+/* -- Entry CTA -- */
+.entry-sec{background:var(--sky-300);padding:64px;position:relative;overflow:hidden;border-radius:var(--r-xl)}
+.entry-eyebrow{display:inline-flex;align-items:center;gap:8px;line-height:1;font-family:var(--font-en);font-size:14px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.8);background:rgba(255,255,255,.12);padding:7px 16px 3px;border-radius:var(--r-pill);border:1px solid rgba(255,255,255,.25);margin-bottom:20px}
+.entry-h2{font-family:var(--font-jp);font-size:clamp(24px,3vw,38px);font-weight:700;color:white;line-height:1.65;letter-spacing:.06em;margin-bottom:18px}
+.entry-body{font-size:16px;color:rgba(255,255,255,.72);line-height:2;font-weight:300;margin-bottom:36px}
+
+/* -- Footer -- */
+.site-footer{background:#1f2937;padding:56px 64px 36px;border-radius:var(--r-xl)}
+.footer-in{max-width:1160px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:48px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:28px}
+.footer-logo-text{font-family:var(--font-en);font-size:16px;font-weight:700;color:rgba(255,255,255,.65);margin-bottom:16px;display:block}
+.footer-desc{font-size:16px;color:rgba(255,255,255,.4);line-height:2;font-weight:300}
+.footer-nav-title{font-family:var(--font-en);font-size:14px;letter-spacing:.2em;color:rgba(255,255,255,.28);text-transform:uppercase;margin-bottom:14px}
+.footer-nav-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-nav-list a{font-size:16px;color:rgba(255,255,255,.45);transition:color .2s}
+.footer-nav-list a:hover{color:rgba(255,255,255,.85)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-copy{font-family:var(--font-en);font-size:14px;color:rgba(255,255,255,.18);letter-spacing:.08em}
+.footer-sub{display:flex;gap:20px}
+.footer-sub a{font-size:14px;color:rgba(255,255,255,.22);transition:color .2s}
+.footer-sub a:hover{color:rgba(255,255,255,.6)}
+
+/* -- Marquee -- */
+.marquee-sec{padding:14px 0;background:var(--sky-300);overflow:hidden;-webkit-mask-image:linear-gradient(to right,transparent 0%,black 6%,black 94%,transparent 100%);mask-image:linear-gradient(to right,transparent 0%,black 6%,black 94%,transparent 100%);border-radius:var(--r-lg)}
+.marquee-track{display:flex;width:max-content;animation:marqueeScroll 30s linear infinite}
+.marquee-track:hover{animation-play-state:paused}
+.marquee-item{flex-shrink:0;display:flex;align-items:center;gap:20px;padding:0 32px;font-family:var(--font-en);font-size:14px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.9);white-space:nowrap}
+.marquee-sep{color:rgba(255,255,255,.5)}
+
+/* -- Wave Divider -- */
+.wave-div{width:100%;overflow:hidden;line-height:0;display:block}
+.wave-div svg{display:block;width:100%}
+
+/* -- Responsive -- */
+@media(max-width:900px){
+  .lib-sidebar{display:none}
+  .lib-main{margin-left:0}
+  .data-grid{grid-template-columns:repeat(2,1fr)}
+  .work-grid{grid-template-columns:repeat(2,1fr)}
+  .news-grid{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr}
+  .nav-links-demo{display:none}
+  .voice-item{flex-direction:column}
+  .voice-photo{width:100%;min-height:160px}
+  .voice-arr{width:100%;height:40px;border-left:none;border-top:1.5px solid var(--sky-100)}
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════════════
+     SIDEBAR
+     ════════════════════════════════════════════════════════════ -->
+<aside class="lib-sidebar">
+  <div class="lib-sidebar-logo">Component Library</div>
+  <div class="lib-sidebar-sub">Principal Home Recruit 2027</div>
+  <ul class="lib-nav">
+    <li><a href="#tokens"><span class="num">00</span>Design Tokens</a></li>
+    <li><a href="#navigation"><span class="num">01</span>Navigation</a></li>
+    <li><a href="#buttons"><span class="num">02</span>Buttons</a></li>
+    <li><a href="#tags"><span class="num">03</span>Tags & Badges</a></li>
+    <li><a href="#section-header"><span class="num">04</span>Section Header</a></li>
+    <li><a href="#data-cards"><span class="num">05</span>Data Cards</a></li>
+    <li><a href="#work-cards"><span class="num">06</span>Work Cards</a></li>
+    <li><a href="#voice-list"><span class="num">07</span>Voice List</a></li>
+    <li><a href="#timeline"><span class="num">08</span>Timeline</a></li>
+    <li><a href="#faq"><span class="num">09</span>FAQ</a></li>
+    <li><a href="#news-cards"><span class="num">10</span>News Cards</a></li>
+    <li><a href="#benefits"><span class="num">11</span>Benefits List</a></li>
+    <li><a href="#req-table"><span class="num">12</span>Requirement Table</a></li>
+    <li><a href="#entry-cta"><span class="num">13</span>Entry CTA</a></li>
+    <li><a href="#footer"><span class="num">14</span>Footer</a></li>
+    <li><a href="#marquee"><span class="num">15</span>Marquee</a></li>
+    <li><a href="#wave"><span class="num">16</span>Wave Divider</a></li>
+    <li><a href="#design-rules" style="color:var(--coral);border-left-color:var(--coral)"><span class="num" style="color:var(--coral)">★</span>Design Rules</a></li>
+  </ul>
+</aside>
+
+<!-- ════════════════════════════════════════════════════════════
+     MAIN
+     ════════════════════════════════════════════════════════════ -->
+<main class="lib-main">
+
+<!-- ── 00 TOKENS ── -->
+<section class="comp-section" id="tokens">
+  <div class="comp-header">
+    <div class="comp-num">00</div>
+    <h2 class="comp-title">Design Tokens</h2>
+    <p class="comp-desc">カラー・タイポグラフィ・ボーダー半径・シャドウなどの基礎トークン。</p>
+  </div>
+  <div class="comp-body">
+    <div class="comp-sub">Colors — Sky</div>
+    <div class="token-grid">
+      <div class="token-swatch"><div class="token-swatch-color" style="background:var(--sky-50)"></div><div class="token-swatch-info"><strong>sky-50</strong>#EAF5FC</div></div>
+      <div class="token-swatch"><div class="token-swatch-color" style="background:var(--sky-100)"></div><div class="token-swatch-info"><strong>sky-100</strong>#D4ECFA</div></div>
+      <div class="token-swatch"><div class="token-swatch-color" style="background:var(--sky-200)"></div><div class="token-swatch-info"><strong>sky-200</strong>#AADAF4</div></div>
+      <div class="token-swatch"><div class="token-swatch-color" style="background:var(--sky-300)"></div><div class="token-swatch-info"><strong>sky-300</strong>#6BBDE8</div></div>
+      <div class="token-swatch"><div class="token-swatch-color" style="background:var(--sky-400)"></div><div class="token-swatch-info"><strong>sky-400</strong>#4EA8D8</div></div>
+      <div class="token-swatch"><div class="token-swatch-color" style="background:var(--sky-500)"></div><div class="token-swatch-info"><strong>sky-500</strong>#2B8EC2</div></div>
+      <div class="token-swatch"><div class="token-swatch-color" style="background:var(--sky-600)"></div><div class="token-swatch-info"><strong>sky-600</strong>#1A6E9C</div></div>
+    </div>
+    <div class="spacer"></div>
+    <div class="comp-sub">Colors — Cream</div>
+    <div class="token-grid">
+      <div class="token-swatch"><div class="token-swatch-color" style="background:var(--cream-50)"></div><div class="token-swatch-info"><strong>cream-50</strong>#FDFAF6</div></div>
+      <div class="token-swatch"><div class="token-swatch-color" style="background:var(--cream-100)"></div><div class="token-swatch-info"><strong>cream-100</strong>#F7F3ED</div></div>
+      <div class="token-swatch"><div class="token-swatch-color" style="background:var(--cream-200)"></div><div class="token-swatch-info"><strong>cream-200</strong>#EFE9E0</div></div>
+      <div class="token-swatch"><div class="token-swatch-color" style="background:var(--cream-300)"></div><div class="token-swatch-info"><strong>cream-300</strong>#E0D8CE</div></div>
+    </div>
+    <div class="spacer"></div>
+    <div class="comp-sub">Colors — Accent & Ink</div>
+    <div class="token-grid">
+      <div class="token-swatch"><div class="token-swatch-color" style="background:var(--coral)"></div><div class="token-swatch-info"><strong>coral</strong>#F5A58C</div></div>
+      <div class="token-swatch"><div class="token-swatch-color" style="background:var(--mint)"></div><div class="token-swatch-info"><strong>mint</strong>#8ECDB8</div></div>
+      <div class="token-swatch"><div class="token-swatch-color" style="background:var(--ink)"></div><div class="token-swatch-info"><strong>ink</strong>#333333</div></div>
+      <div class="token-swatch"><div class="token-swatch-color" style="background:var(--ink-2)"></div><div class="token-swatch-info"><strong>ink-2</strong>#4A4A4A</div></div>
+      <div class="token-swatch"><div class="token-swatch-color" style="background:var(--ink-3)"></div><div class="token-swatch-info"><strong>ink-3</strong>#6B7280</div></div>
+      <div class="token-swatch"><div class="token-swatch-color" style="background:var(--ink-4)"></div><div class="token-swatch-info"><strong>ink-4</strong>#9CA3AF</div></div>
+    </div>
+    <div class="spacer"></div>
+    <div class="comp-sub">Typography</div>
+    <p style="font-family:var(--font-jp);font-size:24px;font-weight:700;color:var(--ink);margin-bottom:8px">Noto Sans JP — 見出しテキスト</p>
+    <p style="font-family:var(--font-en);font-size:24px;font-weight:600;color:var(--sky-400);margin-bottom:8px">Josefin Sans — Heading Text</p>
+    <p style="font-family:var(--font-jp);font-size:16px;color:var(--ink-3);line-height:2;font-weight:300">本文テキストサンプル。プリンシパルホームは、お客様一人ひとりの「こんな家に住みたい」という想いを丁寧に紡ぎ出します。</p>
+    <div class="spacer"></div>
+    <div class="comp-sub">Border Radius</div>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:end">
+      <div style="text-align:center"><div style="width:60px;height:60px;background:var(--sky-100);border-radius:var(--r-sm)"></div><div style="font-size:10px;color:var(--ink-4);margin-top:4px">r-sm 8px</div></div>
+      <div style="text-align:center"><div style="width:60px;height:60px;background:var(--sky-100);border-radius:var(--r-md)"></div><div style="font-size:10px;color:var(--ink-4);margin-top:4px">r-md 16px</div></div>
+      <div style="text-align:center"><div style="width:60px;height:60px;background:var(--sky-100);border-radius:var(--r-lg)"></div><div style="font-size:10px;color:var(--ink-4);margin-top:4px">r-lg 24px</div></div>
+      <div style="text-align:center"><div style="width:60px;height:60px;background:var(--sky-100);border-radius:var(--r-xl)"></div><div style="font-size:10px;color:var(--ink-4);margin-top:4px">r-xl 32px</div></div>
+      <div style="text-align:center"><div style="width:100px;height:40px;background:var(--sky-100);border-radius:var(--r-pill)"></div><div style="font-size:10px;color:var(--ink-4);margin-top:4px">r-pill 100px</div></div>
+    </div>
+    <div class="spacer"></div>
+    <div class="comp-sub">Shadows</div>
+    <div style="display:flex;gap:24px;flex-wrap:wrap">
+      <div style="width:120px;height:80px;background:white;border-radius:var(--r-lg);box-shadow:var(--shadow-sm);display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--ink-4)">shadow-sm</div>
+      <div style="width:120px;height:80px;background:white;border-radius:var(--r-lg);box-shadow:var(--shadow-md);display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--ink-4)">shadow-md</div>
+      <div style="width:120px;height:80px;background:white;border-radius:var(--r-lg);box-shadow:var(--shadow-lg);display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--ink-4)">shadow-lg</div>
+      <div style="width:120px;height:80px;background:white;border-radius:var(--r-lg);box-shadow:var(--shadow-sky);display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--sky-400)">shadow-sky</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 01 NAVIGATION ── -->
+<section class="comp-section" id="navigation">
+  <div class="comp-header">
+    <div class="comp-num">01</div>
+    <h2 class="comp-title">Navigation</h2>
+    <p class="comp-desc">固定ヘッダーナビ。スクロール時に背景白＋ブラー。SP時はハンバーガー＋ドロワー。</p>
+  </div>
+  <div class="comp-body" style="padding:0">
+    <nav class="site-nav-demo">
+      <span class="nav-logo-text">PRINCIPAL HOME</span>
+      <ul class="nav-links-demo">
+        <li><a href="#">会社を知る</a></li>
+        <li><a href="#">仕事を知る</a></li>
+        <li><a href="#">人を知る</a></li>
+        <li><a href="#">環境・制度</a></li>
+        <li><a href="#">選考フロー</a></li>
+        <li><a href="#">お知らせ</a></li>
+      </ul>
+      <div style="display:flex;gap:10px;align-items:center">
+        <a href="#" class="nav-btn-jobs">募集要項</a>
+        <a href="#" class="nav-btn-entry">エントリー</a>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<!-- ── 02 BUTTONS ── -->
+<section class="comp-section" id="buttons">
+  <div class="comp-header">
+    <div class="comp-num">02</div>
+    <h2 class="comp-title">Buttons</h2>
+    <p class="comp-desc">サイト全体で使用されるボタンバリエーション。</p>
+  </div>
+  <div class="comp-body">
+    <div class="comp-sub">Navigation Buttons</div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+      <a href="#" class="nav-btn-jobs">募集要項</a>
+      <a href="#" class="nav-btn-entry">エントリー</a>
+    </div>
+  </div>
+  <div class="comp-body-dark">
+    <div class="comp-sub-dark">Hero Buttons (on dark background)</div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+      <a href="#" class="btn-hero-main"><span>エントリーはこちら</span><span>→</span></a>
+      <a href="#" class="btn-hero-ghost">仕事を知る</a>
+    </div>
+  </div>
+  <div class="comp-body">
+    <div class="comp-sub">More / Arrow Button</div>
+    <a href="#" class="btn-more">詳しく見る <span class="arr">→</span></a>
+  </div>
+  <div class="comp-body-sky">
+    <div class="comp-sub-sky">Entry CTA Buttons (on sky background)</div>
+    <a href="#" class="btn-entry"><span>マイナビでエントリーする</span><span class="arr">→</span></a>
+    <a href="#" class="btn-entry-outline"><span>会社説明会に申し込む</span><span class="arr">→</span></a>
+  </div>
+</section>
+
+<!-- ── 03 TAGS & BADGES ── -->
+<section class="comp-section" id="tags">
+  <div class="comp-header">
+    <div class="comp-num">03</div>
+    <h2 class="comp-title">Tags & Badges</h2>
+    <p class="comp-desc">ラベル・バッジ・タグ系コンポーネント一覧。</p>
+  </div>
+  <div class="comp-body">
+    <div class="comp-sub">Status Tags</div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+      <span class="tag-status"><span class="dot-live"></span>募集中</span>
+      <span class="tag-new">NEW</span>
+    </div>
+    <div class="spacer"></div>
+    <div class="comp-sub">Category / Year / Skill Tags</div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+      <span class="news-cat">説明会</span>
+      <span class="news-cat">インターン</span>
+      <span class="cs-year-badge">Year 1</span>
+      <span class="cs-year-badge">Year 2–3</span>
+      <span class="cs-tag">ビジネスマナー</span>
+      <span class="cs-tag">業界知識研修</span>
+      <span class="cs-tag">現場見学</span>
+    </div>
+    <div class="spacer"></div>
+    <div class="comp-sub">Value / Skill Pills</div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+      <span class="env-val">最大3万円/月</span>
+      <span class="env-val">125日</span>
+      <span class="env-val">全額補助</span>
+      <span class="voice-photo-tag-demo">施工管理</span>
+      <span class="wm-skill">コミュニケーション力</span>
+    </div>
+    <div class="spacer"></div>
+    <div class="comp-sub">Section Eyebrow</div>
+    <span class="sec-en">About Us</span>
+    <span class="sec-eyebrow"><span class="dot"></span>私たちについて</span>
+  </div>
+  <div class="comp-body-dark">
+    <div class="comp-sub-dark">On-Image Tags</div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
+      <span class="hero-tag"><span class="hero-tag-dot"></span>New Graduate Recruitment 2027</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── 04 SECTION HEADER ── -->
+<section class="comp-section" id="section-header">
+  <div class="comp-header">
+    <div class="comp-num">04</div>
+    <h2 class="comp-title">Section Header</h2>
+    <p class="comp-desc">各セクション冒頭のヘッダーパターン。左寄せ・中央寄せ・右アクション付き。</p>
+  </div>
+  <div class="comp-body">
+    <div class="comp-sub">Pattern A — Left Aligned</div>
+    <span class="sec-en">About Us</span>
+    <span class="sec-eyebrow"><span class="dot"></span>私たちについて</span>
+    <h2 class="sec-h2" style="margin-top:16px">家を建てることは、<br>夢を建てること。</h2>
+    <p class="sec-desc">プリンシパルホームは、お客様一人ひとりの想いを丁寧に紡ぎ出します。</p>
+    <a href="#" class="btn-more" style="margin-top:28px">詳しく見る <span class="arr">→</span></a>
+  </div>
+  <div class="comp-body" style="border-top:1px solid var(--cream-200)">
+    <div class="comp-sub">Pattern B — Center Aligned</div>
+    <div style="text-align:center">
+      <span class="sec-en">Numbers</span>
+      <span class="sec-eyebrow"><span class="dot"></span>数字で見るプリンシパルホーム</span>
+      <h2 class="sec-h2" style="margin-top:16px">実績と数字が語る、<br>プリンシパルホームの強み</h2>
+    </div>
+  </div>
+  <div class="comp-body" style="border-top:1px solid var(--cream-200)">
+    <div class="comp-sub">Pattern C — With Side Action</div>
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px">
+      <div>
+        <span class="sec-en">Requirement</span>
+        <span class="sec-eyebrow"><span class="dot"></span>募集要項</span>
+        <h2 class="sec-h2" style="margin-top:16px;margin-bottom:0">2027年卒 募集要項</h2>
+      </div>
+      <span class="tag-status"><span class="dot-live"></span>募集中</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── 05 DATA CARDS ── -->
+<section class="comp-section" id="data-cards">
+  <div class="comp-header">
+    <div class="comp-num">05</div>
+    <h2 class="comp-title">Data Cards</h2>
+    <p class="comp-desc">数字セクション用カード群。ドーナツチャート・カウント・バーチャートの3タイプ。</p>
+  </div>
+  <div class="comp-body-cream">
+    <div class="data-grid">
+      <div class="data-card">
+        <div class="data-card-icon"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
+        <div class="donut-wrap"><svg viewBox="0 0 100 100" width="100" height="100"><circle class="donut-bg" cx="50" cy="50" r="44"/><circle class="donut-ring" cx="50" cy="50" r="44" style="stroke-dasharray:260 283"/></svg><div class="donut-center"><span class="donut-val">94</span><span class="donut-unit">%</span></div></div>
+        <div class="data-label">顧客満足度</div><div class="data-sub">Customer Satisfaction</div>
+      </div>
+      <div class="data-card">
+        <div class="data-card-icon mint"><svg viewBox="0 0 24 24"><path d="M13.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM9.8 8.9L7 23h2.1l1.8-8 2.1 2v6h2v-7.5l-2.1-2 .6-3C14.8 12 16.8 13 19 13v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1L6 8.3V13h2V9.6l1.8-.7z"/></svg></div>
+        <div class="donut-wrap"><svg viewBox="0 0 100 100" width="100" height="100"><circle class="donut-bg" cx="50" cy="50" r="44"/><circle class="donut-ring" cx="50" cy="50" r="44" style="stroke:var(--mint);stroke-dasharray:119 283"/></svg><div class="donut-center"><span class="donut-val" style="color:var(--mint)">42</span><span class="donut-unit" style="color:var(--mint)">%</span></div></div>
+        <div class="data-label">男性育休取得率</div><div class="data-sub">Paternity Leave</div>
+      </div>
+      <div class="data-card">
+        <div class="data-icon-wrap"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></div>
+        <div><div class="data-num">1,200<span>棟</span></div><div class="data-label">累計施工棟数</div><div class="data-sub">Cumulative Buildings</div></div>
+      </div>
+    </div>
+    <div class="spacer"></div>
+    <div class="comp-sub">Bar Chart Card</div>
+    <div style="max-width:340px">
+      <div class="data-card" style="align-items:flex-start;text-align:left">
+        <div class="data-num" style="font-size:32px">125<span style="font-size:16px">日</span></div>
+        <div class="data-label" style="margin-bottom:8px">年間休日数</div>
+        <div class="bar-chart" style="width:100%">
+          <div class="bar-item"><div class="bar-label-row"><span class="bar-label">年間休日</span><span class="bar-val">125日</span></div><div class="bar-track"><div class="bar-fill" style="width:83%"></div></div></div>
+          <div class="bar-item"><div class="bar-label-row"><span class="bar-label">有給取得</span><span class="bar-val">94%</span></div><div class="bar-track"><div class="bar-fill" style="width:94%;background:linear-gradient(90deg,var(--mint),#a8ddd0)"></div></div></div>
+          <div class="bar-item"><div class="bar-label-row"><span class="bar-label">平均残業</span><span class="bar-val">18h/月</span></div><div class="bar-track"><div class="bar-fill" style="width:22%;background:linear-gradient(90deg,var(--coral),#f7b99e)"></div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 06 WORK CARDS ── -->
+<section class="comp-section" id="work-cards">
+  <div class="comp-header">
+    <div class="comp-num">06</div>
+    <h2 class="comp-title">Work Cards</h2>
+    <p class="comp-desc">職種紹介カード。写真の上にグラデーションオーバーレイ＋テキスト。ホバーで拡大＆リフトアップ。</p>
+  </div>
+  <div class="comp-body">
+    <div class="work-grid">
+      <div class="work-card"><div class="work-photo"><div style="width:100%;height:100%;background:linear-gradient(135deg,var(--sky-200),var(--sky-400))"></div><div class="work-ov"></div><div class="work-info"><div><div class="work-name">施工管理</div><div class="work-sub">Construction</div></div><div class="work-arr">→</div></div></div></div>
+      <div class="work-card"><div class="work-photo"><div style="width:100%;height:100%;background:linear-gradient(135deg,var(--mint),#5aab8f)"></div><div class="work-ov"></div><div class="work-info"><div><div class="work-name">設計</div><div class="work-sub">Design</div></div><div class="work-arr">→</div></div></div></div>
+      <div class="work-card"><div class="work-photo"><div style="width:100%;height:100%;background:linear-gradient(135deg,var(--coral),#e07a5e)"></div><div class="work-ov"></div><div class="work-info"><div><div class="work-name">営業</div><div class="work-sub">Sales</div></div><div class="work-arr">→</div></div></div></div>
+      <div class="work-card"><div class="work-photo"><div style="width:100%;height:100%;background:linear-gradient(135deg,#F7C96A,#e0a83a)"></div><div class="work-ov"></div><div class="work-info"><div><div class="work-name">インテリア</div><div class="work-sub">Interior</div></div><div class="work-arr">→</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 07 VOICE LIST ── -->
+<section class="comp-section" id="voice-list">
+  <div class="comp-header">
+    <div class="comp-num">07</div>
+    <h2 class="comp-title">Voice List</h2>
+    <p class="comp-desc">先輩社員の声リスト。写真＋メタ情報＋引用テキストの横並びレイアウト。</p>
+  </div>
+  <div class="comp-body-sky50">
+    <div class="voice-list">
+      <div class="voice-item">
+        <div class="voice-photo"><div style="width:100%;height:200px;background:linear-gradient(135deg,var(--sky-200),var(--sky-400))"></div></div>
+        <div class="voice-body">
+          <div class="voice-name-row"><span class="voice-initial">T.S</span><span class="voice-name-ja">田中 翔太</span></div>
+          <div class="voice-meta"><span class="voice-dept">施工管理部</span><span class="voice-year">2020年入社</span></div>
+          <p class="voice-quote">現場でお客様の「ありがとう」をいただく瞬間が、この仕事を続ける一番の原動力です。</p>
+        </div>
+        <div class="voice-arr">→</div>
+      </div>
+      <div class="voice-item">
+        <div class="voice-photo"><div style="width:100%;height:200px;background:linear-gradient(135deg,var(--coral),#e07a5e)"></div></div>
+        <div class="voice-body">
+          <div class="voice-name-row"><span class="voice-initial">M.K</span><span class="voice-name-ja">松本 花</span></div>
+          <div class="voice-meta"><span class="voice-dept">営業部</span><span class="voice-year">2021年入社</span></div>
+          <p class="voice-quote">夢のマイホームを実現するお手伝いができる仕事に、日々やりがいを感じています。</p>
+        </div>
+        <div class="voice-arr">→</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 08 TIMELINE ── -->
+<section class="comp-section" id="timeline">
+  <div class="comp-header">
+    <div class="comp-num">08</div>
+    <h2 class="comp-title">Timeline</h2>
+    <p class="comp-desc">タイムライン系コンポーネント。選考フロー用。</p>
+  </div>
+  <div class="comp-body-cream">
+    <div class="timeline">
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-step">Step 01</div><div class="timeline-title">エントリー</div><div class="timeline-desc">マイナビよりエントリー。会社説明会への参加受付も同時スタート。</div></div></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-step">Step 02</div><div class="timeline-title">書類選考</div><div class="timeline-desc">エントリーシート・履歴書を提出。1週間以内に結果をご連絡します。</div></div></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-step">Step 03</div><div class="timeline-title">一次面接</div><div class="timeline-desc">人事担当者との面接（オンライン可）。志望動機・自己PRを中心に。</div></div></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-step">Step 04</div><div class="timeline-title">内定・入社準備</div><div class="timeline-desc">内定通知後、フォローアッププログラムで安心して入社できます。</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 09 FAQ ── -->
+<section class="comp-section" id="faq">
+  <div class="comp-header">
+    <div class="comp-num">09</div>
+    <h2 class="comp-title">FAQ Accordion</h2>
+    <p class="comp-desc">アコーディオン型FAQ。クリックで展開/閉じる。</p>
+  </div>
+  <div class="comp-body" style="background:var(--cream-50)">
+    <div class="faq-wrap">
+      <div class="faq-item open">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')"><div class="faq-mark">Q</div><span>文系・未経験でも応募できますか？</span><span class="faq-chevron">▾</span></div>
+        <div class="faq-a">はい、文系・理系問わず応募いただけます。入社後の研修制度が充実しているため、ゼロからでも安心してスタートできます。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')"><div class="faq-mark">Q</div><span>転勤はありますか？</span><span class="faq-chevron">▾</span></div>
+        <div class="faq-a">原則として転勤はありません。町田・横浜・相模原の3拠点で活躍いただきます。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')"><div class="faq-mark">Q</div><span>選考の流れを教えてください。</span><span class="faq-chevron">▾</span></div>
+        <div class="faq-a">エントリー → 書類選考 → 一次面接 → 適性検査 → 最終面接 → 内定の流れです。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 10 NEWS CARDS ── -->
+<section class="comp-section" id="news-cards">
+  <div class="comp-header">
+    <div class="comp-num">10</div>
+    <h2 class="comp-title">News Cards</h2>
+    <p class="comp-desc">お知らせカード。日付＋カテゴリタグ＋タイトルの構成。</p>
+  </div>
+  <div class="comp-body">
+    <div class="news-grid">
+      <div class="news-card"><div class="news-date">2026.03.15</div><div class="news-content"><div class="news-cat">説明会</div><div class="news-title">【27卒】会社説明会3月・4月開催日程決定</div></div><div class="news-arr">→</div></div>
+      <div class="news-card"><div class="news-date">2026.02.28</div><div class="news-content"><div class="news-cat">インターン</div><div class="news-title">1DAYインターンシップ春開催のお知らせ</div></div><div class="news-arr">→</div></div>
+      <div class="news-card"><div class="news-date">2026.01.20</div><div class="news-content"><span class="tag-new" style="margin-bottom:8px">NEW</span><div class="news-title">男性育休取得率42%を達成しました</div></div><div class="news-arr">→</div></div>
+      <div class="news-card"><div class="news-date">2026.02.10</div><div class="news-content"><div class="news-cat">採用情報</div><div class="news-title">2027年卒 採用活動開始のお知らせ</div></div><div class="news-arr">→</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 11 BENEFITS LIST ── -->
+<section class="comp-section" id="benefits">
+  <div class="comp-header">
+    <div class="comp-num">11</div>
+    <h2 class="comp-title">Benefits List</h2>
+    <p class="comp-desc">福利厚生リスト。アイコン＋名称＋値のダッシュボーダー区切り。</p>
+  </div>
+  <div class="comp-body">
+    <div class="env-list">
+      <div class="env-item"><div class="env-icon"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></div><div class="env-name">住宅手当</div><div class="env-val">最大3万円/月</div></div>
+      <div class="env-item"><div class="env-icon"><svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg></div><div class="env-name">年間休日</div><div class="env-val">125日</div></div>
+      <div class="env-item"><div class="env-icon"><svg viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg></div><div class="env-name">資格取得支援</div><div class="env-val">全額補助</div></div>
+      <div class="env-item"><div class="env-icon"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg></div><div class="env-name">社員割引制度</div><div class="env-val">最大200万円</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 12 REQUIREMENT TABLE ── -->
+<section class="comp-section" id="req-table">
+  <div class="comp-header">
+    <div class="comp-num">12</div>
+    <h2 class="comp-title">Requirement Table</h2>
+    <p class="comp-desc">募集要項テーブル。ダッシュボーダー区切り、ホバーでハイライト。</p>
+  </div>
+  <div class="comp-body">
+    <table class="req-table">
+      <tr><th>職種</th><td>施工管理職 / 設計職 / 営業職 / インテリアコーディネーター職</td></tr>
+      <tr><th>給与</th><td>月給 230,000円〜（大卒）<span class="req-sub">※ 別途各種手当・賞与（年2回）あり</span></td></tr>
+      <tr><th>勤務地</th><td>町田本社 / 横浜支社 / 相模原営業所<span class="req-sub">※ 原則転勤なし</span></td></tr>
+      <tr><th>休日・休暇</th><td>年間休日125日（土日祝）、年次有給休暇、育児・介護休暇</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ── 13 ENTRY CTA ── -->
+<section class="comp-section" id="entry-cta">
+  <div class="comp-header">
+    <div class="comp-num">13</div>
+    <h2 class="comp-title">Entry CTA Section</h2>
+    <p class="comp-desc">エントリー誘導セクション。水色背景＋デコレーション円。</p>
+  </div>
+  <div class="comp-body">
+    <div class="entry-sec">
+      <div style="position:relative;z-index:1">
+        <span class="entry-eyebrow">Entry 2027</span>
+        <h2 class="entry-h2">あなたの夢を、<br>ここから始めよう。</h2>
+        <p class="entry-body">プリンシパルホームで、住まいをつくる喜びと達成感を体験してみませんか。</p>
+        <a href="#" class="btn-entry"><span>マイナビでエントリーする</span><span class="arr">→</span></a>
+        <a href="#" class="btn-entry-outline"><span>会社説明会に申し込む</span><span class="arr">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 14 FOOTER ── -->
+<section class="comp-section" id="footer">
+  <div class="comp-header">
+    <div class="comp-num">14</div>
+    <h2 class="comp-title">Footer</h2>
+    <p class="comp-desc">3カラムフッター。ロゴ＋説明＋ナビゲーションリンク＋コピーライト。</p>
+  </div>
+  <div class="comp-body">
+    <div class="site-footer">
+      <div class="footer-in">
+        <div class="footer-top">
+          <div><span class="footer-logo-text">PRINCIPAL HOME</span><p class="footer-desc">新卒採用 2027<br>あなたの夢を、形に。</p></div>
+          <div><div class="footer-nav-title">Menu</div><ul class="footer-nav-list"><li><a href="#">会社を知る</a></li><li><a href="#">仕事を知る</a></li><li><a href="#">人を知る</a></li></ul></div>
+          <div><div class="footer-nav-title">Recruit</div><ul class="footer-nav-list"><li><a href="#">募集要項</a></li><li><a href="#">選考フロー</a></li><li><a href="#">エントリー</a></li></ul></div>
+        </div>
+        <div class="footer-bottom"><span class="footer-copy">© 2026 Principal Home Inc.</span><div class="footer-sub"><a href="#">プライバシーポリシー</a><a href="#">サイトマップ</a></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 15 MARQUEE ── -->
+<section class="comp-section" id="marquee">
+  <div class="comp-header">
+    <div class="comp-num">15</div>
+    <h2 class="comp-title">Marquee</h2>
+    <p class="comp-desc">無限スクロールマーキー。ホバーで一時停止。</p>
+  </div>
+  <div class="comp-body">
+    <div class="marquee-sec">
+      <div class="marquee-track">
+        <span class="marquee-item">施工管理 <span class="marquee-sep">✦</span></span>
+        <span class="marquee-item">設計 <span class="marquee-sep">✦</span></span>
+        <span class="marquee-item">営業 <span class="marquee-sep">✦</span></span>
+        <span class="marquee-item">インテリアコーディネーター <span class="marquee-sep">✦</span></span>
+        <span class="marquee-item">Construction <span class="marquee-sep">✦</span></span>
+        <span class="marquee-item">Design <span class="marquee-sep">✦</span></span>
+        <span class="marquee-item">Sales <span class="marquee-sep">✦</span></span>
+        <span class="marquee-item">Interior <span class="marquee-sep">✦</span></span>
+        <span class="marquee-item">施工管理 <span class="marquee-sep">✦</span></span>
+        <span class="marquee-item">設計 <span class="marquee-sep">✦</span></span>
+        <span class="marquee-item">営業 <span class="marquee-sep">✦</span></span>
+        <span class="marquee-item">インテリアコーディネーター <span class="marquee-sep">✦</span></span>
+        <span class="marquee-item">Construction <span class="marquee-sep">✦</span></span>
+        <span class="marquee-item">Design <span class="marquee-sep">✦</span></span>
+        <span class="marquee-item">Sales <span class="marquee-sep">✦</span></span>
+        <span class="marquee-item">Interior <span class="marquee-sep">✦</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 16 WAVE DIVIDER ── -->
+<section class="comp-section" id="wave">
+  <div class="comp-header">
+    <div class="comp-num">16</div>
+    <h2 class="comp-title">Wave Divider</h2>
+    <p class="comp-desc">セクション間のウェーブ型区切り。背景色の切り替え時に使用。</p>
+  </div>
+  <div class="comp-body" style="padding-bottom:0">
+    <div class="comp-sub">White → Cream</div>
+  </div>
+  <div class="wave-div">
+    <svg viewBox="0 0 1440 48" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,24 C360,48 720,0 1080,24 C1260,36 1380,12 1440,24 L1440,48 L0,48 Z" fill="#F7F3ED"/>
+    </svg>
+  </div>
+  <div style="background:var(--cream-100);padding:24px 48px">
+    <div class="comp-sub">Cream → White</div>
+  </div>
+  <div class="wave-div" style="background:var(--cream-100)">
+    <svg viewBox="0 0 1440 48" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,24 C360,0 720,48 1080,24 C1260,12 1380,36 1440,24 L1440,48 L0,48 Z" fill="#FFFFFF"/>
+    </svg>
+  </div>
+  <div style="padding:24px 48px">
+    <div class="comp-sub">White → Sky</div>
+  </div>
+  <div class="wave-div">
+    <svg viewBox="0 0 1440 48" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,24 C360,48 720,0 1080,24 C1260,36 1380,12 1440,24 L1440,48 L0,48 Z" fill="#6BBDE8"/>
+    </svg>
+  </div>
+  <div style="background:var(--sky-300);padding:24px 48px;color:rgba(255,255,255,.6);font-size:14px">Sky Section</div>
+  <div class="wave-div" style="background:var(--sky-300)">
+    <svg viewBox="0 0 1440 48" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,24 C360,0 720,48 1080,24 C1260,12 1380,36 1440,24 L1440,48 L0,48 Z" fill="#2D2420"/>
+    </svg>
+  </div>
+  <div style="background:var(--ink);padding:24px 48px;color:rgba(255,255,255,.3);font-size:14px">Dark Section</div>
+</section>
+
+
+<!-- ── ★ DESIGN RULES ── -->
+<section class="comp-section" id="design-rules">
+  <div class="comp-header" style="background:#fff8f6;border-bottom-color:#f5a58c">
+    <div class="comp-num" style="color:var(--coral)">★ Design Rules</div>
+    <div class="comp-title">デザインルール</div>
+    <div class="comp-desc">このプロジェクト全体で守るべきデザイン上の決まりごとを記録します。</div>
+  </div>
+  <div class="comp-body">
+
+    <!-- Rule 01 -->
+    <div style="border:1.5px solid var(--cream-200);border-radius:var(--r-md);padding:24px 28px;margin-bottom:20px">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+        <span style="font-family:var(--font-en);font-size:14px;font-weight:700;letter-spacing:.14em;color:var(--coral);background:#fff0eb;padding:3px 10px;border-radius:var(--r-pill)">RULE 01</span>
+        <span style="font-size:16px;font-weight:700;color:var(--ink)">フォントサイズ最小値 — 14px</span>
+      </div>
+      <p style="font-size:14px;color:var(--ink-3);line-height:2;margin-bottom:12px">
+        サイト内で使用するすべてのフォントサイズは <strong style="color:var(--ink)">14px を最小値</strong> とする。<br>
+        ラベル・注釈・メタ情報など小さく見せたい要素も 14px 未満は使用しない。
+      </p>
+      <div style="background:var(--cream-50);border-radius:var(--r-sm);padding:16px 20px;font-size:14px;color:var(--ink-3);line-height:1.8">
+        <div style="margin-bottom:4px"><span style="color:#1a7a5e;font-weight:700">✓ OK</span> &nbsp;font-size: 14px / 16px / 18px / 20px …</div>
+        <div><span style="color:#c0281a;font-weight:700">✗ NG</span> &nbsp;font-size: 13px / 12px / 11px / 10px / 9px …</div>
+      </div>
+      <div style="margin-top:12px;font-size:14px;color:var(--ink-4)">
+        <strong>例外：</strong> em単位で指定する装飾テキスト（例：アイコン内の相対サイズ）は対象外。
+      </div>
+    </div>
+
+    <!-- Rule 02 -->
+    <div style="border:1.5px solid var(--cream-200);border-radius:var(--r-md);padding:24px 28px;margin-bottom:20px">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+        <span style="font-family:var(--font-en);font-size:14px;font-weight:700;letter-spacing:.14em;color:var(--coral);background:#fff0eb;padding:3px 10px;border-radius:var(--r-pill)">RULE 02</span>
+        <span style="font-size:16px;font-weight:700;color:var(--ink)">画像ホバー時のscale拡大禁止</span>
+      </div>
+      <p style="font-size:14px;color:var(--ink-3);line-height:2;margin-bottom:12px">
+        写真・カード内画像へのカーソルオン時に <strong style="color:var(--ink)">transform: scale() による拡大モーション</strong> を使用しない。
+      </p>
+      <div style="background:var(--cream-50);border-radius:var(--r-sm);padding:16px 20px;font-size:14px;color:var(--ink-3);line-height:1.8">
+        <div style="margin-bottom:4px"><span style="color:#c0281a;font-weight:700">✗ NG</span> &nbsp;img:hover { transform: scale(1.05); }</div>
+        <div><span style="color:#1a7a5e;font-weight:700">✓ OK</span> &nbsp;brightness / opacity などの filter 変化は可</div>
+      </div>
+    </div>
+
+    <!-- Rule 03 -->
+    <div style="border:1.5px solid var(--cream-200);border-radius:var(--r-md);padding:24px 28px">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+        <span style="font-family:var(--font-en);font-size:14px;font-weight:700;letter-spacing:.14em;color:var(--coral);background:#fff0eb;padding:3px 10px;border-radius:var(--r-pill)">RULE 03</span>
+        <span style="font-size:16px;font-weight:700;color:var(--ink)">カードホバー時の位置移動禁止</span>
+      </div>
+      <p style="font-size:14px;color:var(--ink-3);line-height:2;margin-bottom:12px">
+        カードホバー時に <strong style="color:var(--ink)">translateY・rotate などの位置移動アニメーション</strong> を使用しない。
+      </p>
+      <div style="background:var(--cream-50);border-radius:var(--r-sm);padding:16px 20px;font-size:14px;color:var(--ink-3);line-height:1.8">
+        <div style="margin-bottom:4px"><span style="color:#c0281a;font-weight:700">✗ NG</span> &nbsp;.card:hover { transform: translateY(-4px); }</div>
+        <div><span style="color:#1a7a5e;font-weight:700">✓ OK</span> &nbsp;box-shadow / border-color などの視覚的変化は可</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+</body>
+</html>

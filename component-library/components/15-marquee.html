@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marquee — Component Library</title>
+<link rel="stylesheet" href="../tokens.css">
+<style>
+.marquee-sec{padding:14px 0;background:var(--sky-300);overflow:hidden;-webkit-mask-image:linear-gradient(to right,transparent 0%,black 6%,black 94%,transparent 100%);mask-image:linear-gradient(to right,transparent 0%,black 6%,black 94%,transparent 100%)}
+.marquee-track{display:flex;width:max-content;animation:marqueeScroll 30s linear infinite}
+.marquee-track:hover{animation-play-state:paused}
+.marquee-item{flex-shrink:0;display:flex;align-items:center;gap:20px;padding:0 32px;font-family:var(--font-en);font-size:14px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.9);white-space:nowrap}
+.marquee-sep{color:rgba(255,255,255,.5)}
+
+.demo-section{padding:40px 48px;border-bottom:1px solid var(--cream-200)}
+.demo-section h3{font-family:var(--font-en);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--sky-400);margin-bottom:20px}
+</style>
+</head>
+<body>
+
+<h2 style="padding:20px 48px 10px;font-family:var(--font-en);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--sky-400)">15 — Marquee</h2>
+<p style="padding:0 48px 20px;font-size:13px;color:var(--ink-3)">無限スクロールマーキー。ホバーで一時停止。</p>
+
+<div class="marquee-sec">
+  <div class="marquee-track">
+    <span class="marquee-item">施工管理 <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">設計 <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">営業 <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">インテリアコーディネーター <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">Construction <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">Design <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">Sales <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">Interior <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">施工管理 <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">設計 <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">営業 <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">インテリアコーディネーター <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">Construction <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">Design <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">Sales <span class="marquee-sep">✦</span></span>
+    <span class="marquee-item">Interior <span class="marquee-sep">✦</span></span>
+  </div>
+</div>
+
+</body>
+</html>

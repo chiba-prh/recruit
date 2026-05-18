@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ — Component Library</title>
+<link rel="stylesheet" href="../tokens.css">
+<style>
+.faq-wrap{max-width:720px}
+.faq-item{border-bottom:1px solid var(--cream-200)}
+.faq-item:first-child{border-top:1px solid var(--cream-200)}
+.faq-q{
+  display:flex;align-items:center;gap:14px;padding:20px 4px;cursor:pointer;
+  font-size:14px;font-weight:500;color:var(--ink);letter-spacing:.03em;
+  transition:color .2s;user-select:none;
+}
+.faq-q:hover{color:var(--sky-400)}
+.faq-mark{
+  width:28px;height:28px;border-radius:50%;flex-shrink:0;
+  background:var(--sky-300);color:white;
+  display:flex;align-items:center;justify-content:center;line-height:1;
+  font-family:var(--font-en);font-size:14px;font-weight:700;
+}
+.faq-a{
+  padding:0 4px 20px 42px;font-size:14px;color:var(--ink-3);
+  line-height:1.9;font-weight:300;display:none;
+}
+.faq-item.open .faq-a{display:block}
+.faq-chevron{
+  margin-left:auto;color:var(--sky-400);font-size:16px;
+  transition:transform .25s;line-height:1;flex-shrink:0;
+}
+.faq-item.open .faq-chevron{transform:rotate(180deg)}
+
+.demo-section{padding:40px 48px;border-bottom:1px solid var(--cream-200)}
+.demo-section h3{font-family:var(--font-en);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--sky-400);margin-bottom:20px}
+</style>
+</head>
+<body>
+
+<h2 style="padding:20px 48px 10px;font-family:var(--font-en);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--sky-400)">09 — FAQ Accordion</h2>
+<p style="padding:0 48px 20px;font-size:13px;color:var(--ink-3)">アコーディオン型FAQ。クリックで展開/閉じる。</p>
+
+<div class="demo-section" style="background:var(--cream-50)">
+  <div class="faq-wrap">
+    <div class="faq-item open">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')"><div class="faq-mark">Q</div><span>文系・未経験でも応募できますか？</span><span class="faq-chevron">▾</span></div>
+      <div class="faq-a">はい、文系・理系問わず、また建築や不動産の知識がなくても応募いただけます。入社後の研修制度が充実しているため、ゼロからでも安心してスタートできます。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')"><div class="faq-mark">Q</div><span>転勤はありますか？</span><span class="faq-chevron">▾</span></div>
+      <div class="faq-a">原則として転勤はありません。町田・横浜・相模原の3拠点で活躍いただきますが、希望を最大限考慮した配属を行っています。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="this.parentElement.classList.toggle('open')"><div class="faq-mark">Q</div><span>選考の流れを教えてください。</span><span class="faq-chevron">▾</span></div>
+      <div class="faq-a">エントリー → 書類選考 → 一次面接（人事）→ 適性検査 → 最終面接（役員）→ 内定の流れです。選考期間は概ね3〜4週間を予定しています。</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Timeline — Component Library</title>
+<link rel="stylesheet" href="../tokens.css">
+<style>
+/* ── Day Flow Timeline ── */
+.day-flow{display:flex;flex-direction:column;gap:0;position:relative;max-width:480px}
+.day-flow::before{
+  content:'';position:absolute;left:8px;top:0;bottom:0;
+  width:2px;background:linear-gradient(to bottom,var(--sky-300),var(--sky-100));border-radius:2px;
+}
+.day-item{display:flex;flex-direction:row;align-items:flex-start;gap:16px;padding:18px 0}
+.day-item:first-child{padding-top:0}
+.day-item:last-child{padding-bottom:0}
+.day-dot{
+  flex-shrink:0;position:relative;z-index:1;
+  width:18px;height:18px;border-radius:50%;
+  background:var(--sky-300);border:3px solid var(--white);box-shadow:0 0 0 2px var(--sky-200);
+  margin-top:2px;
+}
+.day-body{display:flex;flex-direction:column}
+.day-time{font-family:var(--font-en);font-size:14px;font-weight:700;color:var(--sky-400);letter-spacing:.06em;line-height:1.4;margin-bottom:5px}
+.day-title{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:4px}
+.day-desc{font-size:14px;color:var(--ink-3);line-height:1.75;font-weight:300}
+
+/* ── Selection Flow Timeline ── */
+.timeline{position:relative;padding-left:0;max-width:480px}
+.timeline::before{
+  content:'';position:absolute;left:8px;top:0;bottom:0;
+  width:2px;background:linear-gradient(to bottom,var(--sky-300),var(--sky-100));border-radius:2px;
+}
+.timeline-item{display:flex;flex-direction:row;align-items:flex-start;gap:16px;margin-bottom:32px}
+.timeline-item:last-child{margin-bottom:0}
+.timeline-dot{
+  flex-shrink:0;position:relative;z-index:1;
+  width:18px;height:18px;border-radius:50%;
+  background:var(--sky-300);border:3px solid var(--white);box-shadow:0 0 0 2px var(--sky-200);
+  margin-top:2px;
+}
+.timeline-content{flex:1;display:flex;flex-direction:column}
+.timeline-step{font-family:var(--font-en);font-size:14px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--sky-400);margin-bottom:4px;line-height:1.4}
+.timeline-title{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:5px}
+.timeline-desc{font-size:14px;color:var(--ink-3);line-height:1.8;font-weight:300}
+
+.demo-section{padding:40px 48px;border-bottom:1px solid var(--cream-200)}
+.demo-section h3{font-family:var(--font-en);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--sky-400);margin-bottom:20px}
+</style>
+</head>
+<body>
+
+<h2 style="padding:20px 48px 10px;font-family:var(--font-en);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--sky-400)">08 — Timeline</h2>
+<p style="padding:0 48px 20px;font-size:13px;color:var(--ink-3)">タイムライン系コンポーネント。1日の流れ（Day Flow）と選考フロー（Selection Flow）の2パターン。</p>
+
+<div class="demo-section">
+  <h3>Day Flow — 1日の流れ</h3>
+  <div class="day-flow">
+    <div class="day-item"><div class="day-dot"></div><div class="day-body"><div class="day-time">08:30</div><div class="day-title">朝礼・工程確認</div><div class="day-desc">安全確認と当日作業を現場スタッフと共有</div></div></div>
+    <div class="day-item"><div class="day-dot"></div><div class="day-body"><div class="day-time">10:00</div><div class="day-title">現場巡回・品質チェック</div><div class="day-desc">図面と照らし合わせながら施工状況を確認</div></div></div>
+    <div class="day-item"><div class="day-dot"></div><div class="day-body"><div class="day-time">12:00</div><div class="day-title">昼食・チームで情報共有</div><div class="day-desc">仲間とランチ、午後の作業の段取りを確認</div></div></div>
+    <div class="day-item"><div class="day-dot"></div><div class="day-body"><div class="day-time">17:30</div><div class="day-title">翌日準備・退社</div><div class="day-desc">報告書提出後、翌日の段取りを確認して退社</div></div></div>
+  </div>
+</div>
+
+<div class="demo-section" style="background:var(--cream-100)">
+  <h3>Selection Flow — 選考フロー</h3>
+  <div class="timeline">
+    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-step">Step 01</div><div class="timeline-title">エントリー</div><div class="timeline-desc">マイナビよりエントリー。会社説明会への参加受付も同時スタート。</div></div></div>
+    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-step">Step 02</div><div class="timeline-title">書類選考</div><div class="timeline-desc">エントリーシート・履歴書を提出。1週間以内に結果をご連絡します。</div></div></div>
+    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-step">Step 03</div><div class="timeline-title">一次面接</div><div class="timeline-desc">人事担当者との面接（オンライン可）。志望動機・自己PRを中心にお聞きします。</div></div></div>
+    <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-step">Step 04</div><div class="timeline-title">内定・入社準備</div><div class="timeline-desc">内定通知後、入社までのフォローアッププログラムで安心して入社できます。</div></div></div>
+  </div>
+</div>
+
+</body>
+</html>

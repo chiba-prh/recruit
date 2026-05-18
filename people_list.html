@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>先輩社員の声一覧 | プリンシパルホーム 採用サイト</title>
+<link rel="stylesheet" href="component-library/tokens.css">
+<style>
+/* ── Site Nav ── */
+.site-nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  height:68px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 48px;
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(16px);
+  box-shadow:0 2px 20px rgba(45,36,32,.06);
+  border-bottom:1.5px solid var(--cream-200,#EFE9E0);
+}
+.nav-logo{display:flex;align-items:center;flex-shrink:0;text-decoration:none}
+.nav-logo img{height:20px;width:auto;display:block}
+.nav-logo-recruit{
+  font-family:'Josefin Sans',sans-serif;font-size:15px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;line-height:1;display:inline-block;
+  color:var(--sky-400);margin-left:15px;padding-top:10px;
+}
+.nav-links-sub{display:flex;gap:24px;list-style:none;margin:0;padding:0}
+.nav-links-sub a{
+  font-size:14px;font-weight:500;color:var(--ink-3);letter-spacing:.04em;transition:color .2s;text-decoration:none;
+}
+.nav-links-sub a:hover{color:var(--sky-400)}
+.nav-actions{display:flex;gap:10px;align-items:center}
+.nav-btn-jobs{
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:500;color:var(--sky-400);
+  padding:8px 20px;border-radius:100px;
+  border:1.5px solid var(--sky-100);background:var(--sky-50);
+  transition:all .15s ease;line-height:1;white-space:nowrap;text-decoration:none;
+}
+.nav-btn-jobs:hover{background:var(--sky-100);border-color:var(--sky-300)}
+.nav-btn-top{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:14px;font-weight:500;color:var(--ink-3);
+  padding:8px 20px;border-radius:100px;
+  border:1.5px solid var(--cream-200,#EFE9E0);background:transparent;
+  transition:all .15s ease;line-height:1;white-space:nowrap;text-decoration:none;
+}
+.nav-btn-top:hover{background:var(--sky-50);border-color:var(--sky-200);color:var(--sky-500)}
+.nav-btn-top svg{width:14px;height:14px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+
+/* ── Breadcrumb ── */
+.breadcrumb{background:var(--sky-50);margin-top:68px}
+.breadcrumb-inner{max-width:1160px;margin:0 auto;padding:14px 48px;display:flex;align-items:center;gap:8px}
+.breadcrumb a{font-size:13px;color:var(--ink-4);transition:color .2s;text-decoration:none}
+.breadcrumb a:hover{color:var(--sky-500)}
+.breadcrumb-sep{font-size:13px;color:var(--ink-5)}
+.breadcrumb-current{font-size:13px;color:var(--ink-3);font-weight:500}
+
+/* ── Page Header ── */
+.page-header{
+  background:var(--sky-50);
+  padding:60px 0 56px;
+  border-bottom:1px solid var(--sky-100);
+}
+.page-header-inner{max-width:1160px;margin:0 auto;padding:0 48px}
+.page-header-en{
+  font-family:'Josefin Sans',sans-serif;font-size:12px;font-weight:600;
+  letter-spacing:.28em;text-transform:uppercase;color:var(--sky-400);
+  display:flex;align-items:center;gap:8px;margin-bottom:12px;
+}
+.page-header-en .dot{width:5px;height:5px;border-radius:50%;background:var(--sky-300);flex-shrink:0}
+.page-header-h1{
+  font-family:var(--font-jp);font-size:clamp(24px,3vw,36px);font-weight:700;
+  color:var(--ink);letter-spacing:.04em;line-height:1.5;margin-bottom:16px;
+}
+.page-header-desc{
+  font-family:var(--font-jp);font-size:16px;color:var(--ink-3);
+  line-height:2;max-width:640px;
+}
+
+/* ── Main Content ── */
+.main{padding:72px 0 100px;background:var(--white)}
+.main-inner{max-width:1160px;margin:0 auto;padding:0 48px}
+
+/* ── People Grid ── */
+.people-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:24px;
+}
+.people-card{
+  display:flex;flex-direction:column;overflow:hidden;
+  border-radius:12px;background:var(--white);
+  text-decoration:none;color:inherit;
+  box-shadow:0 2px 12px rgba(0,0,0,.07);
+  transition:box-shadow .3s ease;
+}
+.people-card:hover{box-shadow:0 8px 28px rgba(0,0,0,.13)}
+.card-photo{aspect-ratio:2/3;overflow:hidden;position:relative;background:var(--cream-100)}
+.card-photo img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.card-vert{
+  position:absolute;left:0;top:0;bottom:0;width:22px;
+  display:flex;align-items:center;justify-content:center;
+  writing-mode:vertical-rl;transform:rotate(180deg);
+  font-family:'Josefin Sans',sans-serif;font-size:13px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(255,255,255,.82);pointer-events:none;
+  background:linear-gradient(to right,rgba(0,0,0,.18),transparent);
+}
+.card-body{background:var(--white);padding:22px 22px 26px;flex:1;display:flex;flex-direction:column}
+.card-quote{
+  font-family:var(--font-jp);font-size:16px;font-weight:700;color:var(--ink);
+  line-height:1.85;letter-spacing:.03em;margin-bottom:14px;flex:1;
+}
+.card-info{font-size:13px;color:var(--ink-3);line-height:1.8;letter-spacing:.04em;margin-bottom:6px}
+.card-name{font-family:var(--font-jp);font-size:16px;font-weight:500;color:var(--ink);letter-spacing:.06em}
+
+/* ── Back to TOP ── */
+.back-wrap{display:flex;justify-content:center;margin-top:64px}
+.btn-back-top{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--font-jp);font-size:15px;font-weight:600;color:var(--sky-500);
+  padding:14px 32px;border-radius:100px;
+  border:1.5px solid var(--sky-200);background:var(--white);
+  transition:all .2s ease;text-decoration:none;
+}
+.btn-back-top:hover{background:var(--sky-50);border-color:var(--sky-300)}
+.btn-back-top svg{width:16px;height:16px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+
+/* ── Footer ── */
+.site-footer{background:#1f2937;padding:52px 0 36px}
+.footer-in{max-width:1160px;margin:0 auto;padding:0 48px}
+.footer-logo{height:18px;width:auto;display:block;filter:brightness(0) invert(1);opacity:.55;margin-bottom:14px}
+.footer-desc{font-size:14px;color:rgba(255,255,255,.35);line-height:2;font-weight:300;margin-bottom:36px}
+.footer-bottom{
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+  padding-top:24px;border-top:1px solid rgba(255,255,255,.08);
+}
+.footer-copy{font-size:13px;color:rgba(255,255,255,.25);letter-spacing:.04em}
+.footer-sub{display:flex;gap:20px}
+.footer-sub a{font-size:13px;color:rgba(255,255,255,.3);transition:color .2s;text-decoration:none}
+.footer-sub a:hover{color:rgba(255,255,255,.7)}
+
+/* ── Reveal animation ── */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.rv.on{opacity:1;transform:none}
+
+/* ── Responsive ── */
+@media(max-width:1024px){.people-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:768px){
+  .people-grid{grid-template-columns:repeat(2,1fr)}
+  .site-nav{padding:0 24px}
+  .nav-links-sub{display:none}
+  .breadcrumb-inner,.page-header-inner,.main-inner,.footer-in{padding-left:24px;padding-right:24px}
+}
+@media(max-width:480px){
+  .people-grid{grid-template-columns:1fr}
+  .card-quote{font-size:15px}
+}
+</style>
+</head>
+<body>
+
+<!-- ── Nav ── -->
+<nav class="site-nav">
+  <a href="../recruit_2.html" class="nav-logo">
+    <img src="parts/logo.svg" alt="PRINCIPAL HOME">
+    <span class="nav-logo-recruit">Recruit</span>
+  </a>
+  <ul class="nav-links-sub">
+    <li><a href="recruit_2.html#about">会社を知る</a></li>
+    <li><a href="recruit_2.html#dayflow">仕事を知る</a></li>
+    <li><a href="recruit_2.html#people">人を知る</a></li>
+    <li><a href="recruit_2.html#benefits">環境・制度</a></li>
+    <li><a href="recruit_2.html#entry">エントリー</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a href="recruit_2.html#requirement" class="nav-btn-jobs">募集要項</a>
+    <a href="recruit_2.html" class="nav-btn-top">
+      <svg viewBox="0 0 16 16"><polyline points="10 3 6 8 10 13"/></svg>
+      TOPに戻る
+    </a>
+  </div>
+</nav>
+
+<!-- ── Breadcrumb ── -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="recruit_2.html">TOP</a>
+    <span class="breadcrumb-sep">›</span>
+    <span class="breadcrumb-current">先輩社員の声一覧</span>
+  </div>
+</div>
+
+<!-- ── Page Header ── -->
+<header class="page-header rv">
+  <div class="page-header-inner">
+    <div class="page-header-en"><span class="dot"></span>Our People</div>
+    <h1 class="page-header-h1">さまざまな背景を持つ仲間が、<br>ここで夢を実現しています。</h1>
+    <p class="page-header-desc">それぞれの現場で活躍する仲間が、この仕事を選んだ理由と日々感じるやりがいを語ります。</p>
+  </div>
+</header>
+
+<!-- ── Main ── -->
+<main class="main">
+  <div class="main-inner">
+    <div class="people-grid rv">
+
+      <a href="people/01.html" class="people-card">
+        <div class="card-photo">
+          <img src="people/photo_01.jpg" alt="田中 翔太">
+          <span class="card-vert">01 TANAKA SHOTA</span>
+        </div>
+        <div class="card-body">
+          <p class="card-quote">完成した家を前にして、<br>この仕事を選んで正解だったと<br>心から実感できます。</p>
+          <p class="card-info">施工管理部　2020年入社</p>
+          <p class="card-name">田中 翔太</p>
+        </div>
+      </a>
+
+      <a href="people/02.html" class="people-card">
+        <div class="card-photo">
+          <img src="people/photo_02.jpg" alt="中村 優">
+          <span class="card-vert">02 NAKAMURA YU</span>
+        </div>
+        <div class="card-body">
+          <p class="card-quote">図面が実際の住まいになる瞬間が、<br>設計の仕事をする上での<br>最大の喜びです。</p>
+          <p class="card-info">設計部　2022年入社</p>
+          <p class="card-name">中村 優</p>
+        </div>
+      </a>
+
+      <a href="people/03.html" class="people-card">
+        <div class="card-photo">
+          <img src="people/photo_03.jpg" alt="大野 亜子">
+          <span class="card-vert">03 ONO AKO</span>
+        </div>
+        <div class="card-body">
+          <p class="card-quote">お客様の理想の空間を<br>一緒につくれるやりがいを、<br>毎日感じています。</p>
+          <p class="card-info">インテリア部　2023年入社</p>
+          <p class="card-name">大野 亜子</p>
+        </div>
+      </a>
+
+      <a href="people/04.html" class="people-card">
+        <div class="card-photo">
+          <img src="people/photo_04.jpg" alt="森田 莉子">
+          <span class="card-vert">04 MORITA RIKO</span>
+        </div>
+        <div class="card-body">
+          <p class="card-quote">細部へのこだわりが積み重なって、<br>お客様の夢の住まいを<br>実現できるのです。</p>
+          <p class="card-info">住宅設計部　2021年入社</p>
+          <p class="card-name">森田 莉子</p>
+        </div>
+      </a>
+
+      <a href="people/05.html" class="people-card">
+        <div class="card-photo">
+          <img src="people/photo_05.jpg" alt="高橋 健太">
+          <span class="card-vert">05 TAKAHASHI KENTA</span>
+        </div>
+        <div class="card-body">
+          <p class="card-quote">双方から「ありがとう」を<br>いただける。それがこの仕事を<br>続ける理由です。</p>
+          <p class="card-info">賃貸管理部　2022年入社</p>
+          <p class="card-name">高橋 健太</p>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- TOPへ戻る -->
+    <div class="back-wrap rv">
+      <a href="recruit_2.html#people" class="btn-back-top">
+        <svg viewBox="0 0 16 16"><polyline points="10 3 6 8 10 13"/></svg>
+        TOPに戻る
+      </a>
+    </div>
+  </div>
+</main>
+
+<!-- ── Footer ── -->
+<footer class="site-footer">
+  <div class="footer-in">
+    <img src="parts/logo.svg" alt="PRINCIPAL HOME" class="footer-logo">
+    <p class="footer-desc">新卒採用 2027 ― あなたの夢を、形に。</p>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Principal Home Inc. All Rights Reserved.</span>
+      <div class="footer-sub">
+        <a href="#">プライバシーポリシー</a>
+        <a href="#">サイトマップ</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal
+(function(){
+  var els = document.querySelectorAll('.rv');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('on'); });
+  },{threshold:0.1});
+  els.forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>

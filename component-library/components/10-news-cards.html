@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>News Cards — Component Library</title>
+<link rel="stylesheet" href="../tokens.css">
+<style>
+.news-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:900px}
+.news-card{
+  display:flex;gap:16px;align-items:flex-start;padding:20px;
+  background:var(--white);border-radius:var(--r-lg);
+  border:1.5px solid var(--cream-200);box-shadow:var(--shadow-sm);
+  transition:var(--trans);cursor:pointer;
+}
+.news-card:hover{border-color:var(--sky-200);box-shadow:0 8px 28px rgba(107,189,232,.14);transform:translateY(-2px)}
+.news-date{font-family:var(--font-en);font-size:14px;color:var(--ink-4);letter-spacing:.08em;flex-shrink:0;padding-top:3px}
+.news-content{flex:1}
+.news-cat{
+  display:inline-flex;align-items:center;justify-content:center;line-height:1;
+  font-family:var(--font-en);font-size:14px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  background:var(--sky-50);color:var(--sky-400);border:1px solid var(--sky-100);
+  padding:3px 10px;border-radius:var(--r-pill);margin-bottom:7px;
+}
+.news-title{font-size:14px;font-weight:500;color:var(--ink);line-height:1.55}
+.news-arr{
+  display:flex;align-items:center;justify-content:center;line-height:1;
+  color:var(--sky-300);font-size:14px;flex-shrink:0;padding-top:4px;transition:transform .2s;
+}
+.news-card:hover .news-arr{transform:translateX(4px)}
+.tag-new{display:inline-flex;align-items:center;justify-content:center;line-height:1;font-family:var(--font-en);font-size:14px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:linear-gradient(270deg,#e8401a,#f5692a,#c0281a,#e8401a);background-size:300% 300%;animation:newGradient 3s ease infinite;color:white;padding:7px 14px 3px;border-radius:var(--r-pill);text-shadow:0 1px 2px rgba(0,0,0,.18)}
+
+@media(max-width:640px){.news-grid{grid-template-columns:1fr}}
+
+.demo-section{padding:40px 48px;border-bottom:1px solid var(--cream-200)}
+.demo-section h3{font-family:var(--font-en);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--sky-400);margin-bottom:20px}
+</style>
+</head>
+<body>
+
+<h2 style="padding:20px 48px 10px;font-family:var(--font-en);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--sky-400)">10 — News Cards</h2>
+<p style="padding:0 48px 20px;font-size:13px;color:var(--ink-3)">お知らせカード。日付＋カテゴリタグ＋タイトルの構成。</p>
+
+<div class="demo-section">
+  <div class="news-grid">
+    <div class="news-card">
+      <div class="news-date">2026.03.15</div>
+      <div class="news-content"><div class="news-cat">説明会</div><div class="news-title">【27卒】会社説明会3月・4月開催日程決定のお知らせ</div></div>
+      <div class="news-arr">→</div>
+    </div>
+    <div class="news-card">
+      <div class="news-date">2026.02.28</div>
+      <div class="news-content"><div class="news-cat">インターン</div><div class="news-title">1DAYインターンシップ春開催のお知らせ</div></div>
+      <div class="news-arr">→</div>
+    </div>
+    <div class="news-card">
+      <div class="news-date">2026.02.10</div>
+      <div class="news-content"><div class="news-cat">採用情報</div><div class="news-title">2027年卒 採用活動開始のお知らせ</div></div>
+      <div class="news-arr">→</div>
+    </div>
+    <div class="news-card">
+      <div class="news-date">2026.01.20</div>
+      <div class="news-content"><span class="tag-new" style="margin-bottom:8px">NEW</span><div class="news-title">男性育休取得率42%を達成しました</div></div>
+      <div class="news-arr">→</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

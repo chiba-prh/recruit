@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entry CTA — Component Library</title>
+<link rel="stylesheet" href="../tokens.css">
+<style>
+.entry-sec{background:var(--sky-300);padding:96px 64px;position:relative;overflow:hidden}
+.entry-sec::before{content:'';position:absolute;top:-30%;right:-5%;width:560px;height:560px;border-radius:50%;background:rgba(255,255,255,.06);pointer-events:none}
+.entry-sec::after{content:'';position:absolute;bottom:-20%;right:20%;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.04);pointer-events:none}
+.entry-grid{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;position:relative;z-index:1}
+.entry-eyebrow{display:inline-flex;align-items:center;gap:8px;line-height:1;font-family:var(--font-en);font-size:14px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.8);background:rgba(255,255,255,.12);padding:7px 16px 3px;border-radius:var(--r-pill);border:1px solid rgba(255,255,255,.25);margin-bottom:20px}
+.entry-h2{font-family:var(--font-jp);font-size:clamp(24px,3vw,38px);font-weight:700;color:white;line-height:1.65;letter-spacing:.06em;margin-bottom:18px}
+.entry-body{font-size:14px;color:rgba(255,255,255,.72);line-height:2.1;font-weight:300;margin-bottom:36px}
+.btn-entry{display:flex;align-items:center;justify-content:space-between;line-height:1;background:white;color:var(--sky-400);font-family:var(--font-jp);font-size:14px;font-weight:700;letter-spacing:.07em;padding:17px 26px;border-radius:var(--r-lg);box-shadow:0 4px 20px rgba(0,0,0,.12);transition:var(--trans);position:relative;overflow:hidden;margin-bottom:12px}
+.btn-entry::before{content:'';position:absolute;inset:0;background:var(--sky-50);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.btn-entry:hover::before{transform:scaleX(1)}
+.btn-entry:hover{box-shadow:0 8px 28px rgba(0,0,0,.18)}
+.btn-entry span,.btn-entry .arr{position:relative;z-index:1;line-height:1}
+.btn-entry-outline{display:flex;align-items:center;justify-content:space-between;line-height:1;background:transparent;color:rgba(255,255,255,.9);font-family:var(--font-jp);font-size:14px;font-weight:500;padding:15px 24px;border-radius:var(--r-lg);border:1.5px solid rgba(255,255,255,.4);transition:var(--trans)}
+.btn-entry-outline:hover{border-color:white;background:rgba(255,255,255,.1);color:white}
+.entry-photo{border-radius:var(--r-xl);overflow:hidden;aspect-ratio:4/5;position:relative;box-shadow:0 16px 56px rgba(0,0,0,.2);background:var(--sky-400)}
+.entry-photo-tag{position:absolute;bottom:18px;left:18px;right:18px;background:rgba(255,255,255,.18);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.3);border-radius:var(--r-md);padding:12px 16px;font-family:var(--font-en);font-size:14px;font-weight:300;color:rgba(255,255,255,.8);letter-spacing:.18em;text-transform:uppercase;text-align:center}
+
+@media(max-width:1170px){.entry-grid{grid-template-columns:1fr}.entry-photo{display:none}.entry-sec{padding:72px 32px}}
+</style>
+</head>
+<body>
+
+<h2 style="padding:20px 48px 10px;font-family:var(--font-en);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--sky-400)">13 — Entry CTA Section</h2>
+
+<section class="entry-sec">
+  <div class="entry-grid">
+    <div>
+      <span class="entry-eyebrow">Entry 2027</span>
+      <h2 class="entry-h2">あなたの夢を、<br>ここから始めよう。</h2>
+      <p class="entry-body">プリンシパルホームで、住まいをつくる喜びと達成感を体験してみませんか。新卒採用エントリーを受け付けています。</p>
+      <a href="#" class="btn-entry"><span>マイナビでエントリーする</span><span class="arr">→</span></a>
+      <a href="#" class="btn-entry-outline"><span>会社説明会に申し込む</span><span class="arr">→</span></a>
+    </div>
+    <div>
+      <div class="entry-photo">
+        <div class="entry-photo-tag">Building Dreams Since 2010</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

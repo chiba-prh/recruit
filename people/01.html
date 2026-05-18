@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>田中 翔太 — プリンシパルホーム 先輩社員の声</title>
+<link rel="stylesheet" href="../component-library/tokens.css">
+<style>
+/* ── Site Nav ── */
+.site-nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  height:68px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 48px;
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(16px);
+  box-shadow:0 2px 20px rgba(45,36,32,.06);
+  border-bottom:1.5px solid var(--cream-200,#EFE9E0);
+}
+.nav-logo{display:flex;align-items:center;flex-shrink:0;text-decoration:none}
+.nav-logo img{height:20px;width:auto;display:block}
+.nav-logo-recruit{
+  font-family:'Josefin Sans',sans-serif;font-size:15px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;line-height:1;display:inline-block;
+  color:var(--sky-400,#4EA8D8);margin-left:15px;padding-top:10px;
+}
+.nav-links-sub{display:flex;gap:24px;list-style:none;margin:0;padding:0}
+.nav-links-sub a{
+  font-size:14px;font-weight:500;color:var(--ink-3,#64748b);letter-spacing:.04em;transition:color .2s;text-decoration:none;
+}
+.nav-links-sub a:hover{color:var(--sky-400,#4EA8D8)}
+.nav-actions{display:flex;gap:10px;align-items:center}
+.nav-btn-jobs{
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:500;color:var(--sky-400,#4EA8D8);
+  padding:8px 20px;border-radius:100px;
+  border:1.5px solid var(--sky-100,#D4ECFA);background:var(--sky-50,#EAF5FC);
+  transition:all .15s ease;cursor:pointer;line-height:1;white-space:nowrap;text-decoration:none;
+}
+.nav-btn-jobs:hover{background:var(--sky-100,#D4ECFA);border-color:var(--sky-300,#6BBDE8)}
+.nav-btn-entry{
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:700;color:white;
+  padding:9px 22px;border-radius:100px;
+  background:var(--sky-300,#6BBDE8);box-shadow:0 4px 18px rgba(107,189,232,.3);
+  transition:background .2s,transform .2s;cursor:pointer;line-height:1;white-space:nowrap;text-decoration:none;
+}
+.nav-btn-entry:hover{background:var(--sky-500,#2B8EC2)}
+.nav-btn-top{
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:500;color:var(--ink-3,#64748b);
+  padding:8px 20px;border-radius:100px;
+  border:1.5px solid var(--cream-200,#EFE9E0);background:transparent;
+  transition:all .15s ease;line-height:1;white-space:nowrap;text-decoration:none;
+}
+.nav-btn-top:hover{background:var(--cream-100,#F7F3ED);border-color:var(--ink-5,#D1D5DB)}
+
+/* ── Breadcrumb ── */
+.breadcrumb{
+  padding:0;background:var(--sky-50);margin-top:68px;
+}
+.breadcrumb-inner{max-width:1160px;margin:0 auto;padding:16px 48px;display:flex;align-items:center;gap:8px}
+.breadcrumb a{font-size:13px;color:var(--ink-4);transition:color .2s}
+.breadcrumb a:hover{color:var(--sky-500)}
+.breadcrumb span{font-size:13px;color:var(--ink-4)}
+.breadcrumb .current{color:var(--ink-3);font-weight:500}
+
+/* ── Hero ── */
+.hero-people{background:var(--ink);position:relative}
+.hero-mv-wrap{position:relative;width:100%;aspect-ratio:1065/480;overflow:hidden}
+.hero-mv-img{width:100%;height:100%;object-fit:cover;object-position:center 10%;display:block}
+.hero-mv-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,14,10,.45) 0%,rgba(20,14,10,.08) 60%,transparent 100%)}
+.hero-photo-num{
+  position:absolute;top:28px;left:48px;
+  font-family:var(--font-en);font-size:13px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(255,255,255,.9);background:rgba(0,0,0,.3);backdrop-filter:blur(6px);
+  padding:7px 18px 5px;border-radius:var(--r-pill);
+}
+.hero-ttl-box{
+  position:absolute;bottom:0;left:48px;
+  background:white;box-shadow:0 -2px 0 0 var(--sky-400);
+  padding:36px 48px 32px;max-width:740px;
+  transform:translateY(56px);
+}
+.hero-catch{
+  font-family:var(--font-jp);font-size:clamp(18px,2.2vw,26px);font-weight:700;
+  color:var(--ink);line-height:1.75;letter-spacing:.05em;margin-bottom:22px;
+}
+.hero-meta-row{
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  padding-top:18px;border-top:1px solid var(--cream-200);
+}
+.hero-eyebrow-sm{
+  display:inline-flex;align-items:center;gap:6px;line-height:1;
+  font-family:var(--font-en);font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--sky-400);
+}
+.hero-eyebrow-sm .dot{width:5px;height:5px;border-radius:50%;background:var(--sky-300)}
+.hero-sep-line{width:1px;height:16px;background:var(--cream-300);flex-shrink:0}
+.hero-name-ja{font-family:var(--font-jp);font-size:18px;font-weight:500;color:var(--ink);letter-spacing:.1em}
+.hero-dept-label{font-size:14px;color:var(--sky-500);font-weight:500;letter-spacing:.04em}
+.hero-year-label{
+  display:inline-flex;align-items:center;line-height:1;
+  font-family:var(--font-en);font-size:12px;font-weight:600;
+  color:var(--ink-4);background:var(--cream-100);
+  border:1px solid var(--cream-200);padding:5px 14px 3px;border-radius:var(--r-pill);
+}
+
+/* ── Sections ── */
+.pp-sec{padding:80px 0}
+.pp-sec-alt{background:var(--sky-50)}
+.pp-sec-cream{background:var(--cream-50)}
+.pp-inner{max-width:1160px;margin:0 auto;padding:0 48px}
+.pp-sec-label{
+  display:block;font-family:var(--font-en);font-size:13px;font-weight:700;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--sky-400);margin-bottom:10px;
+}
+.pp-sec-title{font-family:var(--font-jp);font-size:clamp(20px,2vw,28px);font-weight:700;color:var(--ink);line-height:1.5;letter-spacing:.06em;margin-bottom:40px}
+
+/* ── My Job ── */
+.job-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.job-body p{font-size:16px;color:var(--ink-2);line-height:2.1;letter-spacing:.04em;margin-bottom:20px}
+.job-photo{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-md)}
+.job-photo img{width:100%;display:block}
+.job-photo-cap{font-size:13px;color:var(--ink-4);margin-top:10px;letter-spacing:.04em}
+
+/* ── Q&A New ── */
+.qa-list{display:flex;flex-direction:column;gap:72px}
+
+/* Speech Bubble */
+.qa-bubble{
+  position:relative;
+  background:white;
+  border:2px solid var(--sky-200);
+  border-radius:var(--r-xl);
+  padding:22px 28px;
+  display:flex;align-items:center;justify-content:center;gap:16px;
+  margin-bottom:4px;
+}
+/* Tail left — 左サイドから横向きに三角が出る（SVG参考・写真が右のとき） */
+.qa-bubble-tail-l{margin-left:28px}
+.qa-bubble-tail-l::before{
+  content:'';position:absolute;
+  top:50%;transform:translateY(-50%);
+  left:-24px;
+  border-style:solid;border-width:16px 24px 16px 0;
+  border-color:transparent var(--sky-200) transparent transparent;
+}
+.qa-bubble-tail-l::after{
+  content:'';position:absolute;
+  top:50%;transform:translateY(-50%);
+  left:-19px;
+  border-style:solid;border-width:13px 19px 13px 0;
+  border-color:transparent white transparent transparent;
+}
+/* Tail right — 右サイドから横向きに三角が出る（SVG参考・写真が左のとき） */
+.qa-bubble-tail-r{margin-right:28px}
+.qa-bubble-tail-r::before{
+  content:'';position:absolute;
+  top:50%;transform:translateY(-50%);
+  right:-24px;
+  border-style:solid;border-width:16px 0 16px 24px;
+  border-color:transparent transparent transparent var(--sky-200);
+}
+.qa-bubble-tail-r::after{
+  content:'';position:absolute;
+  top:50%;transform:translateY(-50%);
+  right:-19px;
+  border-style:solid;border-width:13px 0 13px 19px;
+  border-color:transparent transparent transparent white;
+}
+.qa-q-mark{
+  flex-shrink:0;width:36px;height:36px;border-radius:50%;
+  background:var(--sky-500);display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-en);font-size:16px;font-weight:700;color:white;line-height:1;
+  margin-top:2px;
+}
+.qa-q-text{font-family:var(--font-jp);font-size:18px;font-weight:700;color:var(--sky-500);line-height:1.6;letter-spacing:.04em}
+
+/* Answer row */
+.qa-answer{display:grid;grid-template-columns:1fr 368px;gap:32px;align-items:start;margin-top:28px}
+.qa-answer.photo-l{grid-template-columns:368px 1fr}
+.qa-ans-photo{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-md)}
+.qa-ans-photo img{width:100%;display:block;aspect-ratio:4/3;object-fit:cover;object-position:top center}
+.qa-a-content{display:flex;align-items:flex-start;gap:16px}
+.qa-a-mark{
+  flex-shrink:0;width:36px;height:36px;border-radius:50%;
+  background:white;border:1.5px solid var(--sky-300);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-en);font-size:16px;font-weight:700;color:var(--sky-500);line-height:1;
+  margin-top:2px;
+}
+.qa-a-body p{font-size:16px;color:var(--ink-2);line-height:2.1;letter-spacing:.04em;margin-bottom:16px}
+.qa-a-body p:last-child{margin-bottom:0}
+
+@media(max-width:900px){
+  .qa-answer,.qa-answer.photo-l{grid-template-columns:1fr}
+  .qa-answer.photo-l .qa-ans-photo{order:-1}
+}
+
+/* ── Schedule ── */
+.schedule-list{display:flex;flex-direction:column}
+.schedule-item{display:grid;grid-template-columns:1fr 1fr;min-height:300px;overflow:hidden}
+.sch-photo-col{overflow:hidden;position:relative}
+.sch-photo-col img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+.sch-content-col{background:var(--white);padding:48px 56px;display:flex;flex-direction:column;justify-content:center}
+.schedule-item:nth-child(even) .sch-photo-col{order:2}
+.schedule-item:nth-child(even) .sch-content-col{order:1;background:var(--sky-50)}
+.sch-time-num{font-family:var(--font-en);font-size:56px;font-weight:700;color:var(--sky-400);line-height:1;letter-spacing:.04em;margin-bottom:8px}
+.sch-title{font-family:var(--font-jp);font-size:18px;font-weight:700;color:var(--ink);letter-spacing:.04em;margin-bottom:12px;padding-bottom:14px;border-bottom:2px solid var(--sky-100)}
+.sch-desc{font-size:15px;color:var(--ink-3);line-height:2;letter-spacing:.03em}
+
+/* ── Message Typewriter ── */
+@keyframes msgCursorBlink{0%,100%{opacity:1}50%{opacity:0}}
+.msg-title-cursor{
+  display:inline-block;width:2px;height:.85em;
+  background:rgba(255,255,255,.8);vertical-align:middle;
+  margin-left:2px;
+  animation:msgCursorBlink .7s step-end infinite;
+}
+
+/* ── Message ── */
+.msg-grid{
+  display:grid;grid-template-columns:1.1fr 1fr;
+  min-height:580px;overflow:hidden;
+}
+.msg-left{
+  background:var(--sky-500);
+  padding:72px 64px;
+  display:flex;flex-direction:column;justify-content:center;
+}
+.msg-left .pp-sec-label{color:rgba(255,255,255,.7);margin-bottom:12px}
+.msg-left .pp-sec-title{color:white;margin-bottom:32px}
+.msg-body p{font-size:15px;color:rgba(255,255,255,.88);line-height:2.1;letter-spacing:.04em;margin-bottom:18px}
+.msg-body p:last-child{margin-bottom:0}
+.msg-profile{margin-top:40px;padding-top:28px;border-top:1px solid rgba(255,255,255,.25)}
+.msg-profile-name{font-family:var(--font-jp);font-size:16px;font-weight:500;color:white;letter-spacing:.08em;margin-bottom:4px}
+.msg-profile-sub{font-size:13px;color:rgba(255,255,255,.65);letter-spacing:.04em}
+.msg-photo{overflow:hidden}
+.msg-photo img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+@media(max-width:900px){
+  .msg-grid{grid-template-columns:1fr}
+  .msg-photo{min-height:360px}
+  .msg-left{padding:48px 24px}
+}
+
+/* ── Related ── */
+/* Related slider */
+.related-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+.related-arrows{display:flex;gap:8px}
+.rel-arrow-btn{
+  width:44px;height:44px;border-radius:50%;border:1.5px solid var(--sky-200);
+  background:white;display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:var(--trans);color:var(--sky-500);font-size:18px;
+  user-select:none;
+}
+.rel-arrow-btn:hover{background:var(--sky-500);color:white;border-color:var(--sky-500)}
+.rel-arrow-btn.disabled{opacity:.35;pointer-events:none}
+.related-track-wrap{overflow:hidden;cursor:grab;user-select:none}
+.related-track-wrap.grabbing{cursor:grabbing}
+.related-grid{
+  display:flex;gap:20px;
+  transition:transform .35s cubic-bezier(.4,0,.2,1);
+  will-change:transform;
+}
+.rel-card{
+  border-radius:var(--r-lg);overflow:hidden;background:white;
+  box-shadow:var(--shadow-sm);transition:box-shadow .3s;
+  text-decoration:none;color:inherit;display:block;
+  flex:0 0 260px;
+}
+.rel-card:hover{box-shadow:var(--shadow-sky)}
+.rel-card-photo{aspect-ratio:3/4;overflow:hidden;position:relative}
+.rel-card-photo img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.rel-card-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,14,10,.65) 0%,transparent 55%)}
+.rel-card-body{padding:16px}
+.rel-card-dept{font-size:12px;color:var(--sky-500);font-weight:500;letter-spacing:.04em;margin-bottom:4px}
+.rel-card-name{font-family:var(--font-jp);font-size:15px;font-weight:500;color:var(--ink);letter-spacing:.06em;margin-bottom:6px}
+.rel-card-quote{font-size:13px;color:var(--ink-3);line-height:1.7;letter-spacing:.03em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+/* ── Footer ── */
+.site-footer{background:#1f2937;padding:40px 0 28px}
+.footer-in{max-width:1160px;margin:0 auto;padding:0 48px}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-copy{font-family:'Josefin Sans',sans-serif;font-size:14px;color:rgba(255,255,255,.3);letter-spacing:.08em}
+/* ── Back to Top ── */
+#backToTop{
+  position:fixed;bottom:32px;right:32px;z-index:100;
+  width:48px;height:48px;border-radius:50%;
+  background:var(--sky-300,#6BBDE8);color:white;
+  display:flex;align-items:center;justify-content:center;line-height:1;
+  box-shadow:0 0 0 3px white,0 4px 18px rgba(107,189,232,.3);cursor:pointer;outline:none;border:none;
+  opacity:0;transform:translateY(16px);
+  transition:opacity .3s,transform .3s,background .2s;
+  pointer-events:none;
+}
+#backToTop.show{opacity:1;transform:none;pointer-events:auto}
+#backToTop:hover{background:var(--sky-400,#4EA8D8);transform:translateY(-2px)}
+
+/* ── Nav Arrows ── */
+.pp-nav-arrows{display:flex;justify-content:center;gap:16px;margin-top:48px}
+.pp-nav-arrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:14px;font-weight:500;color:var(--sky-500);
+  border:1.5px solid var(--sky-200);border-radius:var(--r-pill);
+  padding:10px 24px 8px;transition:var(--trans);text-decoration:none;background:white;
+}
+.pp-nav-arrow:hover{background:var(--sky-500);color:white;border-color:var(--sky-500)}
+.pp-nav-arrow.disabled{opacity:.35;pointer-events:none}
+.pp-list-back{font-size:14px;font-weight:500;color:var(--ink-4);text-decoration:none;transition:color .2s;letter-spacing:.04em}
+.pp-list-back:hover{color:var(--sky-500)}
+
+/* ── Responsive ── */
+@media(max-width:900px){
+  .site-nav{padding:0 24px}
+  .nav-links-sub{display:none}
+  .breadcrumb-inner{padding:16px 24px}
+  .pp-inner{padding:0 24px}
+  .hero-ttl-box{left:24px;right:24px;padding:24px 24px 20px;transform:translateY(44px)}
+  .hero-photo-num{left:24px}
+  .job-grid{grid-template-columns:1fr;gap:32px}
+  .related-grid{grid-template-columns:repeat(2,1fr)}
+  .message-box{padding:32px 24px}
+  .schedule-item{grid-template-columns:1fr}
+  .schedule-item .sch-photo-col{order:1!important;min-height:220px}
+  .schedule-item .sch-content-col{order:2!important;padding:28px 24px}
+  .sch-time-num{font-size:40px}
+}
+@media(max-width:600px){
+  .pp-sec{padding:56px 0}
+  
+  
+  .related-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<nav class="site-nav">
+  <a href="../recruit_2.html" class="nav-logo">
+    <img src="../parts/logo.svg" alt="PRINCIPAL HOME">
+    <span class="nav-logo-recruit">RECRUIT</span>
+  </a>
+  <div class="nav-actions">
+    <a href="../recruit_2.html#requirement" class="nav-btn-jobs">募集要項</a>
+    <a href="../recruit_2.html#entry" class="nav-btn-entry">エントリー</a>
+    <a href="../recruit_2.html" class="nav-btn-top">採用TOPに戻る</a>
+  </div>
+</nav>
+
+<!-- Breadcrumb -->
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="../recruit_2.html">採用トップ</a>
+    <span>›</span>
+    <a href="../recruit_2.html#people">先輩社員の声</a>
+    <span>›</span>
+    <span class="current">田中 翔太</span>
+  </div>
+</div>
+
+<!-- Hero -->
+<section class="hero-people">
+  <div class="hero-mv-wrap">
+    <img src="photo_01.jpg" alt="田中 翔太" class="hero-mv-img">
+    <div class="hero-mv-overlay"></div>
+<div class="hero-ttl-box rv">
+      <p class="hero-catch">完成した家を前にして、<br>この仕事を選んで正解だったと<br>心から実感できます。</p>
+      <div class="hero-meta-row">
+        <span class="hero-dept-label" style="font-size:18px;">施工管理部</span>
+        <span class="hero-sep-line"></span>
+        <span class="hero-name-ja">田中 翔太</span>
+        <span class="hero-year-label">2020年入社</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- My Job -->
+<section class="pp-sec" style="padding-top:136px">
+  <div class="pp-inner">
+    <span class="pp-sec-label">My Job</span>
+    <h2 class="pp-sec-title">これが私の仕事です</h2>
+    <div class="job-grid rv">
+      <div class="job-body">
+        <p>施工管理の仕事は、住宅の建築現場全体を取り仕切り、品質・工程・安全・コストの4つを管理することです。設計図を現実の建物へと変えていくプロセスに深く関わり、大工さんや職人さんたちと連携しながら、お客様の夢のマイホームを完成させます。</p>
+        <p>主な業務は、現場での工程管理・品質チェック・協力業者との調整・お客様への進捗報告など多岐にわたります。毎日異なる課題が生まれるため、問題解決能力が鍛えられますし、「チームで家を作り上げる」という達成感はひとしおです。</p>
+        <p>入社2年目からは1人で案件を担当するようになり、今では同時に3〜4棟を担当しています。現場ごとに個性があり、毎回新しい発見があります。それが施工管理の醍醐味だと思っています。</p>
+      </div>
+      <div>
+        <div class="job-photo">
+          <img src="photo_01.jpg" alt="田中 翔太 現場にて">
+        </div>
+        <p class="job-photo-cap">担当現場にて。建築の進捗を職人さんたちと確認中。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Q&A -->
+<section class="pp-sec pp-sec-alt">
+  <div class="pp-inner">
+    <span class="pp-sec-label">Interview</span>
+    <h2 class="pp-sec-title">プリンシパルホームで働くということ</h2>
+    <div class="qa-list">
+
+      <!-- Q1: 写真右 → 尾は左 -->
+      <div class="qa-item-new">
+        <div class="qa-bubble qa-bubble-tail-l rv">
+
+          <p class="qa-q-text">入社を決めた理由を教えてください。</p>
+        </div>
+        <div class="qa-answer rv">
+          <div class="qa-a-content">
+
+            <div class="qa-a-body">
+              <p>就職活動では「手に職をつけながら、誰かの人生に寄り添える仕事」を軸にしていました。住宅業界を選んだのは、家づくりが人の一生の中でも特に大きな決断であり、そこに携わることに意義を感じたからです。</p>
+              <p>複数の住宅会社を見学する中で、プリンシパルホームの先輩社員の方々が生き生きと働いていたこと、また若いうちから現場を任せてもらえる環境が整っていることに惹かれました。説明会で「一緒に現場を育てていきたい」と言ってくれた部長の言葉が決め手になりました。</p>
+            </div>
+          </div>
+          <div class="qa-ans-photo">
+            <img src="photo_01.jpg" alt="田中 翔太">
+          </div>
+        </div>
+      </div>
+
+      <!-- Q2: 写真左 → 尾は右 -->
+      <div class="qa-item-new">
+        <div class="qa-bubble qa-bubble-tail-r rv">
+
+          <p class="qa-q-text">仕事のやりがいや、達成感を感じる瞬間は？</p>
+        </div>
+        <div class="qa-answer photo-l rv">
+          <div class="qa-ans-photo">
+            <img src="photo_01.jpg" alt="田中 翔太">
+          </div>
+          <div class="qa-a-content">
+
+            <div class="qa-a-body">
+              <p>やはり引渡しの日が一番です。更地だった土地に基礎が打たれ、骨組みが立ち上がり、壁ができて、最終的に素敵な家が完成する。その全工程を見届けてきた自分が、お客様に鍵をお渡しするとき——「ありがとう、素敵な家をありがとう」と言ってもらえた瞬間は、言葉にできないくらい嬉しい。</p>
+              <p>また、職人さんたちと信頼関係を築いて現場がスムーズに動いたとき、予定より早く高品質に仕上がったときも達成感があります。チームで成し遂げた感覚が、この仕事を続けさせてくれます。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q3: 写真右 → 尾は左 -->
+      <div class="qa-item-new">
+        <div class="qa-bubble qa-bubble-tail-l rv">
+
+          <p class="qa-q-text">入社前と後で、変わったことと変わらないことを教えてください。</p>
+        </div>
+        <div class="qa-answer rv">
+          <div class="qa-a-content">
+
+            <div class="qa-a-body">
+              <p>変わったことは「段取り力」です。複数の現場を同時に動かすためには、優先順位の付け方、先を読んだ準備、関係者との密なコミュニケーションが不可欠です。社会人1年目はそれが全然できなくて、先輩に何度も助けてもらいました。今ではかなり自然にできるようになってきたと思います。</p>
+              <p>変わらないのは、「現場が好き」という気持ちです。デスクワークよりもフィールドで動いている方が性に合っているので、外仕事が多い施工管理は自分にとって天職だと思っています。</p>
+            </div>
+          </div>
+          <div class="qa-ans-photo">
+            <img src="photo_01.jpg" alt="田中 翔太">
+          </div>
+        </div>
+      </div>
+
+      <!-- Q4: 写真左 → 尾は右 -->
+      <div class="qa-item-new">
+        <div class="qa-bubble qa-bubble-tail-r rv">
+
+          <p class="qa-q-text">これからの目標・キャリアビジョンを教えてください。</p>
+        </div>
+        <div class="qa-answer photo-l rv">
+          <div class="qa-ans-photo">
+            <img src="photo_01.jpg" alt="田中 翔太">
+          </div>
+          <div class="qa-a-content">
+
+            <div class="qa-a-body">
+              <p>直近の目標は、1級建築施工管理技士の資格取得です。現場での経験を深めながら、資格の勉強も並行して進めています。資格があれば、より大規模なプロジェクトや複合施設への挑戦も視野に入ってきます。</p>
+              <p>長期的には、後輩の育成にも力を入れていきたいと思っています。自分が先輩たちに助けてもらったように、新しく入ってくる仲間が現場で自信を持って動けるよう、知識と経験を惜しみなく伝えていきたいです。「田中さんの現場は安心できる」と言われる施工管理者を目指しています。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q5: 写真右 → 尾は左 -->
+      <div class="qa-item-new">
+        <div class="qa-bubble qa-bubble-tail-l rv">
+
+          <p class="qa-q-text">プリンシパルホームとは、どのような会社ですか？</p>
+        </div>
+        <div class="qa-answer rv">
+          <div class="qa-a-content">
+
+            <div class="qa-a-body">
+              <p>一言で表すなら、「人を大切にする会社」だと思います。上司や先輩が部下・後輩の成長を本気で考えてくれて、困ったことがあれば気軽に相談できる雰囲気が根付いています。入社したての頃、私が現場でミスをしたときも、責めるのではなく「次どうすればいいか」を一緒に考えてもらえました。</p>
+              <p>また、若手に早くから挑戦の機会を与えてくれる文化があります。「まだ経験が浅いから」と線引きするのではなく、本人がやる気を持って取り組めばどんどん任せてもらえる。そういった環境が、自分自身の成長を大きく後押ししてくれていると感じています。</p>
+            </div>
+          </div>
+          <div class="qa-ans-photo">
+            <img src="photo_01.jpg" alt="田中 翔太">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Daily Schedule -->
+<section class="pp-sec">
+  <div class="pp-inner">
+    <span class="pp-sec-label">Daily Schedule</span>
+    <h2 class="pp-sec-title">田中 翔太の1日</h2>
+    <div class="schedule-list">
+      <div class="schedule-item rv">
+        <div class="sch-photo-col"><img src="photo_01.jpg" alt="田中 翔太"></div>
+        <div class="sch-content-col">
+          <p class="sch-time-num">8:00</p>
+          <p class="sch-title">現場到着・朝礼</p>
+          <p class="sch-desc">各協力業者と当日の作業内容、安全事項を確認。天候や前日の進捗を踏まえて段取りを調整する。</p>
+        </div>
+      </div>
+      <div class="schedule-item rv">
+        <div class="sch-photo-col"><img src="photo_01.jpg" alt="田中 翔太"></div>
+        <div class="sch-content-col">
+          <p class="sch-time-num">9:00</p>
+          <p class="sch-title">現場巡回・品質チェック</p>
+          <p class="sch-desc">施工状況を確認しながら図面との整合性をチェック。気になる点があれば職人さんに指示を出す。</p>
+        </div>
+      </div>
+      <div class="schedule-item rv">
+        <div class="sch-photo-col"><img src="photo_01.jpg" alt="田中 翔太"></div>
+        <div class="sch-content-col">
+          <p class="sch-time-num">11:30</p>
+          <p class="sch-title">社内報告・業者調整</p>
+          <p class="sch-desc">上長への進捗報告、翌日・翌週の工程調整。資材の発注確認や業者とのスケジュール擦り合わせを行う。</p>
+        </div>
+      </div>
+      <div class="schedule-item rv">
+        <div class="sch-photo-col"><img src="photo_01.jpg" alt="田中 翔太"></div>
+        <div class="sch-content-col">
+          <p class="sch-time-num">13:00</p>
+          <p class="sch-title">昼休憩</p>
+          <p class="sch-desc">現場近くの定食屋でランチ。職人さんたちと他愛もない話をしながら過ごす時間がリフレッシュになる。</p>
+        </div>
+      </div>
+      <div class="schedule-item rv">
+        <div class="sch-photo-col"><img src="photo_01.jpg" alt="田中 翔太"></div>
+        <div class="sch-content-col">
+          <p class="sch-time-num">14:00</p>
+          <p class="sch-title">別現場への移動・確認</p>
+          <p class="sch-desc">複数棟を担当しているため、午後は別の現場へ。各現場の進捗バランスを見ながら優先順位を判断する。</p>
+        </div>
+      </div>
+      <div class="schedule-item rv">
+        <div class="sch-photo-col"><img src="photo_01.jpg" alt="田中 翔太"></div>
+        <div class="sch-content-col">
+          <p class="sch-time-num">16:00</p>
+          <p class="sch-title">お客様打ち合わせ</p>
+          <p class="sch-desc">工事の進捗状況と完成予定をご説明。現場写真をお見せしながら丁寧に報告することで安心感をお届けする。</p>
+        </div>
+      </div>
+      <div class="schedule-item rv">
+        <div class="sch-photo-col"><img src="photo_01.jpg" alt="田中 翔太"></div>
+        <div class="sch-content-col">
+          <p class="sch-time-num">17:30</p>
+          <p class="sch-title">事務作業・書類整理</p>
+          <p class="sch-desc">写真整理・工程表の更新・発注書・検査記録の作成など。デジタルツールを使って効率よく処理する。</p>
+        </div>
+      </div>
+      <div class="schedule-item rv">
+        <div class="sch-photo-col"><img src="photo_01.jpg" alt="田中 翔太"></div>
+        <div class="sch-content-col">
+          <p class="sch-time-num">19:00</p>
+          <p class="sch-title">翌日準備・退社</p>
+          <p class="sch-desc">翌日の現場段取りを最終確認してから退社。帰宅後は資格の勉強や趣味の筋トレで心身をリセット。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Message -->
+<section class="pp-sec" style="padding:0">
+  <div class="msg-grid rv">
+    <div class="msg-left">
+      <span class="pp-sec-label">Message</span>
+      <h2 class="pp-sec-title" id="msg-title"></h2>
+      <div class="msg-body">
+        <p>「施工管理って体力仕事でしょ？」と思っている方も多いかもしれません。確かに現場で動き回ることは多いです。でも、現場管理の本質はコミュニケーションと段取りだと思っています。職人さんとの信頼関係を築き、お客様に安心してもらえる現場を作る——それが施工管理の仕事の本当の面白さです。</p>
+        <p>プリンシパルホームは、若手でも早くから裁量を持って仕事ができる環境です。失敗を恐れず挑戦できる雰囲気と、困ったときに相談できる先輩が必ずそばにいます。「家づくりに関わってみたい」という気持ちがあれば、経験は不問。ぜひ一緒に現場で汗をかきましょう。</p>
+      </div>
+      <div class="msg-profile">
+        <p class="msg-profile-name">田中 翔太</p>
+        <p class="msg-profile-sub">施工管理部 / 2020年入社</p>
+      </div>
+    </div>
+    <div class="msg-photo">
+      <img src="photo_01.jpg" alt="田中 翔太">
+    </div>
+  </div>
+</section>
+
+<!-- Related -->
+<section class="pp-sec">
+  <div class="pp-inner">
+    <div class="related-header">
+      <div>
+        <span class="pp-sec-label">Other Members</span>
+        <h2 class="pp-sec-title" style="margin-bottom:0">他の先輩社員を見る</h2>
+      </div>
+      <div class="related-arrows">
+        <button class="rel-arrow-btn" id="rel-prev" aria-label="前へ">&#8592;</button>
+        <button class="rel-arrow-btn" id="rel-next" aria-label="次へ">&#8594;</button>
+      </div>
+    </div>
+    <div class="related-track-wrap" id="rel-track-wrap">
+      <div class="related-grid" id="related-grid">
+        <a href="02.html" class="rel-card rv d1">
+          <div class="rel-card-photo">
+            <img src="photo_02.jpg" alt="中村 優">
+            <div class="rel-card-ov"></div>
+          </div>
+          <div class="rel-card-body">
+            <p class="rel-card-dept">設計部</p>
+            <p class="rel-card-name">中村 優</p>
+            <p class="rel-card-quote">図面が実際の住まいになる瞬間が、設計の仕事をする上での最大の喜びです。</p>
+          </div>
+        </a>
+        <a href="03.html" class="rel-card rv d2">
+          <div class="rel-card-photo">
+            <img src="photo_03.jpg" alt="大野 亜子">
+            <div class="rel-card-ov"></div>
+          </div>
+          <div class="rel-card-body">
+            <p class="rel-card-dept">インテリア部</p>
+            <p class="rel-card-name">大野 亜子</p>
+            <p class="rel-card-quote">お客様の理想の空間を一緒につくれるやりがいを、毎日感じています。</p>
+          </div>
+        </a>
+        <a href="04.html" class="rel-card rv d3">
+          <div class="rel-card-photo">
+            <img src="photo_04.jpg" alt="森田 莉子">
+            <div class="rel-card-ov"></div>
+          </div>
+          <div class="rel-card-body">
+            <p class="rel-card-dept">住宅設計部</p>
+            <p class="rel-card-name">森田 莉子</p>
+            <p class="rel-card-quote">細部へのこだわりが積み重なって、お客様の夢の住まいを実現できるのです。</p>
+          </div>
+        </a>
+        <a href="05.html" class="rel-card rv d4">
+          <div class="rel-card-photo">
+            <img src="photo_05.jpg" alt="高橋 健太">
+            <div class="rel-card-ov"></div>
+          </div>
+          <div class="rel-card-body">
+            <p class="rel-card-dept">賃貸管理部</p>
+            <p class="rel-card-name">高橋 健太</p>
+            <p class="rel-card-quote">双方から「ありがとう」をいただける。それがこの仕事を続ける理由です。</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="pp-nav-arrows">
+      <a href="#" class="pp-nav-arrow disabled">← 前の先輩社員の声</a>
+      <a href="02.html" class="pp-nav-arrow">次の先輩社員の声 →</a>
+    </div>
+    <div style="text-align:center;margin-top:20px">
+      <a href="../people_list.html" class="pp-list-back">← 先輩社員一覧へ戻る</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-in">
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2027 Principal Home. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to Top -->
+<button id="backToTop" aria-label="トップへ戻る">
+  <svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:white"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+</button>
+
+<script>
+// ── Message タイプライター ──
+(function(){
+  const target = document.getElementById('msg-title');
+  const segments = [
+    {text:'就活中の', em:false},
+    {text:'みなさんへ', em:false}
+  ];
+  const chars = [];
+  segments.forEach(seg=>{
+    if(seg.text==='\n'){chars.push({char:'br',em:false})}
+    else{[...seg.text].forEach(c=>chars.push({char:c,em:seg.em}))}
+  });
+  let i=0;
+  const cursor=document.createElement('span');
+  cursor.className='msg-title-cursor';
+  target.appendChild(cursor);
+
+  // スクロールして要素が見えたらタイプ開始
+  const obs=new IntersectionObserver((entries)=>{
+    if(entries[0].isIntersecting){
+      obs.unobserve(target);
+      setTimeout(function type(){
+        if(i>=chars.length){
+          setTimeout(()=>{cursor.style.display='none'},1200);
+          return;
+        }
+        const {char,em}=chars[i++];
+        if(char==='br'){target.insertBefore(document.createElement('br'),cursor)}
+        else{const span=document.createElement(em?'em':'span');span.textContent=char;target.insertBefore(span,cursor)}
+        setTimeout(type,90);
+      },400);
+    }
+  },{threshold:0.5});
+  obs.observe(target);
+})();
+
+// ── Related スライダー ──
+(function(){
+  const wrap = document.getElementById('rel-track-wrap');
+  const grid = document.getElementById('related-grid');
+  const prevBtn = document.getElementById('rel-prev');
+  const nextBtn = document.getElementById('rel-next');
+  const STEP = 280; // 1クリックの移動量(px)
+  let offset = 0;
+
+  function maxOffset(){
+    return grid.scrollWidth - wrap.offsetWidth;
+  }
+  function clamp(v){ return Math.max(0, Math.min(v, maxOffset())); }
+  function apply(){
+    grid.style.transform = `translateX(${-offset}px)`;
+    prevBtn.classList.toggle('disabled', offset <= 0);
+    nextBtn.classList.toggle('disabled', offset >= maxOffset());
+  }
+
+  prevBtn.addEventListener('click', ()=>{ offset = clamp(offset - STEP); apply(); });
+  nextBtn.addEventListener('click', ()=>{ offset = clamp(offset + STEP); apply(); });
+
+  // ドラッグ
+  let startX = 0, startOffset = 0, dragging = false, moved = false;
+  wrap.addEventListener('mousedown', e=>{
+    dragging = true; moved = false;
+    startX = e.clientX; startOffset = offset;
+    wrap.classList.add('grabbing');
+    grid.style.transition = 'none';
+  });
+  window.addEventListener('mousemove', e=>{
+    if(!dragging) return;
+    const dx = e.clientX - startX;
+    if(Math.abs(dx) > 4) moved = true;
+    offset = clamp(startOffset - dx);
+    grid.style.transform = `translateX(${-offset}px)`;
+    prevBtn.classList.toggle('disabled', offset <= 0);
+    nextBtn.classList.toggle('disabled', offset >= maxOffset());
+  });
+  window.addEventListener('mouseup', ()=>{
+    if(!dragging) return;
+    dragging = false;
+    wrap.classList.remove('grabbing');
+    grid.style.transition = '';
+    apply();
+  });
+  // ドラッグ中はリンク無効
+  wrap.querySelectorAll('a').forEach(a=>{
+    a.addEventListener('click', e=>{ if(moved){ e.preventDefault(); moved=false; }});
+  });
+
+  // タッチ
+  wrap.addEventListener('touchstart', e=>{ startX = e.touches[0].clientX; startOffset = offset; grid.style.transition='none'; },{passive:true});
+  wrap.addEventListener('touchmove', e=>{
+    const dx = e.touches[0].clientX - startX;
+    offset = clamp(startOffset - dx);
+    grid.style.transform = `translateX(${-offset}px)`;
+  },{passive:true});
+  wrap.addEventListener('touchend', ()=>{ grid.style.transition=''; apply(); });
+
+  apply();
+})();
+
+// Reveal animation
+const revealObs = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');revealObs.unobserve(e.target)}})
+},{threshold:0.12});
+document.querySelectorAll('.rv').forEach(el=>revealObs.observe(el));
+// ── Back to top ──
+(function(){
+  const btn=document.getElementById('backToTop');
+  if(!btn) return;
+  window.addEventListener('scroll',()=>btn.classList.toggle('show',window.scrollY>400),{passive:true});
+  btn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+})();
+</script>
+</body>
+</html>
